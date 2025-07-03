@@ -3,7 +3,7 @@ from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_core.documents import Document
 import os
 
-def parse_code_with_llm(file_path="test.py"):
+def parse_code_with_llm(file_path="sample_test2.py"):
     """
     Parse Python code from a file using LLMGraphTransformer.
     
@@ -16,8 +16,8 @@ def parse_code_with_llm(file_path="test.py"):
     try:
         print("Initializing local Gemma model via Ollama...")
         llm = ChatOllama(
-            model="gemma3",  
-            temperature=0
+            model="gemma3n:latest",  
+            temperature=0.2
         )
         print("✅ Successfully connected to local Gemma model!")
     except Exception as e:

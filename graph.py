@@ -45,3 +45,10 @@ for relationship in relationships:
         print(f"✅ Relationship {relationship['type']} created successfully")
     except Exception as e:
         print(f"❌ Error creating relationship {relationship['type']}: {e}")
+        
+with driver.session() as session:
+    try:
+        session.run("MATCH (n) DETACH DELETE n")
+        print("🗑️ All nodes and relationships deleted successfully.")
+    except Exception as e:
+        print(f"❌ Failed to delete nodes and relationships: {e}")

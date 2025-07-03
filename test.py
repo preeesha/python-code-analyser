@@ -1,9 +1,6 @@
 import math
 from datetime import datetime
 
-
-
-
 PI = 3.14159
 
 def add(a, b):
