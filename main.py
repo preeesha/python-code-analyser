@@ -109,9 +109,7 @@ def save_results_to_json(graph_info, output_file=None):
     
     # Generate output filename if not provided
     if not output_file:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        base_name = graph_info['file'].replace('.py', '').replace('/', '_')
-        output_file = f"parsed_code_{base_name}_{timestamp}.json"
+        output_file = "parsed_code.json"
     
     # Convert complex objects to serializable format
     serializable_data = {
