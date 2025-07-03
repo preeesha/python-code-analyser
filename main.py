@@ -39,17 +39,15 @@ def parse_code_with_llm(file_path="test.py"):
         print(f"Error reading file: {e}")
         return None
     
-    # 4. Wrap code in Document
+
     docs = [Document(page_content=code_content, metadata={"source": file_path, "type": "python_code"})]
-    
-    # 5. Convert to graph
+  
     try:
         graph_docs = transformer.convert_to_graph_documents(docs)
         
         if graph_docs:
             graph = graph_docs[0]
             
-            # 6. Extract and display results
             result = {
                 "file": file_path,
                 "nodes": graph.nodes,
@@ -92,10 +90,8 @@ def display_graph_info(graph_info):
     for  relationship in graph_info['relationships']:
         print( relationship)
 
-# Main execution
 if __name__ == "__main__":
-    # Parse the test.py file
+   
     result = parse_code_with_llm("test.py")
     
-    # Display the results
     display_graph_info(result)
