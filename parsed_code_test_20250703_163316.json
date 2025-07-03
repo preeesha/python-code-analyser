@@ -1,0 +1,140 @@
+{
+  "file": "test.py",
+  "parsing_method": "Local Gemma (Ollama)",
+  "timestamp": "2025-07-03T16:33:16.032194",
+  "node_count": 9,
+  "relationship_count": 7,
+  "nodes": [
+    {
+      "id": "Pi",
+      "type": "Constant",
+      "properties": {}
+    },
+    {
+      "id": "Add",
+      "type": "Function",
+      "properties": {}
+    },
+    {
+      "id": "Get_Current_Time",
+      "type": "Function",
+      "properties": {}
+    },
+    {
+      "id": "Circclearle",
+      "type": "Class",
+      "properties": {}
+    },
+    {
+      "id": "Radius",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Area",
+      "type": "Function",
+      "properties": {}
+    },
+    {
+      "id": "Perimeter",
+      "type": "Function",
+      "properties": {}
+    },
+    {
+      "id": "Main",
+      "type": "Function",
+      "properties": {}
+    },
+    {
+      "id": "Circle",
+      "type": "Concept",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Add",
+        "type": "Function"
+      },
+      "target": {
+        "id": "Pi",
+        "type": "Constant"
+      },
+      "relationship_type": "USES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Get_Current_Time",
+        "type": "Function"
+      },
+      "target": {
+        "id": "Datetime",
+        "type": "Concept"
+      },
+      "relationship_type": "USES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circclearle",
+        "type": "Class"
+      },
+      "target": {
+        "id": "Circle",
+        "type": "Concept"
+      },
+      "relationship_type": "IS_A",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circclearle",
+        "type": "Class"
+      },
+      "target": {
+        "id": "Radius",
+        "type": "Property"
+      },
+      "relationship_type": "HAS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circclearle",
+        "type": "Class"
+      },
+      "target": {
+        "id": "Area",
+        "type": "Function"
+      },
+      "relationship_type": "HAS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circclearle",
+        "type": "Class"
+      },
+      "target": {
+        "id": "Perimeter",
+        "type": "Function"
+      },
+      "relationship_type": "HAS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Main",
+        "type": "Function"
+      },
+      "target": {
+        "id": "Circclearle",
+        "type": "Class"
+      },
+      "relationship_type": "USES",
+      "properties": {}
+    }
+  ]
+}

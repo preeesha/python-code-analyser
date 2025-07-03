@@ -2,6 +2,8 @@ from langchain_ollama import ChatOllama
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_core.documents import Document
 import os
+import json
+from datetime import datetime
 
 def parse_code_with_llm(file_path="sample_test2.py"):
     """
@@ -90,8 +92,88 @@ def display_graph_info(graph_info):
     for  relationship in graph_info['relationships']:
         print( relationship)
 
+def save_results_to_json(graph_info, output_file=None):
+    """
+    Save the parsed graph information to a JSON file.
+    
+    Args:
+        graph_info (dict): Graph information from parse_code_with_llm
+        output_file (str): Output file path (optional)
+    
+    Returns:
+        str: Path to the saved JSON file
+    """
+    if not graph_info:
+        print("No graph information to save.")
+        return None
+    
+    # Generate output filename if not provided
+    if not output_file:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        base_name = graph_info['file'].replace('.py', '').replace('/', '_')
+        output_file = f"parsed_code_{base_name}_{timestamp}.json"
+    
+    # Convert complex objects to serializable format
+    serializable_data = {
+        "file": graph_info['file'],
+        "parsing_method": graph_info.get('parsing_method', 'Unknown'),
+        "timestamp": datetime.now().isoformat(),
+        "node_count": graph_info.get('node_count', 0),
+        "relationship_count": graph_info.get('relationship_count', 0),
+        "nodes": [],
+        "relationships": []
+    }
+    
+    # Convert nodes to dictionaries
+    if 'nodes' in graph_info:
+        for node in graph_info['nodes']:
+            serializable_data['nodes'].append({
+                "id": str(node.id) if hasattr(node, 'id') else str(node),
+                "type": str(node.type) if hasattr(node, 'type') else "unknown",
+                "properties": dict(node.properties) if hasattr(node, 'properties') else {}
+            })
+    
+    # Convert relationships to dictionaries
+    if 'relationships' in graph_info:
+        for rel in graph_info['relationships']:
+            serializable_data['relationships'].append({
+                "source": {
+                    "id": str(rel.source.id) if hasattr(rel.source, 'id') else str(rel.source),
+                    "type": str(rel.source.type) if hasattr(rel.source, 'type') else "unknown"
+                },
+                "target": {
+                    "id": str(rel.target.id) if hasattr(rel.target, 'id') else str(rel.target),
+                    "type": str(rel.target.type) if hasattr(rel.target, 'type') else "unknown"
+                },
+                "relationship_type": str(rel.type) if hasattr(rel, 'type') else "unknown",
+                "properties": dict(rel.properties) if hasattr(rel, 'properties') else {}
+            })
+    
+    # Save to JSON file
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(serializable_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"\n✅ Results saved to: {output_file}")
+        print(f"📊 Saved {len(serializable_data['nodes'])} nodes and {len(serializable_data['relationships'])} relationships")
+        
+        return output_file
+        
+    except Exception as e:
+        print(f"❌ Error saving to JSON: {e}")
+        return None
+
 if __name__ == "__main__":
    
     result = parse_code_with_llm("test.py")
     
+    # Display the results
     display_graph_info(result)
+    
+    # Save results to JSON file
+    if result:
+        json_file = save_results_to_json(result)
+        if json_file:
+            print(f"🔗 You can view the JSON file: {json_file}")
+    else:
+        print("❌ No results to save.")
