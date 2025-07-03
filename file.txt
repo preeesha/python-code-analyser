@@ -1,0 +1,13 @@
+--- NODES ---
+1. id='Pi' type='Constant' properties={}
+2. id='Circclearle' type='Class' properties={}
+3. id='Main' type='Function' properties={}
+4. id='Datetime' type='Class' properties={}
+5. id='Math' type='Module' properties={}
+
+--- RELATIONSHIPS ---
+1. source=Node(id='Circclearle', type='Class', properties={}) target=Node(id='Main', type='Function', properties={}) type='CONTAINS' properties={}
+2. source=Node(id='Main', type='Function', properties={}) target=Node(id='Pi', type='Constant', properties={}) type='USES' properties={}
+3. source=Node(id='Main', type='Function', properties={}) target=Node(id='Circclearle', type='Class', properties={}) type='CREATES' properties={}
+4. source=Node(id='Main', type='Function', properties={}) target=Node(id='Datetime', type='Class', properties={}) type='USES' properties={}
+5. source=Node(id='Main', type='Function', properties={}) target=Node(id='Math', type='Module', properties={}) type='USES' properties={}
