@@ -1,0 +1,247 @@
+[
+    {
+        "id": "code.py",
+        "type": "File",
+        "properties": {
+            "path": "code.py"
+        }
+    },
+    {
+        "id": "math",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "code.py::def add(a, b):\r\n    \"\"\"Add two numbers.\"\"\"\r\n    return a + b",
+        "type": "Function",
+        "properties": {
+            "name": "def add(a, b):\r\n    \"\"\"Add two numbers.\"\"\"\r\n    return a + b"
+        }
+    },
+    {
+        "id": "code.py::def get_current_time():\r\n    now = datetime.now()\r\n    return now.strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "type": "Function",
+        "properties": {
+            "name": "def get_current_time():\r\n    now = datetime.now()\r\n    return now.strftime(\"%Y-%m-%d %H:%M:%S\")"
+        }
+    },
+    {
+        "id": "code.py::class Circclearle:\r\n    def __init__(self, radius):\r\n        self.radius = radius\r\n \r\n    def area(self):\r\n        return PI * self.radius ** 2\r\n \r\n    def perimeter(self):\r\n        return 2 * PI * self.radius",
+        "type": "Class",
+        "properties": {
+            "name": "class Circclearle:\r\n    def __init__(self, radius):\r\n        self.radius = radius\r\n \r\n    def area(self):\r\n        return PI * self.radius ** 2\r\n \r\n    def perimeter(self):\r\n        return 2 * PI * self.radius"
+        }
+    },
+    {
+        "id": "code.py::def __init__(self, radius):\r\n        self.radius = radius",
+        "type": "Function",
+        "properties": {
+            "name": "def __init__(self, radius):\r\n        self.radius = radius"
+        }
+    },
+    {
+        "id": "code.py::def area(self):\r\n        return PI * self.radius ** 2",
+        "type": "Function",
+        "properties": {
+            "name": "def area(self):\r\n        return PI * self.radius ** 2"
+        }
+    },
+    {
+        "id": "code.py::def perimeter(self):\r\n        return 2 * PI * self.radius",
+        "type": "Function",
+        "properties": {
+            "name": "def perimeter(self):\r\n        return 2 * PI * self.radius"
+        }
+    },
+    {
+        "id": "code.py::def main():\r\n    c = Circclearle(5)\r\n    print(\"Area:\", c.area())\r\n    print(\"Perimeter:\", c.perimeter())\r\n \r\n    if c.radius > 10:\r\n        print(\"Big circle\")\r\n    else:\r\n        print(\"Small circle\")",
+        "type": "Function",
+        "properties": {
+            "name": "def main():\r\n    c = Circclearle(5)\r\n    print(\"Area:\", c.area())\r\n    print(\"Perimeter:\", c.perimeter())\r\n \r\n    if c.radius > 10:\r\n        print(\"Big circle\")\r\n    else:\r\n        print(\"Small circle\")"
+        }
+    },
+    {
+        "id": "test.py",
+        "type": "File",
+        "properties": {
+            "path": "test.py"
+        }
+    },
+    {
+        "id": "dash",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "dash_bootstrap_components as dbc",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "pandas as pd",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "plotly.graph_objs as go",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "os",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "re",
+        "type": "Module",
+        "properties": {}
+    },
+    {
+        "id": "test.py::def read_gpd_utc_dat(file_path):\r\n    df = pd.read_csv(file_path, comment='#', engine='python',\r\n                     names=column_names, sep='\\s+')\r\n    return df",
+        "type": "Function",
+        "properties": {
+            "name": "def read_gpd_utc_dat(file_path):\r\n    df = pd.read_csv(file_path, comment='#', engine='python',\r\n                     names=column_names, sep='\\s+')\r\n    return df"
+        }
+    },
+    {
+        "id": "test.py::def get_datetime_from_filename(filename):\r\n    try:\r\n        dt_str = filename.split(\"_\")[1] + filename.split(\"_\")[2]\r\n        return datetime.strptime(dt_str, \"%d%b%Y%H%M\")\r\n    except Exception:\r\n        return None",
+        "type": "Function",
+        "properties": {
+            "name": "def get_datetime_from_filename(filename):\r\n    try:\r\n        dt_str = filename.split(\"_\")[1] + filename.split(\"_\")[2]\r\n        return datetime.strptime(dt_str, \"%d%b%Y%H%M\")\r\n    except Exception:\r\n        return None"
+        }
+    },
+    {
+        "id": "test.py::def get_available_files(sat):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    if not os.path.exists(folder_path):\r\n        return []\r\n    files = [f for f in os.listdir(folder_path) if f.endswith(\".dat.GPD_utc\")]\r\n    files_with_dt = [(get_datetime_from_filename(f), f) for f in files]\r\n    return sorted([(dt, os.path.join(folder_path, f)) for dt, f in files_with_dt if dt])",
+        "type": "Function",
+        "properties": {
+            "name": "def get_available_files(sat):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    if not os.path.exists(folder_path):\r\n        return []\r\n    files = [f for f in os.listdir(folder_path) if f.endswith(\".dat.GPD_utc\")]\r\n    files_with_dt = [(get_datetime_from_filename(f), f) for f in files]\r\n    return sorted([(dt, os.path.join(folder_path, f)) for dt, f in files_with_dt if dt])"
+        }
+    },
+    {
+        "id": "test.py::def get_latest_file(sat):\r\n    files = get_available_files(sat)\r\n    return files[-1][1] if files else None",
+        "type": "Function",
+        "properties": {
+            "name": "def get_latest_file(sat):\r\n    files = get_available_files(sat)\r\n    return files[-1][1] if files else None"
+        }
+    },
+    {
+        "id": "test.py::def get_time_options(sat, selected_date):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    try:\r\n        if not os.path.exists(folder_path):\r\n            return []\r\n        files = os.listdir(folder_path)\r\n        date_str = datetime.strptime(selected_date, \"%Y-%m-%d\").strftime(\"%d%b%Y\").upper()\r\n        matching_files = [f for f in files if date_str in f]\r\n        options = []\r\n        for f in matching_files:\r\n            time_part = f.split(\"_\")[2]\r\n            if time_part.isdigit() and len(time_part) == 4:\r\n                time_str = f\"{time_part[:2]}:{time_part[2:]}\"\r\n                options.append({\"label\": time_str, \"value\": time_part})\r\n        return sorted(options, key=lambda x: x['value'])\r\n    except Exception:\r\n        return []",
+        "type": "Function",
+        "properties": {
+            "name": "def get_time_options(sat, selected_date):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    try:\r\n        if not os.path.exists(folder_path):\r\n            return []\r\n        files = os.listdir(folder_path)\r\n        date_str = datetime.strptime(selected_date, \"%Y-%m-%d\").strftime(\"%d%b%Y\").upper()\r\n        matching_files = [f for f in files if date_str in f]\r\n        options = []\r\n        for f in matching_files:\r\n            time_part = f.split(\"_\")[2]\r\n            if time_part.isdigit() and len(time_part) == 4:\r\n                time_str = f\"{time_part[:2]}:{time_part[2:]}\"\r\n                options.append({\"label\": time_str, \"value\": time_part})\r\n        return sorted(options, key=lambda x: x['value'])\r\n    except Exception:\r\n        return []"
+        }
+    },
+    {
+        "id": "test.py::def load_log_file():\r\n    if not os.path.exists(LOG_FILE_PATH):\r\n        return set()\r\n    try:\r\n        with open(LOG_FILE_PATH, 'r') as f:\r\n            return set(line.strip() for line in f if line.strip())\r\n    except Exception as e:\r\n        print(f\"Error reading log file: {e}\")\r\n        return set()",
+        "type": "Function",
+        "properties": {
+            "name": "def load_log_file():\r\n    if not os.path.exists(LOG_FILE_PATH):\r\n        return set()\r\n    try:\r\n        with open(LOG_FILE_PATH, 'r') as f:\r\n            return set(line.strip() for line in f if line.strip())\r\n    except Exception as e:\r\n        print(f\"Error reading log file: {e}\")\r\n        return set()"
+        }
+    },
+    {
+        "id": "test.py::def check_file_availability(date_obj, utc, available_set):\r\n    date_str = date_obj.strftime('%Y%m%d')\r\n    return [(seq, f\"{date_str}{utc}00_{seq}\" in available_set) for seq in SEQUENCES]",
+        "type": "Function",
+        "properties": {
+            "name": "def check_file_availability(date_obj, utc, available_set):\r\n    date_str = date_obj.strftime('%Y%m%d')\r\n    return [(seq, f\"{date_str}{utc}00_{seq}\" in available_set) for seq in SEQUENCES]"
+        }
+    },
+    {
+        "id": "test.py::def get_box_color_dashboard2(availability):\r\n    return 'green' if availability else 'red'",
+        "type": "Function",
+        "properties": {
+            "name": "def get_box_color_dashboard2(availability):\r\n    return 'green' if availability else 'red'"
+        }
+    },
+    {
+        "id": "test.py::def generate_file_boxes(availability_list):\r\n    return [\r\n        html.Div(\r\n            seq,\r\n            style={\r\n                'display': 'inline-block',\r\n                'margin': '5px 15px',\r\n                'padding': '5px 8px',\r\n                'border': '1px solid black',\r\n                'backgroundColor': get_box_color_dashboard2(available),\r\n                'color': 'black',\r\n                'borderRadius': '3px',\r\n                'width': '55px',\r\n                'textAlign': 'center',\r\n                'fontSize': '12px'\r\n            }\r\n        ) for seq, available in availability_list\r\n    ]",
+        "type": "Function",
+        "properties": {
+            "name": "def generate_file_boxes(availability_list):\r\n    return [\r\n        html.Div(\r\n            seq,\r\n            style={\r\n                'display': 'inline-block',\r\n                'margin': '5px 15px',\r\n                'padding': '5px 8px',\r\n                'border': '1px solid black',\r\n                'backgroundColor': get_box_color_dashboard2(available),\r\n                'color': 'black',\r\n                'borderRadius': '3px',\r\n                'width': '55px',\r\n                'textAlign': 'center',\r\n                'fontSize': '12px'\r\n            }\r\n        ) for seq, available in availability_list\r\n    ]"
+        }
+    },
+    {
+        "id": "test.py::def read_log_file_fax(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        with open(log_file_path, 'r') as file:\r\n            content = file.read()\r\n        pattern = r'((?:3[DRS]|3R|3S|3DS)-\\d{8}\\d+\\.txt(?:\\.done)?)'\r\n        filenames = re.findall(pattern, content)\r\n        return filenames\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []",
+        "type": "Function",
+        "properties": {
+            "name": "def read_log_file_fax(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        with open(log_file_path, 'r') as file:\r\n            content = file.read()\r\n        pattern = r'((?:3[DRS]|3R|3S|3DS)-\\d{8}\\d+\\.txt(?:\\.done)?)'\r\n        filenames = re.findall(pattern, content)\r\n        return filenames\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []"
+        }
+    },
+    {
+        "id": "test.py::def get_matching_filename_fax(selected_date, log_type):\r\n    log_file = LOG_FILES_FAX.get(log_type)\r\n    if not log_file:\r\n        return \"\"\r\n    filenames = read_log_file_fax(log_file)\r\n    \r\n    # CHANGE 1: Remove the additional 2-day offset since the date picker will now show the correct date\r\n    expected_file_date = selected_date.strftime('%Y%m%d')\r\n\r\n    valid_prefixes = {\r\n        \"3DR\": [\"3DR\", \"3R\"],\r\n        \"3DS\": [\"3DS\", \"3S\"],\r\n    }\r\n\r\n    primary_prefix = FILE_TYPE_MAPPING.get(log_type, '3R')\r\n    possible_prefixes = valid_prefixes.get(log_type, [primary_prefix])\r\n\r\n    for filename in filenames:\r\n        for prefix in possible_prefixes:\r\n            if filename.startswith(f\"{prefix}-{expected_file_date}\"):\r\n                return filename\r\n\r\n    return \"Not Found\"",
+        "type": "Function",
+        "properties": {
+            "name": "def get_matching_filename_fax(selected_date, log_type):\r\n    log_file = LOG_FILES_FAX.get(log_type)\r\n    if not log_file:\r\n        return \"\"\r\n    filenames = read_log_file_fax(log_file)\r\n    \r\n    # CHANGE 1: Remove the additional 2-day offset since the date picker will now show the correct date\r\n    expected_file_date = selected_date.strftime('%Y%m%d')\r\n\r\n    valid_prefixes = {\r\n        \"3DR\": [\"3DR\", \"3R\"],\r\n        \"3DS\": [\"3DS\", \"3S\"],\r\n    }\r\n\r\n    primary_prefix = FILE_TYPE_MAPPING.get(log_type, '3R')\r\n    possible_prefixes = valid_prefixes.get(log_type, [primary_prefix])\r\n\r\n    for filename in filenames:\r\n        for prefix in possible_prefixes:\r\n            if filename.startswith(f\"{prefix}-{expected_file_date}\"):\r\n                return filename\r\n\r\n    return \"Not Found\""
+        }
+    },
+    {
+        "id": "test.py::def parse_date_from_log(date_str):\r\n    try:\r\n        return datetime.strptime(date_str, '%d%b%Y').date()\r\n    except Exception:\r\n        return None",
+        "type": "Function",
+        "properties": {
+            "name": "def parse_date_from_log(date_str):\r\n    try:\r\n        return datetime.strptime(date_str, '%d%b%Y').date()\r\n    except Exception:\r\n        return None"
+        }
+    },
+    {
+        "id": "test.py::def read_log_file_obt(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        matched_lines = []\r\n        with open(log_file_path, 'r') as file:\r\n            for line in file:\r\n                line = line.strip()\r\n                if line:\r\n                    matched_lines.append(line)\r\n        return matched_lines\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []",
+        "type": "Function",
+        "properties": {
+            "name": "def read_log_file_obt(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        matched_lines = []\r\n        with open(log_file_path, 'r') as file:\r\n            for line in file:\r\n                line = line.strip()\r\n                if line:\r\n                    matched_lines.append(line)\r\n        return matched_lines\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []"
+        }
+    },
+    {
+        "id": "test.py::def get_matching_filename_obt(selected_date, log_type):\r\n    lines = read_log_file_obt(LOG_FILES_OBT[log_type])\r\n    expected_date = selected_date.strftime('%d%b%Y').upper()\r\n    for line in lines:\r\n        if expected_date in line:\r\n            return line.split()[0] if log_type.startswith('INS') else line\r\n    return \"Not Found\"",
+        "type": "Function",
+        "properties": {
+            "name": "def get_matching_filename_obt(selected_date, log_type):\r\n    lines = read_log_file_obt(LOG_FILES_OBT[log_type])\r\n    expected_date = selected_date.strftime('%d%b%Y').upper()\r\n    for line in lines:\r\n        if expected_date in line:\r\n            return line.split()[0] if log_type.startswith('INS') else line\r\n    return \"Not Found\""
+        }
+    },
+    {
+        "id": "test.py::def base_style_small():\r\n    return {\r\n        'width': '80px', 'height': '40px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }",
+        "type": "Function",
+        "properties": {
+            "name": "def base_style_small():\r\n    return {\r\n        'width': '80px', 'height': '40px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }"
+        }
+    },
+    {
+        "id": "test.py::def base_style_large():\r\n    return {\r\n        'width': '100px', 'height': '50px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }",
+        "type": "Function",
+        "properties": {
+            "name": "def base_style_large():\r\n    return {\r\n        'width': '100px', 'height': '50px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }"
+        }
+    },
+    {
+        "id": "test.py::def update_time_options_d1(sat, selected_date):\r\n    if not sat or not selected_date:\r\n        return []\r\n    return get_time_options(sat, selected_date)",
+        "type": "Function",
+        "properties": {
+            "name": "def update_time_options_d1(sat, selected_date):\r\n    if not sat or not selected_date:\r\n        return []\r\n    return get_time_options(sat, selected_date)"
+        }
+    },
+    {
+        "id": "test.py::def update_attitude_graph_d1(sat, date_str, time_str):\r\n    empty_fig = go.Figure()\r\n    \r\n    if not (sat and date_str and time_str):\r\n        return empty_fig.update_layout(title=\"Select satellite, date, and time\")\r\n    \r\n    try:\r\n        dt_obj = datetime.strptime(f\"{date_str}\", \"%Y-%m-%d\")\r\n        filename = f\"{FILE_PREFIX[sat]}_{dt_obj.strftime('%d%b%Y').upper()}_{time_str}_att.dat.GPD_utc\"\r\n        file_path = os.path.join(BASE_DIR_SAT, sat, filename)\r\n        if not os.path.exists(file_path):\r\n            file_path = get_latest_file(sat)\r\n    except Exception:\r\n        file_path = get_latest_file(sat)\r\n    \r\n    if not file_path:\r\n        return empty_fig.update_layout(title=\"No data available\")\r\n    \r\n    try:\r\n        df = read_gpd_utc_dat(file_path)\r\n        if df.empty:\r\n            return empty_fig.update_layout(title=\"No data found\")\r\n        \r\n        df['timestamp'] = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute', 'second']])\r\n        \r\n        fig = go.Figure([\r\n            go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', mode='lines'),\r\n        ])\r\n\r\n        fig.update_layout(\r\n            title=f\"Attitude Data: {os.path.basename(file_path)}\",\r\n            xaxis_title=\"Time\",\r\n            yaxis_title=\"Angle (degrees)\",\r\n            legend_title=\"Parameters\",\r\n            hovermode=\"x unified\",\r\n            height=280,\r\n            margin=dict(l=50, r=50, t=50, b=50)\r\n        )\r\n        fig_yaw = go.Figure([go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', line=dict(color='blue'))])\r\n        fig_yaw.update_layout(title=\"Yaw\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_pitch = go.Figure([go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', line=dict(color='red'))])\r\n        fig_pitch.update_layout(title=\"Pitch\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_roll = go.Figure([go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', line=dict(color='green'))])\r\n        fig_roll.update_layout(title=\"Roll\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        return fig, fig_yaw, fig_pitch, fig_roll\r\n    except Exception as e:\r\n        return empty_fig.update_layout(title=f\"Error loading data: {str(e)}\")",
+        "type": "Function",
+        "properties": {
+            "name": "def update_attitude_graph_d1(sat, date_str, time_str):\r\n    empty_fig = go.Figure()\r\n    \r\n    if not (sat and date_str and time_str):\r\n        return empty_fig.update_layout(title=\"Select satellite, date, and time\")\r\n    \r\n    try:\r\n        dt_obj = datetime.strptime(f\"{date_str}\", \"%Y-%m-%d\")\r\n        filename = f\"{FILE_PREFIX[sat]}_{dt_obj.strftime('%d%b%Y').upper()}_{time_str}_att.dat.GPD_utc\"\r\n        file_path = os.path.join(BASE_DIR_SAT, sat, filename)\r\n        if not os.path.exists(file_path):\r\n            file_path = get_latest_file(sat)\r\n    except Exception:\r\n        file_path = get_latest_file(sat)\r\n    \r\n    if not file_path:\r\n        return empty_fig.update_layout(title=\"No data available\")\r\n    \r\n    try:\r\n        df = read_gpd_utc_dat(file_path)\r\n        if df.empty:\r\n            return empty_fig.update_layout(title=\"No data found\")\r\n        \r\n        df['timestamp'] = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute', 'second']])\r\n        \r\n        fig = go.Figure([\r\n            go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', mode='lines'),\r\n        ])\r\n\r\n        fig.update_layout(\r\n            title=f\"Attitude Data: {os.path.basename(file_path)}\",\r\n            xaxis_title=\"Time\",\r\n            yaxis_title=\"Angle (degrees)\",\r\n            legend_title=\"Parameters\",\r\n            hovermode=\"x unified\",\r\n            height=280,\r\n            margin=dict(l=50, r=50, t=50, b=50)\r\n        )\r\n        fig_yaw = go.Figure([go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', line=dict(color='blue'))])\r\n        fig_yaw.update_layout(title=\"Yaw\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_pitch = go.Figure([go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', line=dict(color='red'))])\r\n        fig_pitch.update_layout(title=\"Pitch\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_roll = go.Figure([go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', line=dict(color='green'))])\r\n        fig_roll.update_layout(title=\"Roll\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        return fig, fig_yaw, fig_pitch, fig_roll\r\n    except Exception as e:\r\n        return empty_fig.update_layout(title=f\"Error loading data: {str(e)}\")"
+        }
+    },
+    {
+        "id": "test.py::def update_file_status_d2(date_str, n_intervals):\r\n    current_time = datetime.now().strftime('%H:%M:%S')\r\n    \r\n    if not date_str:\r\n        return \"No date selected.\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        if isinstance(date_str, str):\r\n            date_obj = datetime.strptime(date_str, '%Y-%m-%d')\r\n        elif hasattr(date_str, 'year'):\r\n            if isinstance(date_str, date) and not isinstance(date_str, datetime):\r\n                date_obj = datetime.combine(date_str, datetime.min.time())\r\n            else:\r\n                date_obj = date_str\r\n        else:\r\n            date_obj = datetime.strptime(str(date_str), '%Y-%m-%d')\r\n    except (ValueError, TypeError, AttributeError) as e:\r\n        return f\"Invalid date format: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        available_set = load_log_file()\r\n    except Exception as e:\r\n        return f\"Error loading log file: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    status_components = []\r\n    for utc in TIME_INTERVALS:\r\n        try:\r\n            availability = check_file_availability(date_obj, utc, available_set)\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC\", style={'margin': '5px 0'}),\r\n                html.Div(generate_file_boxes(availability))\r\n            ], className='mb-2'))\r\n        except Exception as e:\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC - Error: {e}\", style={'margin': '5px 0'})\r\n            ], className='mb-2'))\r\n    \r\n    return status_components, f\"Last updated: {current_time}\"",
+        "type": "Function",
+        "properties": {
+            "name": "def update_file_status_d2(date_str, n_intervals):\r\n    current_time = datetime.now().strftime('%H:%M:%S')\r\n    \r\n    if not date_str:\r\n        return \"No date selected.\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        if isinstance(date_str, str):\r\n            date_obj = datetime.strptime(date_str, '%Y-%m-%d')\r\n        elif hasattr(date_str, 'year'):\r\n            if isinstance(date_str, date) and not isinstance(date_str, datetime):\r\n                date_obj = datetime.combine(date_str, datetime.min.time())\r\n            else:\r\n                date_obj = date_str\r\n        else:\r\n            date_obj = datetime.strptime(str(date_str), '%Y-%m-%d')\r\n    except (ValueError, TypeError, AttributeError) as e:\r\n        return f\"Invalid date format: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        available_set = load_log_file()\r\n    except Exception as e:\r\n        return f\"Error loading log file: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    status_components = []\r\n    for utc in TIME_INTERVALS:\r\n        try:\r\n            availability = check_file_availability(date_obj, utc, available_set)\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC\", style={'margin': '5px 0'}),\r\n                html.Div(generate_file_boxes(availability))\r\n            ], className='mb-2'))\r\n        except Exception as e:\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC - Error: {e}\", style={'margin': '5px 0'})\r\n            ], className='mb-2'))\r\n    \r\n    return status_components, f\"Last updated: {current_time}\""
+        }
+    },
+    {
+        "id": "test.py::def update_fax_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today() - timedelta(days=2)  # Changed default fallback\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {\r\n        'INS3RM': get_matching_filename_fax(selected_date, 'INS3RM'),\r\n        'INS3RR': get_matching_filename_fax(selected_date, 'INS3RR'),\r\n        'INS3SM': get_matching_filename_fax(selected_date, 'INS3SM'),\r\n        'INS3SR': get_matching_filename_fax(selected_date, 'INS3SR'),\r\n        '3DR': get_matching_filename_fax(selected_date, '3DR'),\r\n        '3DS': get_matching_filename_fax(selected_date, '3DS')\r\n    }\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]",
+        "type": "Function",
+        "properties": {
+            "name": "def update_fax_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today() - timedelta(days=2)  # Changed default fallback\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {\r\n        'INS3RM': get_matching_filename_fax(selected_date, 'INS3RM'),\r\n        'INS3RR': get_matching_filename_fax(selected_date, 'INS3RR'),\r\n        'INS3SM': get_matching_filename_fax(selected_date, 'INS3SM'),\r\n        'INS3SR': get_matching_filename_fax(selected_date, 'INS3SR'),\r\n        '3DR': get_matching_filename_fax(selected_date, '3DR'),\r\n        '3DS': get_matching_filename_fax(selected_date, '3DS')\r\n    }\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]"
+        }
+    },
+    {
+        "id": "test.py::def update_obt_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today()\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {key: get_matching_filename_obt(selected_date, key) for key in LOG_FILES_OBT.keys()}\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]",
+        "type": "Function",
+        "properties": {
+            "name": "def update_obt_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today()\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {key: get_matching_filename_obt(selected_date, key) for key in LOG_FILES_OBT.keys()}\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]"
+        }
+    }
+]
