@@ -83,18 +83,6 @@ def read_and_analyze_file(file_path):
             "function_count": len(func_matches)
         }
         
-        print(f"📁 Reading file: {file_path}")
-        print(f"🔍 Content hash: {content_hash}")
-        print(f"📏 File size: {len(code_content)} characters")
-        print(f"🔍 Functions found in file: {len(func_matches)}")
-        print(f"🔍 Function names: {func_matches[:10]}...")  # Show first 10
-        
-        # Show file content preview
-        print("📄 File content START (first 300 chars):")
-        print(code_content[:300])
-        print("\n📄 File content END (last 300 chars):")
-        print(code_content[-300:])
-        
         return file_info
         
     except FileNotFoundError:
@@ -151,16 +139,12 @@ def parse_large_file_in_chunks(file_info, transformer):
     content_hash = file_info["hash"]
     current_time = datetime.now().isoformat()
     
-    print(f"🔄 File is large ({len(code_content)} chars), splitting into chunks...")
     chunks = split_code_into_chunks(code_content, max_chunk_size=MAX_CHUNK_SIZE)
-    print(f"📊 Split into {len(chunks)} chunks")
     
     all_nodes = []
     all_relationships = []
     
     for i, chunk in enumerate(chunks):
-        print(f"🔄 Processing chunk {i+1}/{len(chunks)} ({len(chunk)} chars)...")
-        
         # Create unique identifier for this chunk
         unique_id = hashlib.md5(
             f"{content_hash}chunk{i}{current_time}".encode()
@@ -182,9 +166,6 @@ def parse_large_file_in_chunks(file_info, transformer):
         if nodes or relationships:
             all_nodes.extend(nodes)
             all_relationships.extend(relationships)
-            print(f"✅ Chunk {i+1}: {len(nodes)} nodes, {len(relationships)} relationships")
-        else:
-            print(f"⚠️ Chunk {i+1}: No results")
     
     # Deduplicate nodes by ID
     unique_nodes = {}
@@ -202,7 +183,6 @@ def parse_large_file_in_chunks(file_info, transformer):
         "chunks_processed": len(chunks),
     }
     
-    print(f"✅ Combined results: {len(unique_nodes)} unique nodes, {len(all_relationships)} relationships")
     return result
 
 
@@ -235,9 +215,6 @@ def parse_small_file(file_info, transformer):
         "file_size": len(code_content),
     }
 
-    print("🔄 Processing with LLM...")
-    print(f"🔍 Sending {len(code_content)} characters to LLM")
-    
     nodes, relationships = process_single_chunk(code_content, file_metadata, transformer)
 
     if nodes or relationships:
@@ -250,7 +227,6 @@ def parse_small_file(file_info, transformer):
             "chunks_processed": 1,
         }
         
-        print(f"✅ Successfully parsed: {len(nodes)} nodes, {len(relationships)} relationships")
         return result
     else:
         print("No graph documents generated.")
@@ -289,15 +265,6 @@ def parse_code_with_llm(file_path, transformer):
     if result:
         # Merge base metadata with parsing results
         result.update(base_result)
-        
-        # Debug: Show what nodes were actually created
-        print("🔍 Parsed nodes preview:")
-        nodes = result.get("nodes", [])
-        for i, node in enumerate(nodes[:10]):  # Show first 10 nodes
-            node_name = getattr(node, "properties", {}).get(
-                "name", getattr(node, "id", "unknown")
-            )
-            print(f"  Node {i+1}: {node.type} - {node_name}")
         
         return result
     else:

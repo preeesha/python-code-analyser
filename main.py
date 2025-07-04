@@ -3,6 +3,7 @@ from file_utils import ensure_clean_json_file, save_results_to_json
 from display import display_graph_info, display_parsing_summary, print_header
 from llm_setup import get_default_llm_and_transformer
 from code_parser import parse_code_with_llm
+import neo4j_functions
 
 
 def main():
@@ -48,3 +49,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+    neo4j_functions.deleting_all_nodes_and_relationships()
+    neo4j_functions.saving_nodes_to_neo4j("parsed_code.json")
+    neo4j_functions.saving_relationships_to_neo4j("parsed_code.json")

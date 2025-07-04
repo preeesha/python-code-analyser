@@ -1,80 +1,15 @@
 {
   "file": "test7.py",
-  "content_hash": "00a3683c",
-  "unique_id": "file_00a3683c",
-  "parsing_method": "Chunked processing - 4 chunks",
-  "chunks_processed": 4,
-  "timestamp": "2025-07-04T12:42:28.828502",
-  "node_count": 120,
-  "relationship_count": 109,
+  "content_hash": "2da2e180",
+  "unique_id": "file_2da2e180",
+  "parsing_method": "Single file processing",
+  "chunks_processed": 1,
+  "timestamp": "2025-07-04T14:46:22.928175",
+  "node_count": 13,
+  "relationship_count": 11,
   "nodes": [
     {
-      "id": "Dash",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Dcc",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Html",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Input",
-      "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "Output",
-      "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "Callback",
-      "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "Dash_Bootstrap_Components",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Dbc",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Pandas",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Pd",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Plotly.Graph_Objs",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Go",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Os",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Re",
+      "id": "Math",
       "type": "Module",
       "properties": {}
     },
@@ -84,1495 +19,168 @@
       "properties": {}
     },
     {
-      "id": "Date",
+      "id": "Pi",
+      "type": "Variable",
+      "properties": {
+        "name": "PI",
+        "type": "Variable",
+        "scope": "Global",
+        "line_number": "4",
+        "value": "3.14159"
+      }
+    },
+    {
+      "id": "Add",
+      "type": "Function",
+      "properties": {
+        "name": "add",
+        "type": "Function",
+        "scope": "Global",
+        "line_number": "6",
+        "parameters": "[{'name': 'a', 'type': 'Any', 'default': None}, {'name': 'b', 'type': 'Any', 'default': None}]",
+        "return_type": "Any",
+        "docstring": "Add two numbers."
+      }
+    },
+    {
+      "id": "Get_Current_Time",
+      "type": "Function",
+      "properties": {
+        "name": "get_current_time",
+        "type": "Function",
+        "scope": "Global",
+        "line_number": "10",
+        "return_type": "str"
+      }
+    },
+    {
+      "id": "Circclearle",
       "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "Timedelta",
-      "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "Pathlib",
-      "type": "Module",
-      "properties": {}
-    },
-    {
-      "id": "Path",
-      "type": "Class",
-      "properties": {}
-    },
-    {
-      "id": "App",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Base_Dir_Sat",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Satellites",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "File_Prefix",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Column_Names",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Log_File_Path",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Time_Intervals",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Sequences",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Base_Dir_Od",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Log_Files_Fax",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "File_Type_Mapping",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Base_Dir_Obt",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Log_Files_Obt",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Read_Gpd_Utc_Dat",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Datetime_From_Filename",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Available_Files",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Latest_File",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Time_Options",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Load_Log_File",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Check_File_Availability",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Box_Color_Dashboard2",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Generate_File_Boxes",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Read_Log_File_Fax",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Matching_Filename_Fax",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Parse_Date_From_Log",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Read_Log_File_Obt",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Get_Matching_Filename_Obt",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Base_Style_Small",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Base_Style_Large",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "App.Layout",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Html.Div",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dbc.Container",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Html.H1",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dbc.Row",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dbc.Col",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dcc.Datepickersingle",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dcc.Dropdown",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Html.H3",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Dcc.Graph",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Html.H2",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Html.P",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Html.Br",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Update_Time_Options_D1",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Update_Attitude_Graph_D1",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Sat",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Selected_Date",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Date_Str",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Time_Str",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Empty_Fig",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Dt_Obj",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Filename",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "File_Path",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Df",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Fig",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Datepickersingle",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Dropdown",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Graph",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Card",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Cardheader",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Cardbody",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Row",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Col",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Label",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "H4",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "H5",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Div",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Span",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Scatter",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Figure",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Update_Layout",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "To_Datetime",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Strptime",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Strftime",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Join",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Exists",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Basename",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "App.Callback",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Timestamp",
-      "type": "Variable",
       "properties": {
-        "source": "df"
+        "name": "Circclearle",
+        "type": "Class",
+        "scope": "Global",
+        "line_number": "15"
       }
     },
     {
-      "id": "Roll",
-      "type": "Variable",
+      "id": "Circclearle.__Init__",
+      "type": "Method",
       "properties": {
-        "source": "df"
+        "name": "__init__",
+        "type": "Method",
+        "scope": "Class",
+        "line_number": "16",
+        "parameters": "[{'name': 'self', 'type': 'Circclearle', 'default': None}, {'name': 'radius', 'type': 'Any', 'default': None}]"
       }
     },
     {
-      "id": "Yaw",
-      "type": "Variable",
+      "id": "Circclearle.Area",
+      "type": "Method",
       "properties": {
-        "source": "df"
+        "name": "area",
+        "type": "Method",
+        "scope": "Class",
+        "line_number": "19",
+        "return_type": "float"
       }
     },
     {
-      "id": "Pitch",
-      "type": "Variable",
+      "id": "Circclearle.Perimeter",
+      "type": "Method",
       "properties": {
-        "source": "df"
+        "name": "perimeter",
+        "type": "Method",
+        "scope": "Class",
+        "line_number": "22",
+        "return_type": "float"
       }
     },
     {
-      "id": "Update_File_Status_D2",
+      "id": "Main",
       "type": "Function",
-      "properties": {}
+      "properties": {
+        "name": "main",
+        "type": "Function",
+        "scope": "Global",
+        "line_number": "26"
+      }
     },
     {
-      "id": "N_Intervals",
+      "id": "C",
       "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Current_Time",
-      "type": "Variable",
-      "properties": {}
+      "properties": {
+        "name": "c",
+        "type": "Variable",
+        "scope": "Function",
+        "line_number": "27"
+      }
     },
     {
       "id": "Now",
-      "type": "Function",
-      "properties": {
-        "module": "datetime"
-      }
-    },
-    {
-      "id": "Date_Obj",
       "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Combine",
-      "type": "Function",
       "properties": {
-        "module": "datetime"
+        "name": "now",
+        "type": "Variable",
+        "scope": "Function",
+        "line_number": "11"
       }
     },
     {
-      "id": "Min",
+      "id": "Radius",
       "type": "Attribute",
       "properties": {
-        "class": "datetime"
-      }
-    },
-    {
-      "id": "Available_Set",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Status_Components",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Utc",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Availability",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "H6",
-      "type": "Class",
-      "properties": {
-        "module": "html"
-      }
-    },
-    {
-      "id": "Update_Fax_Dashboard",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Today",
-      "type": "Attribute",
-      "properties": {
-        "class": "date"
-      }
-    },
-    {
-      "id": "Filenames",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Green_Color",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Red_Color",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Styles",
-      "type": "Variable",
-      "properties": {}
-    },
-    {
-      "id": "Update_Obt_Dashboard",
-      "type": "Function",
-      "properties": {}
-    },
-    {
-      "id": "Run",
-      "type": "Method",
-      "properties": {
-        "class": "app"
+        "name": "radius",
+        "type": "Attribute",
+        "scope": "Class",
+        "line_number": "17"
       }
     }
   ],
   "relationships": [
     {
       "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Dash.Dash",
-        "type": "Function"
-      },
-      "relationship_type": "DEFINES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App.Layout",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Html.Div",
-        "type": "Function"
-      },
-      "relationship_type": "DEFINES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Read_Gpd_Utc_Dat",
+        "id": "Main",
         "type": "Function"
       },
       "target": {
-        "id": "Pd.Read_Csv",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Datetime_From_Filename",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Datetime.Strptime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Available_Files",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Join",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Available_Files",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Available_Files",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Get_Datetime_From_Filename",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Latest_File",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Get_Available_Files",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Time_Options",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Join",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Time_Options",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Time_Options",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Datetime.Strptime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Load_Log_File",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Check_File_Availability",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Date_Obj.Strftime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Box_Color_Dashboard2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Availability",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Generate_File_Boxes",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Html.Div",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Read_Log_File_Fax",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Read_Log_File_Fax",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Re.Findall",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Fax",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Log_Files_Fax.Get",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Fax",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Read_Log_File_Fax",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Fax",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Selected_Date.Strftime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Parse_Date_From_Log",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Datetime.Strptime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Read_Log_File_Obt",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Obt",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Log_Files_Obt.Get",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Obt",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Read_Log_File_Obt",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Get_Matching_Filename_Obt",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Selected_Date.Strftime",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Time_Options_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Sat",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Time_Options_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Selected_Date",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Sat",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Date_Str",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Time_Str",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Empty_Fig",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Dt_Obj",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Filename",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "File_Path",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Get_Latest_File",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Read_Gpd_Utc_Dat",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Df",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Fig",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Go.Scatter",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Go.Figure",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Update_Layout",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Basename",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Pd.To_Datetime",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Datetime.Strptime",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Datetime.Strftime",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Time_Options_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Get_Time_Options",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "File_Prefix",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Base_Dir_Sat",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Join",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Os.Path.Exists",
-        "type": "Node"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App.Callback",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Output",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App.Callback",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Input",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App.Callback",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Update_Time_Options_D1",
-        "type": "Function"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App.Callback",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Update_Attitude_Graph_D1",
-        "type": "Function"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Go",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Scatter",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Go",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Figure",
+        "id": "Circclearle",
         "type": "Class"
       },
-      "relationship_type": "CONTAINS",
+      "relationship_type": "INSTANTIATES",
       "properties": {}
     },
     {
       "source": {
-        "id": "Figure",
-        "type": "Class"
-      },
-      "target": {
-        "id": "Update_Layout",
-        "type": "Method"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Scatter",
+        "id": "Main",
         "type": "Function"
       },
       "target": {
-        "id": "Df",
+        "id": "C",
         "type": "Variable"
       },
-      "relationship_type": "USES",
+      "relationship_type": "ASSIGNS",
       "properties": {}
     },
     {
       "source": {
-        "id": "Scatter",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Timestamp",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Scatter",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Roll",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Layout",
+        "id": "Circclearle.__Init__",
         "type": "Method"
       },
       "target": {
-        "id": "File_Path",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Layout",
-        "type": "Method"
-      },
-      "target": {
-        "id": "Basename",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Os",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Path",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Os",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Basename",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Output",
-        "type": "Variable"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Input",
-        "type": "Variable"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Date_Str",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "N_Intervals",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Current_Time",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Datetime",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Now",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Datetime",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Strftime",
-        "type": "Method"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Date_Obj",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Datetime",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Strptime",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Datetime",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Combine",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Datetime",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Min",
+        "id": "Radius",
         "type": "Attribute"
       },
-      "relationship_type": "CONTAINS",
+      "relationship_type": "ASSIGNS",
       "properties": {}
     },
     {
       "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
+        "id": "Circclearle.Area",
+        "type": "Method"
       },
       "target": {
-        "id": "Load_Log_File",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Available_Set",
+        "id": "Pi",
         "type": "Variable"
       },
       "relationship_type": "USES",
@@ -1580,167 +188,23 @@
     },
     {
       "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
+        "id": "Circclearle.Area",
+        "type": "Method"
       },
       "target": {
-        "id": "Status_Components",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Time_Intervals",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Utc",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Check_File_Availability",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Availability",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Html",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Div",
-        "type": "Class"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Html",
-        "type": "Module"
-      },
-      "target": {
-        "id": "H6",
-        "type": "Class"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_File_Status_D2",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Generate_File_Boxes",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Selected_Date",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Date",
-        "type": "Module"
-      },
-      "target": {
-        "id": "Today",
+        "id": "Radius",
         "type": "Attribute"
       },
-      "relationship_type": "CONTAINS",
+      "relationship_type": "USES",
       "properties": {}
     },
     {
       "source": {
-        "id": "Date",
-        "type": "Module"
+        "id": "Circclearle.Perimeter",
+        "type": "Method"
       },
       "target": {
-        "id": "Timedelta",
-        "type": "Class"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Filenames",
+        "id": "Pi",
         "type": "Variable"
       },
       "relationship_type": "USES",
@@ -1748,194 +212,62 @@
     },
     {
       "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
+        "id": "Circclearle.Perimeter",
+        "type": "Method"
       },
       "target": {
-        "id": "Get_Matching_Filename_Fax",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Green_Color",
-        "type": "Variable"
+        "id": "Radius",
+        "type": "Attribute"
       },
       "relationship_type": "USES",
       "properties": {}
     },
     {
       "source": {
-        "id": "Update_Fax_Dashboard",
+        "id": "Main",
         "type": "Function"
       },
       "target": {
-        "id": "Red_Color",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Styles",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Base_Style_Small",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Fax_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Base_Style_Large",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "relationship_type": "CONTAINS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Callback",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Selected_Date",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Log_Files_Obt",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Filenames",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Get_Matching_Filename_Obt",
-        "type": "Function"
-      },
-      "relationship_type": "CALLS",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Green_Color",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Red_Color",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "Update_Obt_Dashboard",
-        "type": "Function"
-      },
-      "target": {
-        "id": "Styles",
-        "type": "Variable"
-      },
-      "relationship_type": "USES",
-      "properties": {}
-    },
-    {
-      "source": {
-        "id": "App",
-        "type": "Variable"
-      },
-      "target": {
-        "id": "Run",
+        "id": "C.Area",
         "type": "Method"
       },
       "relationship_type": "CALLS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Main",
+        "type": "Function"
+      },
+      "target": {
+        "id": "C.Perimeter",
+        "type": "Method"
+      },
+      "relationship_type": "CALLS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Get_Current_Time",
+        "type": "Function"
+      },
+      "target": {
+        "id": "Datetime",
+        "type": "Module"
+      },
+      "relationship_type": "USES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Add",
+        "type": "Function"
+      },
+      "target": {
+        "id": "Math",
+        "type": "Module"
+      },
+      "relationship_type": "USES",
       "properties": {}
     }
   ]
