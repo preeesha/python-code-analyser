@@ -10,17 +10,17 @@ URI = os.getenv("NEO4J_URI")
 AUTH = (os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD"))
 driver = GraphDatabase.driver(URI, auth=AUTH)  # Now accessible in all functions
 
-def getDataFromJson():
-    file_path = "parsed_code.json"
+def get_data_from_json(file_path):
+    file_path = file_path
     with open(file_path, 'r') as file:
         data = json.load(file)
     return data
 
-data = getDataFromJson()
-nodes = data["nodes"]
-relationships = data["relationships"]
-
-def savingNodesToNeo4j(nodes):
+def saving_nodes_to_neo4j(file_path="parsed_code.json"):
+    # Load fresh data each time
+    data = get_data_from_json(file_path)
+    nodes = data["nodes"]
+    
     for node in nodes:
         try:
             driver.execute_query(
@@ -30,7 +30,11 @@ def savingNodesToNeo4j(nodes):
         except Exception as e:
             print(f"❌ Error creating node {node['id']}: {e}")
 
-def savingRelationshipsToNeo4j(relationships):
+def saving_relationships_to_neo4j(file_path="parsed_code.json"):
+    # Load fresh data each time
+    data = get_data_from_json(file_path)
+    relationships = data["relationships"]
+    
     for relationship in relationships:
         try:
             driver.execute_query(
@@ -42,7 +46,7 @@ def savingRelationshipsToNeo4j(relationships):
         except Exception as e:
             print(f"❌ Error creating relationship {relationship['relationship_type']}: {e}")
 
-def deletingAllNodesAndRelationships():
+def deleting_all_nodes_and_relationships():
     with driver.session() as session:
         try:
             session.run("MATCH (n) DETACH DELETE n")

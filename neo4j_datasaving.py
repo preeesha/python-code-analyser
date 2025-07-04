@@ -1,0 +1,5 @@
+import neo4j_functions
+
+neo4j_functions.deleting_all_nodes_and_relationships()
+neo4j_functions.saving_nodes_to_neo4j("parsed_code.json")
+neo4j_functions.saving_relationships_to_neo4j("parsed_code.json")

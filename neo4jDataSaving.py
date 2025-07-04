@@ -1,5 +1,0 @@
-import neo4jFunctions
-
-neo4jFunctions.deletingAllNodesAndRelationships()
-neo4jFunctions.savingNodesToNeo4j(neo4jFunctions.nodes)
-neo4jFunctions.savingRelationshipsToNeo4j(neo4jFunctions.relationships)
