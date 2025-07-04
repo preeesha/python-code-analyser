@@ -7,76 +7,67 @@ Enhanced for CodeGraph AI - Interactive code analysis with semantic relationship
 ALLOWED_NODES = [
     # Core Code Elements
     "Class",
-    "Function", 
+    "Function",
     "Method",
     "Variable",
     "Parameter",
     "Attribute",
     "Property",
     "Constant",
-    
     # Import and Module Structure
     "Import",
     "Module",
     "Package",
     "FromImport",
-    
     # Control Flow and Logic
     "IfStatement",
-    "ForLoop", 
+    "ForLoop",
     "WhileLoop",
     "TryBlock",
     "ExceptBlock",
     "WithStatement",
-    
     # Object-Oriented Elements
     "Constructor",
-    "Destructor", 
+    "Destructor",
     "StaticMethod",
     "ClassMethod",
     "AbstractMethod",
-    
     # Decorators and Annotations
     "Decorator",
     "TypeAnnotation",
-    
     # Data Structures
     "List",
-    "Dictionary", 
+    "Dictionary",
     "Tuple",
     "Set",
-    
     # Special Elements
     "Lambda",
     "Generator",
     "Comprehension",
     "AsyncFunction",
-    "Coroutine"
+    "Coroutine",
 ]
 
 # Enhanced relationship types for semantic code analysis
 ALLOWED_RELATIONSHIPS = [
     # Structural Relationships
     "DEFINES",
-    "CONTAINS", 
+    "CONTAINS",
     "BELONGS_TO",
     "IMPORTS",
     "FROM_IMPORT",
-    
-    # Functional Relationships  
+    # Functional Relationships
     "CALLS",
     "INVOKES",
     "EXECUTES",
     "RETURNS",
     "YIELDS",
-    
     # Object-Oriented Relationships
     "INHERITS",
-    "IMPLEMENTS", 
+    "IMPLEMENTS",
     "OVERRIDES",
     "EXTENDS",
     "INSTANTIATES",
-    
     # Data Flow Relationships
     "ASSIGNS",
     "ACCESSES",
@@ -84,41 +75,39 @@ ALLOWED_RELATIONSHIPS = [
     "READS",
     "WRITES",
     "USES",
-    
     # Parameter and Argument Relationships
     "HAS_PARAMETER",
     "TAKES_ARGUMENT",
     "PASSES_TO",
     "RECEIVES_FROM",
-    
     # Control Flow Relationships
     "BRANCHES_TO",
-    "LOOPS_OVER", 
+    "LOOPS_OVER",
     "HANDLES_EXCEPTION",
     "RAISES_EXCEPTION",
     "CATCHES",
-    
     # Decorator and Annotation Relationships
     "DECORATES",
     "ANNOTATED_WITH",
     "APPLIES_TO",
-    
     # Dependency Relationships
     "DEPENDS_ON",
     "REQUIRED_BY",
     "PROVIDES",
     "CONSUMES",
-    
     # Semantic Relationships
     "CREATES",
     "DESTROYS",
     "TRANSFORMS",
     "VALIDATES",
-    "PROCESSES"
+    "PROCESSES",
 ]
 
 # Basic prompt template for LLM
-BASIC_PROMPT = "You are a code analysis expert. Analyze the following Python code and convert it into a graph structure with nodes and relationships. Provide the output in JSON format. Be sure to analyze the CURRENT file content, not cached results."
+BASIC_PROMPT = """You are a code analysis expert.
+Analyze the following Python code and convert it into a graph structure with nodes and relationships. 
+Provide the output in JSON format. Be sure to analyze the CURRENT file content, not cached results."""
+
 
 # Enhanced prompt template for CodeGraph AI
 def get_enhanced_prompt(timestamp):
@@ -182,7 +171,8 @@ OUTPUT FORMAT: JSON with nodes array and relationships array, each with comprehe
 
 Generate a complete semantic graph that enables natural language queries about code structure, dependencies, and behavior."""
 
+
 # File processing configuration
 MAX_CHUNK_SIZE = 8000
 LARGE_FILE_THRESHOLD = 15000
-CHUNK_OVERLAP_LINES = 10 
+CHUNK_OVERLAP_LINES = 10

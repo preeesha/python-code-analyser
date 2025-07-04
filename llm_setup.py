@@ -23,8 +23,8 @@ def initialize_gemma_llm():
         print("Initializing local Gemma model via Ollama...")
         llm = ChatOllama(
             model="gemma3n:latest", 
-            temperature=0.2,
-            top_p=0.9,
+            temperature=0,
+            top_p=0.5,
         )
         print("✅ Successfully connected to local Gemma model!")
         return llm
@@ -46,7 +46,7 @@ def initialize_gemini_llm():
         llm = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash",
             google_api_key=os.getenv("GOOGLE_API_KEY"),
-            temperature=0.1
+            temperature=0
         )
         print("✅ Successfully connected to Google Gemini model!")
         return llm
@@ -57,9 +57,6 @@ def initialize_gemini_llm():
         # Additional troubleshooting info
         if "404" in str(e) or "not found" in str(e).lower():
             print("💡 Model not found - this might be a model name issue")
-            print("   Available working models: gemini-1.5-flash, gemini-1.5-pro, gemini-2.0-flash")
-        elif "API_KEY" in str(e).upper():
-            print("💡 API key issue - check your GOOGLE_API_KEY")
         elif "QUOTA" in str(e).upper() or "LIMIT" in str(e).upper():
             print("💡 Rate limit - wait a moment and try again")
         

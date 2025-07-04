@@ -13,7 +13,7 @@ def main():
     print_header("Code Analysis and Graph Transformation")
     
     # Configuration
-    target_file = "test7.py"
+    target_file = "combined_output.py"
     output_json = "parsed_code.json"
     
     # Ensure clean start

@@ -38,8 +38,8 @@ def saving_nodes_to_neo4j(file_path="parsed_code.json"):
     with GraphDatabase.driver(URI, auth=AUTH) as driver:
         for node in nodes:
             try:
-                label = node["type"]   # Use 'type' as label
-                node_id = node["id"]
+                label = node["type"]   
+                node_id = str(node["id"])
                 props = node.get("properties", {})
 
                 # Add id and type as properties too
