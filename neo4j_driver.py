@@ -24,17 +24,18 @@ class Neo4jDriver:
         for node in nodes:
             node_id = node["id"]
             node_type = node["type"]
+            label = node["type"]
             properties = node.get("properties", {})
-
+            safe_label = ''.join(c for c in label if c.isalnum() or c == "_")
             try:
                 self.driver.execute_query(
-                    """
-                    MERGE (n:Node {id: $id})
+                    f"""
+                    MERGE (n:{safe_label} {{id: $id}})
                     SET n.type = $type, n += $properties
                     """,
                     id=node_id, type=node_type, properties=properties
-                )
-                print(f"✅ Node '{node_id}' ({node_type}) created successfully")
+                )   
+                print(f"✅ Node ({node_type}) created successfully")
             except Exception as e:
                 print(f"❌ Error creating node '{node_id}': {e}")
 
@@ -46,12 +47,14 @@ class Neo4jDriver:
             target = rel["target"]
             rel_type = rel["type"]
             properties = rel.get("properties", {})
-
+            source_label = ''.join(c for c in source["type"] if c.isalnum() or c == "_")
+            target_label = ''.join(c for c in target["type"] if c.isalnum() or c == "_")
+            
             try:
                 self.driver.execute_query(
                     f"""
-                    MATCH (a:Node {{id: $source_id}})
-                    MATCH (b:Node {{id: $target_id}})
+                    MATCH (a:{source_label} {{id: $source_id}})
+                    MATCH (b:{target_label} {{id: $target_id}})
                     MERGE (a)-[r:{rel_type}]->(b)
                     SET r += $properties
                     """,
@@ -59,6 +62,6 @@ class Neo4jDriver:
                     target_id=target["id"],
                     properties=properties
                 )
-                print(f"✅ Relationship '{rel_type}' from '{source['id']}' to '{target['id']}' created successfully")
+                print(f"✅ Relationship '{rel_type}' created successfully")
             except Exception as e:
                 print(f"❌ Error creating relationship '{rel_type}': {e}")
