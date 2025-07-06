@@ -11,10 +11,7 @@ import os
 def parse_code_with_llm(file_path):
     try:
         print("Initializing local Gemma model via Ollama...")
-        # llm = ChatOllama(
-        #     model="gemma3n",  
-        #     temperature=0
-        # )
+        # llm = ChatOllama( model="gemma3n", temperature=0)
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.0-flash",
             temperature=0 

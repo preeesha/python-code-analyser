@@ -1,247 +1,2653 @@
 [
     {
-        "id": "code.py",
+        "id": "CypherQAChain.py",
         "type": "File",
         "properties": {
-            "path": "code.py"
+            "path": "CypherQAChain.py",
+            "size_bytes": 785,
+            "lines_count": 22
         }
     },
     {
-        "id": "math",
-        "type": "Module",
-        "properties": {}
+        "id": "CypherQAChain.py::graph",
+        "type": "Variable",
+        "properties": {
+            "name": "graph",
+            "full_name": "graph",
+            "scope": "module"
+        }
     },
     {
-        "id": "code.py::def add(a, b):\r\n    \"\"\"Add two numbers.\"\"\"\r\n    return a + b",
+        "id": "CypherQAChain.py::llm",
+        "type": "Variable",
+        "properties": {
+            "name": "llm",
+            "full_name": "llm",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "CypherQAChain.py::chain",
+        "type": "Variable",
+        "properties": {
+            "name": "chain",
+            "full_name": "chain",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "main.py",
+        "type": "File",
+        "properties": {
+            "path": "main.py",
+            "size_bytes": 551,
+            "lines_count": 32
+        }
+    },
+    {
+        "id": "main.py::home_page",
+        "type": "Variable",
+        "properties": {
+            "name": "home_page",
+            "full_name": "home_page",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "main.py::dashboard",
+        "type": "Variable",
+        "properties": {
+            "name": "dashboard",
+            "full_name": "dashboard",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "main.py::pg",
+        "type": "Variable",
+        "properties": {
+            "name": "pg",
+            "full_name": "pg",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py",
+        "type": "File",
+        "properties": {
+            "path": "middleware.py",
+            "size_bytes": 18347,
+            "lines_count": 450
+        }
+    },
+    {
+        "id": "utils.py",
+        "type": "File",
+        "properties": {
+            "path": "utils.py"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format",
         "type": "Function",
         "properties": {
-            "name": "def add(a, b):\r\n    \"\"\"Add two numbers.\"\"\"\r\n    return a + b"
+            "name": "convert_ast_to_neo4j_format",
+            "full_name": "convert_ast_to_neo4j_format",
+            "parameters": [
+                "input_file",
+                "output_nodes_file",
+                "output_relationships_file"
+            ],
+            "is_method": false
         }
     },
     {
-        "id": "code.py::def get_current_time():\r\n    now = datetime.now()\r\n    return now.strftime(\"%Y-%m-%d %H:%M:%S\")",
-        "type": "Function",
+        "id": "middleware.py::convert_ast_to_neo4j_format::project_ast",
+        "type": "Variable",
         "properties": {
-            "name": "def get_current_time():\r\n    now = datetime.now()\r\n    return now.strftime(\"%Y-%m-%d %H:%M:%S\")"
+            "name": "project_ast",
+            "full_name": "convert_ast_to_neo4j_format.project_ast",
+            "scope": "function"
         }
     },
     {
-        "id": "code.py::class Circclearle:\r\n    def __init__(self, radius):\r\n        self.radius = radius\r\n \r\n    def area(self):\r\n        return PI * self.radius ** 2\r\n \r\n    def perimeter(self):\r\n        return 2 * PI * self.radius",
+        "id": "middleware.py::convert_ast_to_neo4j_format::nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes",
+            "full_name": "convert_ast_to_neo4j_format.nodes",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::relationships",
+        "type": "Variable",
+        "properties": {
+            "name": "relationships",
+            "full_name": "convert_ast_to_neo4j_format.relationships",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::node_ids",
+        "type": "Variable",
+        "properties": {
+            "name": "node_ids",
+            "full_name": "convert_ast_to_neo4j_format.node_ids",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::file_lookup",
+        "type": "Variable",
+        "properties": {
+            "name": "file_lookup",
+            "full_name": "convert_ast_to_neo4j_format.file_lookup",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::file_id",
+        "type": "Variable",
+        "properties": {
+            "name": "file_id",
+            "full_name": "convert_ast_to_neo4j_format.file_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::metadata",
+        "type": "Variable",
+        "properties": {
+            "name": "metadata",
+            "full_name": "convert_ast_to_neo4j_format.metadata",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::imp_clean",
+        "type": "Variable",
+        "properties": {
+            "name": "imp_clean",
+            "full_name": "convert_ast_to_neo4j_format.imp_clean",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::target_file",
+        "type": "Variable",
+        "properties": {
+            "name": "target_file",
+            "full_name": "convert_ast_to_neo4j_format.target_file",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::class_name",
+        "type": "Variable",
+        "properties": {
+            "name": "class_name",
+            "full_name": "convert_ast_to_neo4j_format.class_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::class_id",
+        "type": "Variable",
+        "properties": {
+            "name": "class_id",
+            "full_name": "convert_ast_to_neo4j_format.class_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::method_name",
+        "type": "Variable",
+        "properties": {
+            "name": "method_name",
+            "full_name": "convert_ast_to_neo4j_format.method_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::method_id",
+        "type": "Variable",
+        "properties": {
+            "name": "method_id",
+            "full_name": "convert_ast_to_neo4j_format.method_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::var_name",
+        "type": "Variable",
+        "properties": {
+            "name": "var_name",
+            "full_name": "convert_ast_to_neo4j_format.var_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::var_id",
+        "type": "Variable",
+        "properties": {
+            "name": "var_id",
+            "full_name": "convert_ast_to_neo4j_format.var_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::attr_name",
+        "type": "Variable",
+        "properties": {
+            "name": "attr_name",
+            "full_name": "convert_ast_to_neo4j_format.attr_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::attr_id",
+        "type": "Variable",
+        "properties": {
+            "name": "attr_id",
+            "full_name": "convert_ast_to_neo4j_format.attr_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::func_name",
+        "type": "Variable",
+        "properties": {
+            "name": "func_name",
+            "full_name": "convert_ast_to_neo4j_format.func_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::convert_ast_to_neo4j_format::func_id",
+        "type": "Variable",
+        "properties": {
+            "name": "func_id",
+            "full_name": "convert_ast_to_neo4j_format.func_id",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "middleware.py::project_ast",
+        "type": "Variable",
+        "properties": {
+            "name": "project_ast",
+            "full_name": "project_ast",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes",
+            "full_name": "nodes",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::relationships",
+        "type": "Variable",
+        "properties": {
+            "name": "relationships",
+            "full_name": "relationships",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::node_ids",
+        "type": "Variable",
+        "properties": {
+            "name": "node_ids",
+            "full_name": "node_ids",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::file_lookup",
+        "type": "Variable",
+        "properties": {
+            "name": "file_lookup",
+            "full_name": "file_lookup",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::file_id",
+        "type": "Variable",
+        "properties": {
+            "name": "file_id",
+            "full_name": "file_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::metadata",
+        "type": "Variable",
+        "properties": {
+            "name": "metadata",
+            "full_name": "metadata",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::imp_clean",
+        "type": "Variable",
+        "properties": {
+            "name": "imp_clean",
+            "full_name": "imp_clean",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::target_file",
+        "type": "Variable",
+        "properties": {
+            "name": "target_file",
+            "full_name": "target_file",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::class_name",
+        "type": "Variable",
+        "properties": {
+            "name": "class_name",
+            "full_name": "class_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::class_id",
+        "type": "Variable",
+        "properties": {
+            "name": "class_id",
+            "full_name": "class_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::method_name",
+        "type": "Variable",
+        "properties": {
+            "name": "method_name",
+            "full_name": "method_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::method_id",
+        "type": "Variable",
+        "properties": {
+            "name": "method_id",
+            "full_name": "method_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::var_name",
+        "type": "Variable",
+        "properties": {
+            "name": "var_name",
+            "full_name": "var_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::var_id",
+        "type": "Variable",
+        "properties": {
+            "name": "var_id",
+            "full_name": "var_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::attr_name",
+        "type": "Variable",
+        "properties": {
+            "name": "attr_name",
+            "full_name": "attr_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::attr_id",
+        "type": "Variable",
+        "properties": {
+            "name": "attr_id",
+            "full_name": "attr_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::func_name",
+        "type": "Variable",
+        "properties": {
+            "name": "func_name",
+            "full_name": "func_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "middleware.py::func_id",
+        "type": "Variable",
+        "properties": {
+            "name": "func_id",
+            "full_name": "func_id",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "neo4j_driver.py",
+        "type": "File",
+        "properties": {
+            "path": "neo4j_driver.py",
+            "size_bytes": 4643,
+            "lines_count": 121
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver",
         "type": "Class",
         "properties": {
-            "name": "class Circclearle:\r\n    def __init__(self, radius):\r\n        self.radius = radius\r\n \r\n    def area(self):\r\n        return PI * self.radius ** 2\r\n \r\n    def perimeter(self):\r\n        return 2 * PI * self.radius"
+            "name": "Neo4jDriver",
+            "full_name": "Neo4jDriver"
         }
     },
     {
-        "id": "code.py::def __init__(self, radius):\r\n        self.radius = radius",
+        "id": "neo4j_driver.py::Neo4jDriver::__init__",
         "type": "Function",
         "properties": {
-            "name": "def __init__(self, radius):\r\n        self.radius = radius"
+            "name": "__init__",
+            "full_name": "Neo4jDriver.__init__",
+            "parameters": [
+                "self",
+                "uri",
+                "user",
+                "password"
+            ],
+            "is_method": true
         }
     },
     {
-        "id": "code.py::def area(self):\r\n        return PI * self.radius ** 2",
+        "id": "neo4j_driver.py::Neo4jDriver::close",
         "type": "Function",
         "properties": {
-            "name": "def area(self):\r\n        return PI * self.radius ** 2"
+            "name": "close",
+            "full_name": "Neo4jDriver.close",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
         }
     },
     {
-        "id": "code.py::def perimeter(self):\r\n        return 2 * PI * self.radius",
+        "id": "neo4j_driver.py::Neo4jDriver::execute_query",
         "type": "Function",
         "properties": {
-            "name": "def perimeter(self):\r\n        return 2 * PI * self.radius"
+            "name": "execute_query",
+            "full_name": "Neo4jDriver.execute_query",
+            "parameters": [
+                "self",
+                "query"
+            ],
+            "is_method": true
         }
     },
     {
-        "id": "code.py::def main():\r\n    c = Circclearle(5)\r\n    print(\"Area:\", c.area())\r\n    print(\"Perimeter:\", c.perimeter())\r\n \r\n    if c.radius > 10:\r\n        print(\"Big circle\")\r\n    else:\r\n        print(\"Small circle\")",
+        "id": "neo4j_driver.py::Neo4jDriver::execute_query_v2",
         "type": "Function",
         "properties": {
-            "name": "def main():\r\n    c = Circclearle(5)\r\n    print(\"Area:\", c.area())\r\n    print(\"Perimeter:\", c.perimeter())\r\n \r\n    if c.radius > 10:\r\n        print(\"Big circle\")\r\n    else:\r\n        print(\"Small circle\")"
+            "name": "execute_query_v2",
+            "full_name": "Neo4jDriver.execute_query_v2",
+            "parameters": [
+                "self",
+                "query"
+            ],
+            "is_method": true
         }
     },
     {
-        "id": "test.py",
+        "id": "neo4j_driver.py::Neo4jDriver::remove_all_nodes",
+        "type": "Function",
+        "properties": {
+            "name": "remove_all_nodes",
+            "full_name": "Neo4jDriver.remove_all_nodes",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes",
+        "type": "Function",
+        "properties": {
+            "name": "load_nodes",
+            "full_name": "Neo4jDriver.load_nodes",
+            "parameters": [
+                "self",
+                "nodes_json_file"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes",
+            "full_name": "Neo4jDriver.load_nodes.nodes",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::node_id",
+        "type": "Variable",
+        "properties": {
+            "name": "node_id",
+            "full_name": "Neo4jDriver.load_nodes.node_id",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::node_type",
+        "type": "Variable",
+        "properties": {
+            "name": "node_type",
+            "full_name": "Neo4jDriver.load_nodes.node_type",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::label",
+        "type": "Variable",
+        "properties": {
+            "name": "label",
+            "full_name": "Neo4jDriver.load_nodes.label",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::properties",
+        "type": "Variable",
+        "properties": {
+            "name": "properties",
+            "full_name": "Neo4jDriver.load_nodes.properties",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_nodes::safe_label",
+        "type": "Variable",
+        "properties": {
+            "name": "safe_label",
+            "full_name": "Neo4jDriver.load_nodes.safe_label",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships",
+        "type": "Function",
+        "properties": {
+            "name": "load_relationships",
+            "full_name": "Neo4jDriver.load_relationships",
+            "parameters": [
+                "self",
+                "relationships_json_file"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::relationships",
+        "type": "Variable",
+        "properties": {
+            "name": "relationships",
+            "full_name": "Neo4jDriver.load_relationships.relationships",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::source",
+        "type": "Variable",
+        "properties": {
+            "name": "source",
+            "full_name": "Neo4jDriver.load_relationships.source",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::target",
+        "type": "Variable",
+        "properties": {
+            "name": "target",
+            "full_name": "Neo4jDriver.load_relationships.target",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::rel_type",
+        "type": "Variable",
+        "properties": {
+            "name": "rel_type",
+            "full_name": "Neo4jDriver.load_relationships.rel_type",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::properties",
+        "type": "Variable",
+        "properties": {
+            "name": "properties",
+            "full_name": "Neo4jDriver.load_relationships.properties",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::source_label",
+        "type": "Variable",
+        "properties": {
+            "name": "source_label",
+            "full_name": "Neo4jDriver.load_relationships.source_label",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::load_relationships::target_label",
+        "type": "Variable",
+        "properties": {
+            "name": "target_label",
+            "full_name": "Neo4jDriver.load_relationships.target_label",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph",
+        "type": "Function",
+        "properties": {
+            "name": "visualize_neo4j_graph",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph",
+            "parameters": [
+                "self",
+                "query"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::results",
+        "type": "Variable",
+        "properties": {
+            "name": "results",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.results",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::net",
+        "type": "Variable",
+        "properties": {
+            "name": "net",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.net",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::seen_nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "seen_nodes",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.seen_nodes",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::a",
+        "type": "Variable",
+        "properties": {
+            "name": "a",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.a",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::b",
+        "type": "Variable",
+        "properties": {
+            "name": "b",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.b",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::rel",
+        "type": "Variable",
+        "properties": {
+            "name": "rel",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.rel",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::node_id",
+        "type": "Variable",
+        "properties": {
+            "name": "node_id",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.node_id",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::node_label_list",
+        "type": "Variable",
+        "properties": {
+            "name": "node_label_list",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.node_label_list",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::node_label",
+        "type": "Variable",
+        "properties": {
+            "name": "node_label",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.node_label",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::color",
+        "type": "Variable",
+        "properties": {
+            "name": "color",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.color",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::content",
+        "type": "Variable",
+        "properties": {
+            "name": "content",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.content",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "neo4j_driver.py::Neo4jDriver::visualize_neo4j_graph::html_content",
+        "type": "Variable",
+        "properties": {
+            "name": "html_content",
+            "full_name": "Neo4jDriver.visualize_neo4j_graph.html_content",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "pages\\analytics.py",
         "type": "File",
         "properties": {
-            "path": "test.py"
+            "path": "pages\\analytics.py",
+            "size_bytes": 8054,
+            "lines_count": 219
         }
     },
     {
-        "id": "dash",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "dash_bootstrap_components as dbc",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "pandas as pd",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "plotly.graph_objs as go",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "os",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "re",
-        "type": "Module",
-        "properties": {}
-    },
-    {
-        "id": "test.py::def read_gpd_utc_dat(file_path):\r\n    df = pd.read_csv(file_path, comment='#', engine='python',\r\n                     names=column_names, sep='\\s+')\r\n    return df",
+        "id": "pages\\analytics.py::load_analytics_data",
         "type": "Function",
         "properties": {
-            "name": "def read_gpd_utc_dat(file_path):\r\n    df = pd.read_csv(file_path, comment='#', engine='python',\r\n                     names=column_names, sep='\\s+')\r\n    return df"
+            "name": "load_analytics_data",
+            "full_name": "load_analytics_data",
+            "parameters": [],
+            "is_method": false
         }
     },
     {
-        "id": "test.py::def get_datetime_from_filename(filename):\r\n    try:\r\n        dt_str = filename.split(\"_\")[1] + filename.split(\"_\")[2]\r\n        return datetime.strptime(dt_str, \"%d%b%Y%H%M\")\r\n    except Exception:\r\n        return None",
-        "type": "Function",
+        "id": "pages\\analytics.py::load_analytics_data::nodes_data",
+        "type": "Variable",
         "properties": {
-            "name": "def get_datetime_from_filename(filename):\r\n    try:\r\n        dt_str = filename.split(\"_\")[1] + filename.split(\"_\")[2]\r\n        return datetime.strptime(dt_str, \"%d%b%Y%H%M\")\r\n    except Exception:\r\n        return None"
+            "name": "nodes_data",
+            "full_name": "load_analytics_data.nodes_data",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def get_available_files(sat):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    if not os.path.exists(folder_path):\r\n        return []\r\n    files = [f for f in os.listdir(folder_path) if f.endswith(\".dat.GPD_utc\")]\r\n    files_with_dt = [(get_datetime_from_filename(f), f) for f in files]\r\n    return sorted([(dt, os.path.join(folder_path, f)) for dt, f in files_with_dt if dt])",
-        "type": "Function",
+        "id": "pages\\analytics.py::load_analytics_data::ast_data",
+        "type": "Variable",
         "properties": {
-            "name": "def get_available_files(sat):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    if not os.path.exists(folder_path):\r\n        return []\r\n    files = [f for f in os.listdir(folder_path) if f.endswith(\".dat.GPD_utc\")]\r\n    files_with_dt = [(get_datetime_from_filename(f), f) for f in files]\r\n    return sorted([(dt, os.path.join(folder_path, f)) for dt, f in files_with_dt if dt])"
+            "name": "ast_data",
+            "full_name": "load_analytics_data.ast_data",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def get_latest_file(sat):\r\n    files = get_available_files(sat)\r\n    return files[-1][1] if files else None",
-        "type": "Function",
+        "id": "pages\\analytics.py::load_analytics_data::driver",
+        "type": "Variable",
         "properties": {
-            "name": "def get_latest_file(sat):\r\n    files = get_available_files(sat)\r\n    return files[-1][1] if files else None"
+            "name": "driver",
+            "full_name": "load_analytics_data.driver",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def get_time_options(sat, selected_date):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    try:\r\n        if not os.path.exists(folder_path):\r\n            return []\r\n        files = os.listdir(folder_path)\r\n        date_str = datetime.strptime(selected_date, \"%Y-%m-%d\").strftime(\"%d%b%Y\").upper()\r\n        matching_files = [f for f in files if date_str in f]\r\n        options = []\r\n        for f in matching_files:\r\n            time_part = f.split(\"_\")[2]\r\n            if time_part.isdigit() and len(time_part) == 4:\r\n                time_str = f\"{time_part[:2]}:{time_part[2:]}\"\r\n                options.append({\"label\": time_str, \"value\": time_part})\r\n        return sorted(options, key=lambda x: x['value'])\r\n    except Exception:\r\n        return []",
+        "id": "pages\\analytics.py::create_overview_metrics",
         "type": "Function",
         "properties": {
-            "name": "def get_time_options(sat, selected_date):\r\n    folder_path = os.path.join(BASE_DIR_SAT, sat)\r\n    try:\r\n        if not os.path.exists(folder_path):\r\n            return []\r\n        files = os.listdir(folder_path)\r\n        date_str = datetime.strptime(selected_date, \"%Y-%m-%d\").strftime(\"%d%b%Y\").upper()\r\n        matching_files = [f for f in files if date_str in f]\r\n        options = []\r\n        for f in matching_files:\r\n            time_part = f.split(\"_\")[2]\r\n            if time_part.isdigit() and len(time_part) == 4:\r\n                time_str = f\"{time_part[:2]}:{time_part[2:]}\"\r\n                options.append({\"label\": time_str, \"value\": time_part})\r\n        return sorted(options, key=lambda x: x['value'])\r\n    except Exception:\r\n        return []"
+            "name": "create_overview_metrics",
+            "full_name": "create_overview_metrics",
+            "parameters": [
+                "nodes_data",
+                "ast_data"
+            ],
+            "is_method": false
         }
     },
     {
-        "id": "test.py::def load_log_file():\r\n    if not os.path.exists(LOG_FILE_PATH):\r\n        return set()\r\n    try:\r\n        with open(LOG_FILE_PATH, 'r') as f:\r\n            return set(line.strip() for line in f if line.strip())\r\n    except Exception as e:\r\n        print(f\"Error reading log file: {e}\")\r\n        return set()",
-        "type": "Function",
+        "id": "pages\\analytics.py::create_overview_metrics::total_nodes",
+        "type": "Variable",
         "properties": {
-            "name": "def load_log_file():\r\n    if not os.path.exists(LOG_FILE_PATH):\r\n        return set()\r\n    try:\r\n        with open(LOG_FILE_PATH, 'r') as f:\r\n            return set(line.strip() for line in f if line.strip())\r\n    except Exception as e:\r\n        print(f\"Error reading log file: {e}\")\r\n        return set()"
+            "name": "total_nodes",
+            "full_name": "create_overview_metrics.total_nodes",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def check_file_availability(date_obj, utc, available_set):\r\n    date_str = date_obj.strftime('%Y%m%d')\r\n    return [(seq, f\"{date_str}{utc}00_{seq}\" in available_set) for seq in SEQUENCES]",
+        "id": "pages\\analytics.py::analyze_node_types",
         "type": "Function",
         "properties": {
-            "name": "def check_file_availability(date_obj, utc, available_set):\r\n    date_str = date_obj.strftime('%Y%m%d')\r\n    return [(seq, f\"{date_str}{utc}00_{seq}\" in available_set) for seq in SEQUENCES]"
+            "name": "analyze_node_types",
+            "full_name": "analyze_node_types",
+            "parameters": [
+                "nodes_data"
+            ],
+            "is_method": false
         }
     },
     {
-        "id": "test.py::def get_box_color_dashboard2(availability):\r\n    return 'green' if availability else 'red'",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_node_types::node_types",
+        "type": "Variable",
         "properties": {
-            "name": "def get_box_color_dashboard2(availability):\r\n    return 'green' if availability else 'red'"
+            "name": "node_types",
+            "full_name": "analyze_node_types.node_types",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def generate_file_boxes(availability_list):\r\n    return [\r\n        html.Div(\r\n            seq,\r\n            style={\r\n                'display': 'inline-block',\r\n                'margin': '5px 15px',\r\n                'padding': '5px 8px',\r\n                'border': '1px solid black',\r\n                'backgroundColor': get_box_color_dashboard2(available),\r\n                'color': 'black',\r\n                'borderRadius': '3px',\r\n                'width': '55px',\r\n                'textAlign': 'center',\r\n                'fontSize': '12px'\r\n            }\r\n        ) for seq, available in availability_list\r\n    ]",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_node_types::type_counts",
+        "type": "Variable",
         "properties": {
-            "name": "def generate_file_boxes(availability_list):\r\n    return [\r\n        html.Div(\r\n            seq,\r\n            style={\r\n                'display': 'inline-block',\r\n                'margin': '5px 15px',\r\n                'padding': '5px 8px',\r\n                'border': '1px solid black',\r\n                'backgroundColor': get_box_color_dashboard2(available),\r\n                'color': 'black',\r\n                'borderRadius': '3px',\r\n                'width': '55px',\r\n                'textAlign': 'center',\r\n                'fontSize': '12px'\r\n            }\r\n        ) for seq, available in availability_list\r\n    ]"
+            "name": "type_counts",
+            "full_name": "analyze_node_types.type_counts",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def read_log_file_fax(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        with open(log_file_path, 'r') as file:\r\n            content = file.read()\r\n        pattern = r'((?:3[DRS]|3R|3S|3DS)-\\d{8}\\d+\\.txt(?:\\.done)?)'\r\n        filenames = re.findall(pattern, content)\r\n        return filenames\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []",
+        "id": "pages\\analytics.py::analyze_class_complexity",
         "type": "Function",
         "properties": {
-            "name": "def read_log_file_fax(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        with open(log_file_path, 'r') as file:\r\n            content = file.read()\r\n        pattern = r'((?:3[DRS]|3R|3S|3DS)-\\d{8}\\d+\\.txt(?:\\.done)?)'\r\n        filenames = re.findall(pattern, content)\r\n        return filenames\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []"
+            "name": "analyze_class_complexity",
+            "full_name": "analyze_class_complexity",
+            "parameters": [
+                "ast_data"
+            ],
+            "is_method": false
         }
     },
     {
-        "id": "test.py::def get_matching_filename_fax(selected_date, log_type):\r\n    log_file = LOG_FILES_FAX.get(log_type)\r\n    if not log_file:\r\n        return \"\"\r\n    filenames = read_log_file_fax(log_file)\r\n    \r\n    # CHANGE 1: Remove the additional 2-day offset since the date picker will now show the correct date\r\n    expected_file_date = selected_date.strftime('%Y%m%d')\r\n\r\n    valid_prefixes = {\r\n        \"3DR\": [\"3DR\", \"3R\"],\r\n        \"3DS\": [\"3DS\", \"3S\"],\r\n    }\r\n\r\n    primary_prefix = FILE_TYPE_MAPPING.get(log_type, '3R')\r\n    possible_prefixes = valid_prefixes.get(log_type, [primary_prefix])\r\n\r\n    for filename in filenames:\r\n        for prefix in possible_prefixes:\r\n            if filename.startswith(f\"{prefix}-{expected_file_date}\"):\r\n                return filename\r\n\r\n    return \"Not Found\"",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::classes_data",
+        "type": "Variable",
         "properties": {
-            "name": "def get_matching_filename_fax(selected_date, log_type):\r\n    log_file = LOG_FILES_FAX.get(log_type)\r\n    if not log_file:\r\n        return \"\"\r\n    filenames = read_log_file_fax(log_file)\r\n    \r\n    # CHANGE 1: Remove the additional 2-day offset since the date picker will now show the correct date\r\n    expected_file_date = selected_date.strftime('%Y%m%d')\r\n\r\n    valid_prefixes = {\r\n        \"3DR\": [\"3DR\", \"3R\"],\r\n        \"3DS\": [\"3DS\", \"3S\"],\r\n    }\r\n\r\n    primary_prefix = FILE_TYPE_MAPPING.get(log_type, '3R')\r\n    possible_prefixes = valid_prefixes.get(log_type, [primary_prefix])\r\n\r\n    for filename in filenames:\r\n        for prefix in possible_prefixes:\r\n            if filename.startswith(f\"{prefix}-{expected_file_date}\"):\r\n                return filename\r\n\r\n    return \"Not Found\""
+            "name": "classes_data",
+            "full_name": "analyze_class_complexity.classes_data",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def parse_date_from_log(date_str):\r\n    try:\r\n        return datetime.strptime(date_str, '%d%b%Y').date()\r\n    except Exception:\r\n        return None",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::classes",
+        "type": "Variable",
         "properties": {
-            "name": "def parse_date_from_log(date_str):\r\n    try:\r\n        return datetime.strptime(date_str, '%d%b%Y').date()\r\n    except Exception:\r\n        return None"
+            "name": "classes",
+            "full_name": "analyze_class_complexity.classes",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def read_log_file_obt(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        matched_lines = []\r\n        with open(log_file_path, 'r') as file:\r\n            for line in file:\r\n                line = line.strip()\r\n                if line:\r\n                    matched_lines.append(line)\r\n        return matched_lines\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::methods",
+        "type": "Variable",
         "properties": {
-            "name": "def read_log_file_obt(log_file_path):\r\n    try:\r\n        if not os.path.exists(log_file_path):\r\n            return []\r\n        matched_lines = []\r\n        with open(log_file_path, 'r') as file:\r\n            for line in file:\r\n                line = line.strip()\r\n                if line:\r\n                    matched_lines.append(line)\r\n        return matched_lines\r\n    except Exception as e:\r\n        print(f\"Error reading {log_file_path}: {e}\")\r\n        return []"
+            "name": "methods",
+            "full_name": "analyze_class_complexity.methods",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def get_matching_filename_obt(selected_date, log_type):\r\n    lines = read_log_file_obt(LOG_FILES_OBT[log_type])\r\n    expected_date = selected_date.strftime('%d%b%Y').upper()\r\n    for line in lines:\r\n        if expected_date in line:\r\n            return line.split()[0] if log_type.startswith('INS') else line\r\n    return \"Not Found\"",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::method_count",
+        "type": "Variable",
         "properties": {
-            "name": "def get_matching_filename_obt(selected_date, log_type):\r\n    lines = read_log_file_obt(LOG_FILES_OBT[log_type])\r\n    expected_date = selected_date.strftime('%d%b%Y').upper()\r\n    for line in lines:\r\n        if expected_date in line:\r\n            return line.split()[0] if log_type.startswith('INS') else line\r\n    return \"Not Found\""
+            "name": "method_count",
+            "full_name": "analyze_class_complexity.method_count",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def base_style_small():\r\n    return {\r\n        'width': '80px', 'height': '40px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::total_variables",
+        "type": "Variable",
         "properties": {
-            "name": "def base_style_small():\r\n    return {\r\n        'width': '80px', 'height': '40px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }"
+            "name": "total_variables",
+            "full_name": "analyze_class_complexity.total_variables",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def base_style_large():\r\n    return {\r\n        'width': '100px', 'height': '50px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::df",
+        "type": "Variable",
         "properties": {
-            "name": "def base_style_large():\r\n    return {\r\n        'width': '100px', 'height': '50px', 'borderRadius': '6px', \r\n        'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center', \r\n        'margin': '3px', 'fontSize': '10px'\r\n    }"
+            "name": "df",
+            "full_name": "analyze_class_complexity.df",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def update_time_options_d1(sat, selected_date):\r\n    if not sat or not selected_date:\r\n        return []\r\n    return get_time_options(sat, selected_date)",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_class_complexity::fig",
+        "type": "Variable",
         "properties": {
-            "name": "def update_time_options_d1(sat, selected_date):\r\n    if not sat or not selected_date:\r\n        return []\r\n    return get_time_options(sat, selected_date)"
+            "name": "fig",
+            "full_name": "analyze_class_complexity.fig",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def update_attitude_graph_d1(sat, date_str, time_str):\r\n    empty_fig = go.Figure()\r\n    \r\n    if not (sat and date_str and time_str):\r\n        return empty_fig.update_layout(title=\"Select satellite, date, and time\")\r\n    \r\n    try:\r\n        dt_obj = datetime.strptime(f\"{date_str}\", \"%Y-%m-%d\")\r\n        filename = f\"{FILE_PREFIX[sat]}_{dt_obj.strftime('%d%b%Y').upper()}_{time_str}_att.dat.GPD_utc\"\r\n        file_path = os.path.join(BASE_DIR_SAT, sat, filename)\r\n        if not os.path.exists(file_path):\r\n            file_path = get_latest_file(sat)\r\n    except Exception:\r\n        file_path = get_latest_file(sat)\r\n    \r\n    if not file_path:\r\n        return empty_fig.update_layout(title=\"No data available\")\r\n    \r\n    try:\r\n        df = read_gpd_utc_dat(file_path)\r\n        if df.empty:\r\n            return empty_fig.update_layout(title=\"No data found\")\r\n        \r\n        df['timestamp'] = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute', 'second']])\r\n        \r\n        fig = go.Figure([\r\n            go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', mode='lines'),\r\n        ])\r\n\r\n        fig.update_layout(\r\n            title=f\"Attitude Data: {os.path.basename(file_path)}\",\r\n            xaxis_title=\"Time\",\r\n            yaxis_title=\"Angle (degrees)\",\r\n            legend_title=\"Parameters\",\r\n            hovermode=\"x unified\",\r\n            height=280,\r\n            margin=dict(l=50, r=50, t=50, b=50)\r\n        )\r\n        fig_yaw = go.Figure([go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', line=dict(color='blue'))])\r\n        fig_yaw.update_layout(title=\"Yaw\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_pitch = go.Figure([go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', line=dict(color='red'))])\r\n        fig_pitch.update_layout(title=\"Pitch\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_roll = go.Figure([go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', line=dict(color='green'))])\r\n        fig_roll.update_layout(title=\"Roll\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        return fig, fig_yaw, fig_pitch, fig_roll\r\n    except Exception as e:\r\n        return empty_fig.update_layout(title=f\"Error loading data: {str(e)}\")",
+        "id": "pages\\analytics.py::analyze_method_complexity",
         "type": "Function",
         "properties": {
-            "name": "def update_attitude_graph_d1(sat, date_str, time_str):\r\n    empty_fig = go.Figure()\r\n    \r\n    if not (sat and date_str and time_str):\r\n        return empty_fig.update_layout(title=\"Select satellite, date, and time\")\r\n    \r\n    try:\r\n        dt_obj = datetime.strptime(f\"{date_str}\", \"%Y-%m-%d\")\r\n        filename = f\"{FILE_PREFIX[sat]}_{dt_obj.strftime('%d%b%Y').upper()}_{time_str}_att.dat.GPD_utc\"\r\n        file_path = os.path.join(BASE_DIR_SAT, sat, filename)\r\n        if not os.path.exists(file_path):\r\n            file_path = get_latest_file(sat)\r\n    except Exception:\r\n        file_path = get_latest_file(sat)\r\n    \r\n    if not file_path:\r\n        return empty_fig.update_layout(title=\"No data available\")\r\n    \r\n    try:\r\n        df = read_gpd_utc_dat(file_path)\r\n        if df.empty:\r\n            return empty_fig.update_layout(title=\"No data found\")\r\n        \r\n        df['timestamp'] = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute', 'second']])\r\n        \r\n        fig = go.Figure([\r\n            go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', mode='lines'),\r\n            go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', mode='lines'),\r\n        ])\r\n\r\n        fig.update_layout(\r\n            title=f\"Attitude Data: {os.path.basename(file_path)}\",\r\n            xaxis_title=\"Time\",\r\n            yaxis_title=\"Angle (degrees)\",\r\n            legend_title=\"Parameters\",\r\n            hovermode=\"x unified\",\r\n            height=280,\r\n            margin=dict(l=50, r=50, t=50, b=50)\r\n        )\r\n        fig_yaw = go.Figure([go.Scatter(x=df['timestamp'], y=df['yaw'], name='Yaw', line=dict(color='blue'))])\r\n        fig_yaw.update_layout(title=\"Yaw\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_pitch = go.Figure([go.Scatter(x=df['timestamp'], y=df['pitch'], name='Pitch', line=dict(color='red'))])\r\n        fig_pitch.update_layout(title=\"Pitch\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        \r\n        fig_roll = go.Figure([go.Scatter(x=df['timestamp'], y=df['roll'], name='Roll', line=dict(color='green'))])\r\n        fig_roll.update_layout(title=\"Roll\", xaxis_title=\"Time\", yaxis_title=\"Degrees\", height=300, hovermode=\"x unified\")\r\n        return fig, fig_yaw, fig_pitch, fig_roll\r\n    except Exception as e:\r\n        return empty_fig.update_layout(title=f\"Error loading data: {str(e)}\")"
+            "name": "analyze_method_complexity",
+            "full_name": "analyze_method_complexity",
+            "parameters": [
+                "nodes_data"
+            ],
+            "is_method": false
         }
     },
     {
-        "id": "test.py::def update_file_status_d2(date_str, n_intervals):\r\n    current_time = datetime.now().strftime('%H:%M:%S')\r\n    \r\n    if not date_str:\r\n        return \"No date selected.\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        if isinstance(date_str, str):\r\n            date_obj = datetime.strptime(date_str, '%Y-%m-%d')\r\n        elif hasattr(date_str, 'year'):\r\n            if isinstance(date_str, date) and not isinstance(date_str, datetime):\r\n                date_obj = datetime.combine(date_str, datetime.min.time())\r\n            else:\r\n                date_obj = date_str\r\n        else:\r\n            date_obj = datetime.strptime(str(date_str), '%Y-%m-%d')\r\n    except (ValueError, TypeError, AttributeError) as e:\r\n        return f\"Invalid date format: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        available_set = load_log_file()\r\n    except Exception as e:\r\n        return f\"Error loading log file: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    status_components = []\r\n    for utc in TIME_INTERVALS:\r\n        try:\r\n            availability = check_file_availability(date_obj, utc, available_set)\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC\", style={'margin': '5px 0'}),\r\n                html.Div(generate_file_boxes(availability))\r\n            ], className='mb-2'))\r\n        except Exception as e:\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC - Error: {e}\", style={'margin': '5px 0'})\r\n            ], className='mb-2'))\r\n    \r\n    return status_components, f\"Last updated: {current_time}\"",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_method_complexity::methods_data",
+        "type": "Variable",
         "properties": {
-            "name": "def update_file_status_d2(date_str, n_intervals):\r\n    current_time = datetime.now().strftime('%H:%M:%S')\r\n    \r\n    if not date_str:\r\n        return \"No date selected.\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        if isinstance(date_str, str):\r\n            date_obj = datetime.strptime(date_str, '%Y-%m-%d')\r\n        elif hasattr(date_str, 'year'):\r\n            if isinstance(date_str, date) and not isinstance(date_str, datetime):\r\n                date_obj = datetime.combine(date_str, datetime.min.time())\r\n            else:\r\n                date_obj = date_str\r\n        else:\r\n            date_obj = datetime.strptime(str(date_str), '%Y-%m-%d')\r\n    except (ValueError, TypeError, AttributeError) as e:\r\n        return f\"Invalid date format: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    try:\r\n        available_set = load_log_file()\r\n    except Exception as e:\r\n        return f\"Error loading log file: {e}\", f\"Last updated: {current_time}\"\r\n    \r\n    status_components = []\r\n    for utc in TIME_INTERVALS:\r\n        try:\r\n            availability = check_file_availability(date_obj, utc, available_set)\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC\", style={'margin': '5px 0'}),\r\n                html.Div(generate_file_boxes(availability))\r\n            ], className='mb-2'))\r\n        except Exception as e:\r\n            status_components.append(html.Div([\r\n                html.H6(f\"{utc} UTC - Error: {e}\", style={'margin': '5px 0'})\r\n            ], className='mb-2'))\r\n    \r\n    return status_components, f\"Last updated: {current_time}\""
+            "name": "methods_data",
+            "full_name": "analyze_method_complexity.methods_data",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def update_fax_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today() - timedelta(days=2)  # Changed default fallback\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {\r\n        'INS3RM': get_matching_filename_fax(selected_date, 'INS3RM'),\r\n        'INS3RR': get_matching_filename_fax(selected_date, 'INS3RR'),\r\n        'INS3SM': get_matching_filename_fax(selected_date, 'INS3SM'),\r\n        'INS3SR': get_matching_filename_fax(selected_date, 'INS3SR'),\r\n        '3DR': get_matching_filename_fax(selected_date, '3DR'),\r\n        '3DS': get_matching_filename_fax(selected_date, '3DS')\r\n    }\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]",
-        "type": "Function",
+        "id": "pages\\analytics.py::analyze_method_complexity::method_name",
+        "type": "Variable",
         "properties": {
-            "name": "def update_fax_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today() - timedelta(days=2)  # Changed default fallback\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {\r\n        'INS3RM': get_matching_filename_fax(selected_date, 'INS3RM'),\r\n        'INS3RR': get_matching_filename_fax(selected_date, 'INS3RR'),\r\n        'INS3SM': get_matching_filename_fax(selected_date, 'INS3SM'),\r\n        'INS3SR': get_matching_filename_fax(selected_date, 'INS3SR'),\r\n        '3DR': get_matching_filename_fax(selected_date, '3DR'),\r\n        '3DS': get_matching_filename_fax(selected_date, '3DS')\r\n    }\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]"
+            "name": "method_name",
+            "full_name": "analyze_method_complexity.method_name",
+            "scope": "function"
         }
     },
     {
-        "id": "test.py::def update_obt_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today()\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {key: get_matching_filename_obt(selected_date, key) for key in LOG_FILES_OBT.keys()}\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]",
+        "id": "pages\\analytics.py::analyze_method_complexity::full_name",
+        "type": "Variable",
+        "properties": {
+            "name": "full_name",
+            "full_name": "analyze_method_complexity.full_name",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::analyze_method_complexity::parameters",
+        "type": "Variable",
+        "properties": {
+            "name": "parameters",
+            "full_name": "analyze_method_complexity.parameters",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::analyze_method_complexity::related_vars",
+        "type": "Variable",
+        "properties": {
+            "name": "related_vars",
+            "full_name": "analyze_method_complexity.related_vars",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::analyze_method_complexity::df",
+        "type": "Variable",
+        "properties": {
+            "name": "df",
+            "full_name": "analyze_method_complexity.df",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::analyze_method_complexity::top_methods",
+        "type": "Variable",
+        "properties": {
+            "name": "top_methods",
+            "full_name": "analyze_method_complexity.top_methods",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::analyze_method_complexity::fig",
+        "type": "Variable",
+        "properties": {
+            "name": "fig",
+            "full_name": "analyze_method_complexity.fig",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::create_file_statistics",
         "type": "Function",
         "properties": {
-            "name": "def update_obt_dashboard(selected_date):\r\n    if not selected_date:\r\n        selected_date = date.today()\r\n    else:\r\n        selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()\r\n\r\n    filenames = {key: get_matching_filename_obt(selected_date, key) for key in LOG_FILES_OBT.keys()}\r\n\r\n    green_color = '#27ae60'\r\n    red_color = '#e74c3c'\r\n\r\n    styles = [\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3RR'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SM'] != 'Not Found' else red_color},\r\n        {**base_style_small(), 'backgroundColor': green_color if filenames['INS3SR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DR'] != 'Not Found' else red_color},\r\n        {**base_style_large(), 'backgroundColor': green_color if filenames['3DS'] != 'Not Found' else red_color}\r\n    ]\r\n\r\n    return styles + [filenames[k] for k in ['3DR', '3DS', 'INS3RM', 'INS3RR', 'INS3SM', 'INS3SR']]"
+            "name": "create_file_statistics",
+            "full_name": "create_file_statistics",
+            "parameters": [
+                "ast_data"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\analytics.py::create_file_statistics::files_data",
+        "type": "Variable",
+        "properties": {
+            "name": "files_data",
+            "full_name": "create_file_statistics.files_data",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::create_file_statistics::df",
+        "type": "Variable",
+        "properties": {
+            "name": "df",
+            "full_name": "create_file_statistics.df",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::create_file_statistics::fig",
+        "type": "Variable",
+        "properties": {
+            "name": "fig",
+            "full_name": "create_file_statistics.fig",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::show_analytics_dashboard",
+        "type": "Function",
+        "properties": {
+            "name": "show_analytics_dashboard",
+            "full_name": "show_analytics_dashboard",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\analytics.py::show_analytics_dashboard::node_counts",
+        "type": "Variable",
+        "properties": {
+            "name": "node_counts",
+            "full_name": "show_analytics_dashboard.node_counts",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::show_analytics_dashboard::node_df",
+        "type": "Variable",
+        "properties": {
+            "name": "node_df",
+            "full_name": "show_analytics_dashboard.node_df",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::nodes_data",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes_data",
+            "full_name": "nodes_data",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::ast_data",
+        "type": "Variable",
+        "properties": {
+            "name": "ast_data",
+            "full_name": "ast_data",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::driver",
+        "type": "Variable",
+        "properties": {
+            "name": "driver",
+            "full_name": "driver",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::total_nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "total_nodes",
+            "full_name": "total_nodes",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::node_types",
+        "type": "Variable",
+        "properties": {
+            "name": "node_types",
+            "full_name": "node_types",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::type_counts",
+        "type": "Variable",
+        "properties": {
+            "name": "type_counts",
+            "full_name": "type_counts",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::classes_data",
+        "type": "Variable",
+        "properties": {
+            "name": "classes_data",
+            "full_name": "classes_data",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::classes",
+        "type": "Variable",
+        "properties": {
+            "name": "classes",
+            "full_name": "classes",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::methods",
+        "type": "Variable",
+        "properties": {
+            "name": "methods",
+            "full_name": "methods",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::method_count",
+        "type": "Variable",
+        "properties": {
+            "name": "method_count",
+            "full_name": "method_count",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::total_variables",
+        "type": "Variable",
+        "properties": {
+            "name": "total_variables",
+            "full_name": "total_variables",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::df",
+        "type": "Variable",
+        "properties": {
+            "name": "df",
+            "full_name": "df",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::fig",
+        "type": "Variable",
+        "properties": {
+            "name": "fig",
+            "full_name": "fig",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::methods_data",
+        "type": "Variable",
+        "properties": {
+            "name": "methods_data",
+            "full_name": "methods_data",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::method_name",
+        "type": "Variable",
+        "properties": {
+            "name": "method_name",
+            "full_name": "method_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::full_name",
+        "type": "Variable",
+        "properties": {
+            "name": "full_name",
+            "full_name": "full_name",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::parameters",
+        "type": "Variable",
+        "properties": {
+            "name": "parameters",
+            "full_name": "parameters",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::related_vars",
+        "type": "Variable",
+        "properties": {
+            "name": "related_vars",
+            "full_name": "related_vars",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::top_methods",
+        "type": "Variable",
+        "properties": {
+            "name": "top_methods",
+            "full_name": "top_methods",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::files_data",
+        "type": "Variable",
+        "properties": {
+            "name": "files_data",
+            "full_name": "files_data",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::node_counts",
+        "type": "Variable",
+        "properties": {
+            "name": "node_counts",
+            "full_name": "node_counts",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\analytics.py::node_df",
+        "type": "Variable",
+        "properties": {
+            "name": "node_df",
+            "full_name": "node_df",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\custom_style.py",
+        "type": "File",
+        "properties": {
+            "path": "pages\\custom_style.py",
+            "size_bytes": 1786,
+            "lines_count": 70
+        }
+    },
+    {
+        "id": "pages\\custom_style.py::STYLING",
+        "type": "Variable",
+        "properties": {
+            "name": "STYLING",
+            "full_name": "STYLING",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\custom_style.py::HEADER",
+        "type": "Variable",
+        "properties": {
+            "name": "HEADER",
+            "full_name": "HEADER",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py",
+        "type": "File",
+        "properties": {
+            "path": "pages\\home.py",
+            "size_bytes": 2440,
+            "lines_count": 61
+        }
+    },
+    {
+        "id": "parsing_pipeline.py",
+        "type": "File",
+        "properties": {
+            "path": "parsing_pipeline.py"
+        }
+    },
+    {
+        "id": "pages\\home.py::trigger_parse_again",
+        "type": "Function",
+        "properties": {
+            "name": "trigger_parse_again",
+            "full_name": "trigger_parse_again",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\home.py::driver",
+        "type": "Variable",
+        "properties": {
+            "name": "driver",
+            "full_name": "driver",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::parsing_mode",
+        "type": "Variable",
+        "properties": {
+            "name": "parsing_mode",
+            "full_name": "parsing_mode",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::codebase_path",
+        "type": "Variable",
+        "properties": {
+            "name": "codebase_path",
+            "full_name": "codebase_path",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::completed",
+        "type": "Variable",
+        "properties": {
+            "name": "completed",
+            "full_name": "completed",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::options",
+        "type": "Variable",
+        "properties": {
+            "name": "options",
+            "full_name": "options",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::selected_label",
+        "type": "Variable",
+        "properties": {
+            "name": "selected_label",
+            "full_name": "selected_label",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::selected_index",
+        "type": "Variable",
+        "properties": {
+            "name": "selected_index",
+            "full_name": "selected_index",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::modes",
+        "type": "Variable",
+        "properties": {
+            "name": "modes",
+            "full_name": "modes",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::selected_mode_label",
+        "type": "Variable",
+        "properties": {
+            "name": "selected_mode_label",
+            "full_name": "selected_mode_label",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::selected_mode",
+        "type": "Variable",
+        "properties": {
+            "name": "selected_mode",
+            "full_name": "selected_mode",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\home.py::uploader_functions",
+        "type": "Variable",
+        "properties": {
+            "name": "uploader_functions",
+            "full_name": "uploader_functions",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py",
+        "type": "File",
+        "properties": {
+            "path": "pages\\query_tool.py",
+            "size_bytes": 1706,
+            "lines_count": 46
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::update_graph",
+        "type": "Function",
+        "properties": {
+            "name": "update_graph",
+            "full_name": "update_graph",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::update_graph::cypher_query",
+        "type": "Variable",
+        "properties": {
+            "name": "cypher_query",
+            "full_name": "update_graph.cypher_query",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::update_graph::html_graph",
+        "type": "Variable",
+        "properties": {
+            "name": "html_graph",
+            "full_name": "update_graph.html_graph",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::driver",
+        "type": "Variable",
+        "properties": {
+            "name": "driver",
+            "full_name": "driver",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::DEFAULT_QUERY",
+        "type": "Variable",
+        "properties": {
+            "name": "DEFAULT_QUERY",
+            "full_name": "DEFAULT_QUERY",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::cypher_query",
+        "type": "Variable",
+        "properties": {
+            "name": "cypher_query",
+            "full_name": "cypher_query",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::html_graph",
+        "type": "Variable",
+        "properties": {
+            "name": "html_graph",
+            "full_name": "html_graph",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::user_query",
+        "type": "Variable",
+        "properties": {
+            "name": "user_query",
+            "full_name": "user_query",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\query_tool.py::result",
+        "type": "Variable",
+        "properties": {
+            "name": "result",
+            "full_name": "result",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\uploders.py",
+        "type": "File",
+        "properties": {
+            "path": "pages\\uploders.py",
+            "size_bytes": 1260,
+            "lines_count": 31
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_local_directory",
+        "type": "Function",
+        "properties": {
+            "name": "upload_local_directory",
+            "full_name": "upload_local_directory",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_local_directory::local_path",
+        "type": "Variable",
+        "properties": {
+            "name": "local_path",
+            "full_name": "upload_local_directory.local_path",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_zip_file",
+        "type": "Function",
+        "properties": {
+            "name": "upload_zip_file",
+            "full_name": "upload_zip_file",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_zip_file::uploaded_file",
+        "type": "Variable",
+        "properties": {
+            "name": "uploaded_file",
+            "full_name": "upload_zip_file.uploaded_file",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_github_repo",
+        "type": "Function",
+        "properties": {
+            "name": "upload_github_repo",
+            "full_name": "upload_github_repo",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "pages\\uploders.py::upload_github_repo::repo_link",
+        "type": "Variable",
+        "properties": {
+            "name": "repo_link",
+            "full_name": "upload_github_repo.repo_link",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "pages\\uploders.py::local_path",
+        "type": "Variable",
+        "properties": {
+            "name": "local_path",
+            "full_name": "local_path",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\uploders.py::uploaded_file",
+        "type": "Variable",
+        "properties": {
+            "name": "uploaded_file",
+            "full_name": "uploaded_file",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "pages\\uploders.py::repo_link",
+        "type": "Variable",
+        "properties": {
+            "name": "repo_link",
+            "full_name": "repo_link",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent.py",
+        "type": "File",
+        "properties": {
+            "path": "parser_agent.py",
+            "size_bytes": 15860,
+            "lines_count": 342
+        }
+    },
+    {
+        "id": "parser_agent.py::ParsedFile",
+        "type": "Class",
+        "properties": {
+            "name": "ParsedFile",
+            "full_name": "ParsedFile"
+        }
+    },
+    {
+        "id": "parser_agent.py::ParsedFile::__post_init__",
+        "type": "Function",
+        "properties": {
+            "name": "__post_init__",
+            "full_name": "ParsedFile.__post_init__",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::ProjectAST",
+        "type": "Class",
+        "properties": {
+            "name": "ProjectAST",
+            "full_name": "ProjectAST"
+        }
+    },
+    {
+        "id": "parser_agent.py::ProjectAST::__post_init__",
+        "type": "Function",
+        "properties": {
+            "name": "__post_init__",
+            "full_name": "ProjectAST.__post_init__",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser",
+        "type": "Class",
+        "properties": {
+            "name": "PythonCodebaseParser",
+            "full_name": "PythonCodebaseParser"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::__init__",
+        "type": "Function",
+        "properties": {
+            "name": "__init__",
+            "full_name": "PythonCodebaseParser.__init__",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::should_ignore_path",
+        "type": "Function",
+        "properties": {
+            "name": "should_ignore_path",
+            "full_name": "PythonCodebaseParser.should_ignore_path",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::find_python_files",
+        "type": "Function",
+        "properties": {
+            "name": "find_python_files",
+            "full_name": "PythonCodebaseParser.find_python_files",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info",
+        "type": "Function",
+        "properties": {
+            "name": "extract_semantic_info",
+            "full_name": "PythonCodebaseParser.extract_semantic_info",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::result",
+        "type": "Variable",
+        "properties": {
+            "name": "result",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.result",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::text",
+        "type": "Variable",
+        "properties": {
+            "name": "text",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.text",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::class_name",
+        "type": "Variable",
+        "properties": {
+            "name": "class_name",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.class_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::class_key",
+        "type": "Variable",
+        "properties": {
+            "name": "class_key",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.class_key",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::class_info",
+        "type": "Variable",
+        "properties": {
+            "name": "class_info",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.class_info",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::class_body",
+        "type": "Variable",
+        "properties": {
+            "name": "class_body",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.class_body",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::method_name",
+        "type": "Variable",
+        "properties": {
+            "name": "method_name",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.method_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::method_key",
+        "type": "Variable",
+        "properties": {
+            "name": "method_key",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.method_key",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::params",
+        "type": "Variable",
+        "properties": {
+            "name": "params",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.params",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::func_vars",
+        "type": "Variable",
+        "properties": {
+            "name": "func_vars",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.func_vars",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::attr_name",
+        "type": "Variable",
+        "properties": {
+            "name": "attr_name",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.attr_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::body_text",
+        "type": "Variable",
+        "properties": {
+            "name": "body_text",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.body_text",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::parts",
+        "type": "Variable",
+        "properties": {
+            "name": "parts",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.parts",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::var",
+        "type": "Variable",
+        "properties": {
+            "name": "var",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.var",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::nested_class_result",
+        "type": "Variable",
+        "properties": {
+            "name": "nested_class_result",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.nested_class_result",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::nested_class_info",
+        "type": "Variable",
+        "properties": {
+            "name": "nested_class_info",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.nested_class_info",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::func_name",
+        "type": "Variable",
+        "properties": {
+            "name": "func_name",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.func_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::func_key",
+        "type": "Variable",
+        "properties": {
+            "name": "func_key",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.func_key",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::var_name",
+        "type": "Variable",
+        "properties": {
+            "name": "var_name",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.var_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::var_key",
+        "type": "Variable",
+        "properties": {
+            "name": "var_key",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.var_key",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_semantic_info::nested_result",
+        "type": "Variable",
+        "properties": {
+            "name": "nested_result",
+            "full_name": "PythonCodebaseParser.extract_semantic_info.nested_result",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables",
+        "type": "Function",
+        "properties": {
+            "name": "extract_nested_variables",
+            "full_name": "PythonCodebaseParser.extract_nested_variables",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::variables",
+        "type": "Variable",
+        "properties": {
+            "name": "variables",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.variables",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::text",
+        "type": "Variable",
+        "properties": {
+            "name": "text",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.text",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::var_name",
+        "type": "Variable",
+        "properties": {
+            "name": "var_name",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.var_name",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::var_key",
+        "type": "Variable",
+        "properties": {
+            "name": "var_key",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.var_key",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::parts",
+        "type": "Variable",
+        "properties": {
+            "name": "parts",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.parts",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_nested_variables::var",
+        "type": "Variable",
+        "properties": {
+            "name": "var",
+            "full_name": "PythonCodebaseParser.extract_nested_variables.var",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::extract_function_parameters",
+        "type": "Function",
+        "properties": {
+            "name": "extract_function_parameters",
+            "full_name": "PythonCodebaseParser.extract_function_parameters",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::get_child_text",
+        "type": "Function",
+        "properties": {
+            "name": "get_child_text",
+            "full_name": "PythonCodebaseParser.get_child_text",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file",
+        "type": "Function",
+        "properties": {
+            "name": "parse_file",
+            "full_name": "PythonCodebaseParser.parse_file",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::source_code",
+        "type": "Variable",
+        "properties": {
+            "name": "source_code",
+            "full_name": "PythonCodebaseParser.parse_file.source_code",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::stat",
+        "type": "Variable",
+        "properties": {
+            "name": "stat",
+            "full_name": "PythonCodebaseParser.parse_file.stat",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::lines_count",
+        "type": "Variable",
+        "properties": {
+            "name": "lines_count",
+            "full_name": "PythonCodebaseParser.parse_file.lines_count",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::relative_path",
+        "type": "Variable",
+        "properties": {
+            "name": "relative_path",
+            "full_name": "PythonCodebaseParser.parse_file.relative_path",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::tree",
+        "type": "Variable",
+        "properties": {
+            "name": "tree",
+            "full_name": "PythonCodebaseParser.parse_file.tree",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::root_node",
+        "type": "Variable",
+        "properties": {
+            "name": "root_node",
+            "full_name": "PythonCodebaseParser.parse_file.root_node",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::metadata",
+        "type": "Variable",
+        "properties": {
+            "name": "metadata",
+            "full_name": "PythonCodebaseParser.parse_file.metadata",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_file::parse_errors",
+        "type": "Variable",
+        "properties": {
+            "name": "parse_errors",
+            "full_name": "PythonCodebaseParser.parse_file.parse_errors",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project",
+        "type": "Function",
+        "properties": {
+            "name": "parse_project",
+            "full_name": "PythonCodebaseParser.parse_project",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::root_path",
+        "type": "Variable",
+        "properties": {
+            "name": "root_path",
+            "full_name": "PythonCodebaseParser.parse_project.root_path",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::python_files",
+        "type": "Variable",
+        "properties": {
+            "name": "python_files",
+            "full_name": "PythonCodebaseParser.parse_project.python_files",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::parsed_files",
+        "type": "Variable",
+        "properties": {
+            "name": "parsed_files",
+            "full_name": "PythonCodebaseParser.parse_project.parsed_files",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::total_lines",
+        "type": "Variable",
+        "properties": {
+            "name": "total_lines",
+            "full_name": "PythonCodebaseParser.parse_project.total_lines",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::total_size",
+        "type": "Variable",
+        "properties": {
+            "name": "total_size",
+            "full_name": "PythonCodebaseParser.parse_project.total_size",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::global_errors",
+        "type": "Variable",
+        "properties": {
+            "name": "global_errors",
+            "full_name": "PythonCodebaseParser.parse_project.global_errors",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::parse_project::parsed_file",
+        "type": "Variable",
+        "properties": {
+            "name": "parsed_file",
+            "full_name": "PythonCodebaseParser.parse_project.parsed_file",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::save_ast_to_json",
+        "type": "Function",
+        "properties": {
+            "name": "save_ast_to_json",
+            "full_name": "PythonCodebaseParser.save_ast_to_json",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::save_ast_to_json::data",
+        "type": "Variable",
+        "properties": {
+            "name": "data",
+            "full_name": "PythonCodebaseParser.save_ast_to_json.data",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::get_project_summary",
+        "type": "Function",
+        "properties": {
+            "name": "get_project_summary",
+            "full_name": "PythonCodebaseParser.get_project_summary",
+            "parameters": [
+                "self"
+            ],
+            "is_method": true
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::get_project_summary::total_classes",
+        "type": "Variable",
+        "properties": {
+            "name": "total_classes",
+            "full_name": "PythonCodebaseParser.get_project_summary.total_classes",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::get_project_summary::total_functions",
+        "type": "Variable",
+        "properties": {
+            "name": "total_functions",
+            "full_name": "PythonCodebaseParser.get_project_summary.total_functions",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::PythonCodebaseParser::get_project_summary::total_variables",
+        "type": "Variable",
+        "properties": {
+            "name": "total_variables",
+            "full_name": "PythonCodebaseParser.get_project_summary.total_variables",
+            "scope": "method"
+        }
+    },
+    {
+        "id": "parser_agent.py::progress_callback",
+        "type": "Function",
+        "properties": {
+            "name": "progress_callback",
+            "full_name": "progress_callback",
+            "parameters": [],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent.py::codebaseParser",
+        "type": "Function",
+        "properties": {
+            "name": "codebaseParser",
+            "full_name": "codebaseParser",
+            "parameters": [
+                "SOURCE_DIR"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent.py::codebaseParser::parser",
+        "type": "Variable",
+        "properties": {
+            "name": "parser",
+            "full_name": "codebaseParser.parser",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent.py::codebaseParser::project_ast",
+        "type": "Variable",
+        "properties": {
+            "name": "project_ast",
+            "full_name": "codebaseParser.project_ast",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent.py::codebaseParser::summary",
+        "type": "Variable",
+        "properties": {
+            "name": "summary",
+            "full_name": "codebaseParser.summary",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent.py::parser",
+        "type": "Variable",
+        "properties": {
+            "name": "parser",
+            "full_name": "parser",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent.py::project_ast",
+        "type": "Variable",
+        "properties": {
+            "name": "project_ast",
+            "full_name": "project_ast",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent.py::summary",
+        "type": "Variable",
+        "properties": {
+            "name": "summary",
+            "full_name": "summary",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py",
+        "type": "File",
+        "properties": {
+            "path": "parser_agent_llm.py",
+            "size_bytes": 4045,
+            "lines_count": 115
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm",
+        "type": "Function",
+        "properties": {
+            "name": "parse_code_with_llm",
+            "full_name": "parse_code_with_llm",
+            "parameters": [
+                "file_path"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::llm",
+        "type": "Variable",
+        "properties": {
+            "name": "llm",
+            "full_name": "parse_code_with_llm.llm",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::transformer",
+        "type": "Variable",
+        "properties": {
+            "name": "transformer",
+            "full_name": "parse_code_with_llm.transformer",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::code_content",
+        "type": "Variable",
+        "properties": {
+            "name": "code_content",
+            "full_name": "parse_code_with_llm.code_content",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::docs",
+        "type": "Variable",
+        "properties": {
+            "name": "docs",
+            "full_name": "parse_code_with_llm.docs",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::graph_docs",
+        "type": "Variable",
+        "properties": {
+            "name": "graph_docs",
+            "full_name": "parse_code_with_llm.graph_docs",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::graph",
+        "type": "Variable",
+        "properties": {
+            "name": "graph",
+            "full_name": "parse_code_with_llm.graph",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::parse_code_with_llm::result",
+        "type": "Variable",
+        "properties": {
+            "name": "result",
+            "full_name": "parse_code_with_llm.result",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::display_graph_info",
+        "type": "Function",
+        "properties": {
+            "name": "display_graph_info",
+            "full_name": "display_graph_info",
+            "parameters": [
+                "graph_info"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::save_graph_to_file",
+        "type": "Function",
+        "properties": {
+            "name": "save_graph_to_file",
+            "full_name": "save_graph_to_file",
+            "parameters": [
+                "graph_info",
+                "output_dir"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::save_graph_to_file::nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes",
+            "full_name": "save_graph_to_file.nodes",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::save_graph_to_file::relationships",
+        "type": "Variable",
+        "properties": {
+            "name": "relationships",
+            "full_name": "save_graph_to_file.relationships",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::codebaseParserLLM",
+        "type": "Function",
+        "properties": {
+            "name": "codebaseParserLLM",
+            "full_name": "codebaseParserLLM",
+            "parameters": [
+                "source_file"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::codebaseParserLLM::result",
+        "type": "Variable",
+        "properties": {
+            "name": "result",
+            "full_name": "codebaseParserLLM.result",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::llm",
+        "type": "Variable",
+        "properties": {
+            "name": "llm",
+            "full_name": "llm",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::transformer",
+        "type": "Variable",
+        "properties": {
+            "name": "transformer",
+            "full_name": "transformer",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::code_content",
+        "type": "Variable",
+        "properties": {
+            "name": "code_content",
+            "full_name": "code_content",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::docs",
+        "type": "Variable",
+        "properties": {
+            "name": "docs",
+            "full_name": "docs",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::graph_docs",
+        "type": "Variable",
+        "properties": {
+            "name": "graph_docs",
+            "full_name": "graph_docs",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::graph",
+        "type": "Variable",
+        "properties": {
+            "name": "graph",
+            "full_name": "graph",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::result",
+        "type": "Variable",
+        "properties": {
+            "name": "result",
+            "full_name": "result",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::nodes",
+        "type": "Variable",
+        "properties": {
+            "name": "nodes",
+            "full_name": "nodes",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parser_agent_llm.py::relationships",
+        "type": "Variable",
+        "properties": {
+            "name": "relationships",
+            "full_name": "relationships",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "parsing_pipeline.py::load_codebase_into_neo4j",
+        "type": "Function",
+        "properties": {
+            "name": "load_codebase_into_neo4j",
+            "full_name": "load_codebase_into_neo4j",
+            "parameters": [
+                "SOURCE_DIR"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "parsing_pipeline.py::load_codebase_into_neo4j::driver",
+        "type": "Variable",
+        "properties": {
+            "name": "driver",
+            "full_name": "load_codebase_into_neo4j.driver",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "parsing_pipeline.py::driver",
+        "type": "Variable",
+        "properties": {
+            "name": "driver",
+            "full_name": "driver",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "utils.py::load_json_file",
+        "type": "Function",
+        "properties": {
+            "name": "load_json_file",
+            "full_name": "load_json_file",
+            "parameters": [
+                "file_path"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "utils.py::save_json_file",
+        "type": "Function",
+        "properties": {
+            "name": "save_json_file",
+            "full_name": "save_json_file",
+            "parameters": [
+                "data",
+                "file_path"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "utils.py::display_message",
+        "type": "Function",
+        "properties": {
+            "name": "display_message",
+            "full_name": "display_message",
+            "parameters": [
+                "message",
+                "type_"
+            ],
+            "is_method": false
+        }
+    },
+    {
+        "id": "utils.py::display_message::message_func",
+        "type": "Variable",
+        "properties": {
+            "name": "message_func",
+            "full_name": "display_message.message_func",
+            "scope": "function"
+        }
+    },
+    {
+        "id": "utils.py::message_types",
+        "type": "Variable",
+        "properties": {
+            "name": "message_types",
+            "full_name": "message_types",
+            "scope": "module"
+        }
+    },
+    {
+        "id": "utils.py::message_func",
+        "type": "Variable",
+        "properties": {
+            "name": "message_func",
+            "full_name": "message_func",
+            "scope": "module"
         }
     }
 ]

@@ -1,3 +1,5 @@
 secrets/
 __pycache__/
 *.pyc
+testing.ipynb
+lib/
