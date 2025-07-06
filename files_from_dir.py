@@ -1,26 +1,49 @@
 import os
+from llm_setup import get_default_llm_and_transformer
+from code_parser import parse_code_with_llm
+from file_utils import save_results_to_json
 
+os.makedirs("output", exist_ok=True)
 
-directories = ["code"] 
-file_extension = ".py"  
+with open(os.path.join("output", "output.json"), "w"):
+    pass
 
-def get_files_from_dir(directories, file_extension=".py", combined_output_file="combined_output.py"):
+llm, transformer = get_default_llm_and_transformer()
+
+def check_llm():
+    global llm, transformer
+    if llm is None or transformer is None:
+        print("❌ Failed to initialize LLM. Exiting.")
+        exit()
+    else:
+        print("✅ LLM initialized successfully.")
+
+def get_files_from_dir(directories, file_extension=".py"):
+    global llm, transformer
+    check_llm()
     
-    with open(combined_output_file, "w", encoding="utf-8") as out_f:
+    for dir_name in directories:
+        for root, dirs, files in os.walk(dir_name):
+            for file in files:
+                if file.endswith(file_extension):
+                    file_path = os.path.join(root, file)
+                    try:
+                        result = parse_code_with_llm(file_path, transformer)
+                        if result:
+                            json_file = save_results_to_json(result)
+                            if json_file:
+                                print(f"🔗 You can view the JSON file: {json_file}")
+                                print(
+                                    f"📄 File contains {len(result['nodes'])} nodes and {len(result['relationships'])} relationships"
+                                )
+                            else:
+                                print("❌ Failed to save results to JSON.")
+                        else:
+                            print(f"⚠️ Parsing produced no nodes for {file_path}. Skipping.")
+                    except Exception as e:
+                        print(f"❌ Failed to read {file_path}: {e}")
+                else:
+                    print("❌ No results to save - parsing failed.")
 
-        for dir_name in directories:
-            for root, dirs, files in os.walk(dir_name):
-                for file in files:
-                    if file.endswith(file_extension):
-                        file_path = os.path.join(root, file)
-                        try:
-                            with open(file_path, "r", encoding="utf-8") as in_f:
-                                content = in_f.read()
-                                out_f.write(f"# --- Start of {file_path} ---\n")
-                                out_f.write(content + "\n")
-                                out_f.write(f"# --- End of {file_path} ---\n\n")
-                                print(f"✅ Added: {file_path}")
-                        except Exception as e:
-                            print(f"❌ Failed to read {file_path}: {e}")
 
-get_files_from_dir(["code"], ".py", "combined_output.py")
+

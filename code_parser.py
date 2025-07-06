@@ -1,7 +1,3 @@
-"""
-Code parsing and graph transformation module
-"""
-
 import hashlib
 from datetime import datetime
 from langchain_core.documents import Document

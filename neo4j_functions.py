@@ -5,48 +5,50 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Global Neo4j Connection
+
 URI = os.getenv("NEO4J_URI")
+print(URI)
 AUTH = (os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD"))
-driver = GraphDatabase.driver(URI, auth=AUTH)  # Now accessible in all functions
+print(AUTH)
+
+driver = GraphDatabase.driver(URI, auth=AUTH)
+
+
+def check_neo4j_connection():
+    try:
+        with driver.session() as session:
+            result = session.run("RETURN 1")
+            if result.single()[0] == 1:
+                print("✅ Neo4j database connection is active.")
+                return True
+    except Exception as e:
+        print(f"❌ Failed to connect to Neo4j: {e}")
+        return False
 
 def get_data_from_json(file_path):
     file_path = file_path
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         data = json.load(file)
     return data
 
-# def saving_nodes_to_neo4j(file_path="parsed_code.json"):
-#     # Load fresh data each time
-#     data = get_data_from_json(file_path)
-#     nodes = data["nodes"]
-    
-#     for node in nodes:
-#         try:
-#             driver.execute_query(
-#                 f"""MERGE (n:Node {{id: '{node['id']}', type: '{node['type']}'}})"""
-#             )
-#             print(f"✅ Node {node['id']} created successfully")
-#         except Exception as e:
-#             print(f"❌ Error creating node {node['id']}: {e}")
 
-
-def saving_nodes_to_neo4j(file_path="parsed_code.json"):
+def saving_nodes_to_neo4j(file_path=os.path.join("output", "parsed_code.json")):
     data = get_data_from_json(file_path)
     nodes = data.get("nodes", [])
 
     with GraphDatabase.driver(URI, auth=AUTH) as driver:
         for node in nodes:
             try:
-                label = node["type"]   
+                label = node["type"]
                 node_id = str(node["id"])
                 props = node.get("properties", {})
 
-                # Add id and type as properties too
+               
                 props["id"] = node_id
                 props["type"] = label
-
-                # Generate Cypher property string and parameters
+                if "name" not in props:
+                    props["name"] = node_id
+                
                 prop_str = ", ".join([f"{k}: ${k}" for k in props])
                 cypher = f"MERGE (n:{label} {{id: $id}}) SET n += {{{prop_str}}}"
 
@@ -56,24 +58,7 @@ def saving_nodes_to_neo4j(file_path="parsed_code.json"):
                 print(f"❌ Error creating node '{node.get('id', '?')}': {e}")
 
 
-# def saving_relationships_to_neo4j(file_path="parsed_code.json"):
-#     # Load fresh data each time
-#     data = get_data_from_json(file_path)
-#     relationships = data["relationships"]
-    
-#     for relationship in relationships:
-#         try:
-#             driver.execute_query(
-#                 f"""MATCH(n:Node {{id: '{relationship['source']['id']}'}})
-#                     MATCH(m:Node {{id: '{relationship['target']['id']}'}})
-#                     MERGE (n)-[:{relationship['relationship_type']}]->(m)"""
-#             )
-#             print(f"✅ Relationship {relationship['relationship_type']} created successfully")
-#         except Exception as e:
-#             print(f"❌ Error creating relationship {relationship['relationship_type']}: {e}")
-
- 
-def saving_relationships_to_neo4j(file_path="parsed_code.json"):
+def saving_relationships_to_neo4j(file_path=os.path.join("output", "parsed_code.json")):
     data = get_data_from_json(file_path)
     relationships = data.get("relationships", [])
 
@@ -87,14 +72,14 @@ def saving_relationships_to_neo4j(file_path="parsed_code.json"):
                 rel_type = rel["relationship_type"]
                 rel_props = rel.get("properties", {})
 
-                # Prepare base Cypher query
+                
                 cypher = f"""
                     MATCH (a:{source_type} {{id: $source_id}})
                     MATCH (b:{target_type} {{id: $target_id}})
                     MERGE (a)-[r:{rel_type}]->(b)
                 """
 
-                # Only add SET clause if there are properties
+                
                 params = {"source_id": source_id, "target_id": target_id}
                 if rel_props:
                     rel_prop_str = ", ".join([f"{k}: ${k}" for k in rel_props])
@@ -102,10 +87,14 @@ def saving_relationships_to_neo4j(file_path="parsed_code.json"):
                     params.update(rel_props)
 
                 driver.execute_query(cypher, params)
-                print(f"✅ Relationship {rel_type} from {source_id} → {target_id} created successfully")
+                print(
+                    f"✅ Relationship {rel_type} from {source_id} → {target_id} created successfully"
+                )
 
             except Exception as e:
-                print(f"❌ Error creating relationship {rel.get('relationship_type', '?')} from {rel.get('source', {}).get('id', '?')} to {rel.get('target', {}).get('id', '?')}: {e}")
+                print(
+                    f"❌ Error creating relationship {rel.get('relationship_type', '?')} from {rel.get('source', {}).get('id', '?')} to {rel.get('target', {}).get('id', '?')}: {e}"
+                )
 
 
 def deleting_all_nodes_and_relationships():
@@ -116,4 +105,8 @@ def deleting_all_nodes_and_relationships():
         except Exception as e:
             print(f"❌ Failed to delete nodes and relationships: {e}")
 
-driver.close()
+
+def close_driver():
+    """Close the Neo4j driver connection"""
+    driver.close()
+    print("🔌 Neo4j driver connection closed")

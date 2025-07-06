@@ -19,33 +19,6 @@ ALLOWED_NODES = [
     "Module",
     "Package",
     "FromImport",
-    # Control Flow and Logic
-    "IfStatement",
-    "ForLoop",
-    "WhileLoop",
-    "TryBlock",
-    "ExceptBlock",
-    "WithStatement",
-    # Object-Oriented Elements
-    "Constructor",
-    "Destructor",
-    "StaticMethod",
-    "ClassMethod",
-    "AbstractMethod",
-    # Decorators and Annotations
-    "Decorator",
-    "TypeAnnotation",
-    # Data Structures
-    "List",
-    "Dictionary",
-    "Tuple",
-    "Set",
-    # Special Elements
-    "Lambda",
-    "Generator",
-    "Comprehension",
-    "AsyncFunction",
-    "Coroutine",
 ]
 
 # Enhanced relationship types for semantic code analysis
@@ -55,7 +28,6 @@ ALLOWED_RELATIONSHIPS = [
     "CONTAINS",
     "BELONGS_TO",
     "IMPORTS",
-    "FROM_IMPORT",
     # Functional Relationships
     "CALLS",
     "INVOKES",
@@ -65,9 +37,7 @@ ALLOWED_RELATIONSHIPS = [
     # Object-Oriented Relationships
     "INHERITS",
     "IMPLEMENTS",
-    "OVERRIDES",
-    "EXTENDS",
-    "INSTANTIATES",
+    
     # Data Flow Relationships
     "ASSIGNS",
     "ACCESSES",
@@ -75,32 +45,7 @@ ALLOWED_RELATIONSHIPS = [
     "READS",
     "WRITES",
     "USES",
-    # Parameter and Argument Relationships
-    "HAS_PARAMETER",
-    "TAKES_ARGUMENT",
-    "PASSES_TO",
-    "RECEIVES_FROM",
-    # Control Flow Relationships
-    "BRANCHES_TO",
-    "LOOPS_OVER",
-    "HANDLES_EXCEPTION",
-    "RAISES_EXCEPTION",
-    "CATCHES",
-    # Decorator and Annotation Relationships
-    "DECORATES",
-    "ANNOTATED_WITH",
-    "APPLIES_TO",
-    # Dependency Relationships
-    "DEPENDS_ON",
-    "REQUIRED_BY",
-    "PROVIDES",
-    "CONSUMES",
-    # Semantic Relationships
-    "CREATES",
-    "DESTROYS",
-    "TRANSFORMS",
-    "VALIDATES",
-    "PROCESSES",
+    
 ]
 
 # Basic prompt template for LLM

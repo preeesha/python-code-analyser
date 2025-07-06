@@ -1,0 +1,5 @@
+langchain-core
+langchain-ollama
+langchain-google-genai
+langchain-experimental
+neo4j

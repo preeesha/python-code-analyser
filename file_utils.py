@@ -1,32 +1,27 @@
-"""
-File utilities module for saving and loading results
-"""
-
 import json
 import os
 from datetime import datetime
 
 
 def save_results_to_json(graph_info, output_file=None):
-    """
-    Save the parsed graph information to a JSON file.
-
-    Args:
-        graph_info (dict): Graph information from parse_code_with_llm
-        output_file (str): Output file path (optional)
-
-    Returns:
-        str: Path to the saved JSON file
-    """
     if not graph_info:
         print("No graph information to save.")
         return None
 
-    # Generate output filename if not provided
     if not output_file:
-        output_file = "parsed_code.json"
+        output_file = os.path.join("output", "parsed_code.json")
 
-    # Convert complex objects to serializable format
+  
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    existing_data = None
+    if output_file and os.path.exists(output_file) and os.path.getsize(output_file) > 0:
+        try:
+            with open(output_file, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+        except Exception as e:
+            print(f"⚠️ Could not read existing JSON file {output_file}: {e}")
+
     serializable_data = {
         "file": graph_info["file"],
         "content_hash": graph_info.get("content_hash", "unknown"),
@@ -40,7 +35,6 @@ def save_results_to_json(graph_info, output_file=None):
         "relationships": [],
     }
 
-    # Convert nodes to dictionaries
     if "nodes" in graph_info:
         for node in graph_info["nodes"]:
             serializable_data["nodes"].append(
@@ -53,7 +47,6 @@ def save_results_to_json(graph_info, output_file=None):
                 }
             )
 
-    # Convert relationships to dictionaries
     if "relationships" in graph_info:
         for rel in graph_info["relationships"]:
             serializable_data["relationships"].append(
@@ -91,7 +84,42 @@ def save_results_to_json(graph_info, output_file=None):
                 }
             )
 
-    # Save to JSON file
+    if existing_data:
+        existing_nodes_dict = {
+            str(n.get("id")): n for n in existing_data.get("nodes", [])
+        }
+        for node in serializable_data["nodes"]:
+            existing_nodes_dict[str(node.get("id"))] = node
+
+        merged_nodes = list(existing_nodes_dict.values())
+
+        def _rel_key(rel):
+            return (
+                rel["source"]["id"],
+                rel["target"]["id"],
+                rel["relationship_type"],
+            )
+
+        existing_rels_dict = {
+            _rel_key(rel): rel for rel in existing_data.get("relationships", [])
+        }
+
+        for rel in serializable_data["relationships"]:
+            existing_rels_dict[_rel_key(rel)] = rel
+
+        merged_relationships = list(existing_rels_dict.values())
+
+        serializable_data = existing_data  # start from previous metadata
+        serializable_data["nodes"] = merged_nodes
+        serializable_data["relationships"] = merged_relationships
+        serializable_data["node_count"] = len(merged_nodes)
+        serializable_data["relationship_count"] = len(merged_relationships)
+
+        
+        processed_files = set(serializable_data.get("processed_files", []))
+        processed_files.add(graph_info["file"])
+        serializable_data["processed_files"] = sorted(processed_files)
+
     try:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(serializable_data, f, indent=2, ensure_ascii=False)
@@ -137,6 +165,9 @@ def ensure_clean_json_file(file_path):
     Args:
         file_path (str): Path to JSON file to clean
     """
+    # Make sure the directory for the JSON file exists first
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
     if os.path.exists(file_path):
         try:
             os.remove(file_path)
