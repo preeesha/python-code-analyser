@@ -35,12 +35,7 @@ def initialize_gemma_llm():
 
 
 def initialize_gemini_llm():
-    """
-    Initialize Google Gemini model
     
-    Returns:
-        ChatGoogleGenerativeAI: Initialized Gemini LLM instance
-    """
     try:
         print("Initializing Google Gemini model...")
         llm = ChatGoogleGenerativeAI(

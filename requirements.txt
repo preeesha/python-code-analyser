@@ -3,3 +3,8 @@ langchain-ollama
 langchain-google-genai
 langchain-experimental
 neo4j
+py2neo==2021.2.4
+pyvis==0.3.2
+streamlit==1.46.1
+networkx==3.5
+langchain-neo4j==0.4.0
