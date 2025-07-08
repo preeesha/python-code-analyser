@@ -1,14 +1,16 @@
 import streamlit as st
 import os
-from file_processing import copy_local_dir
-from pipeline import ingestion_pipeline
+from file_processing import copy_local_dir, reset_dir
 import sys
 from pathlib import Path
+import subprocess
 
 # ── ensure project root is in Python path ───────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+    
+from pipeline import ingestion_pipeline
 
 def upload_zip_file():
     uploaded_file = st.file_uploader("upload your zip file here", type=["zip"])
@@ -22,6 +24,18 @@ def upload_github_repo():
         if repo_link.startswith("https://github.com/"):
             st.success("✅ successfully uploaded github repository")
             st.session_state["repo_link"] = repo_link
+            clone_dir = PROJECT_ROOT / "testing"
+            reset_dir(clone_dir)
+            subprocess.run(["git", "clone", repo_link, clone_dir], check=True)
+            st.session_state["start_parsing"] = True
+            if clone_dir.exists():
+                if st.session_state["start_parsing"]:
+                    ingestion_pipeline([str(clone_dir)], "py")
+                    st.session_state["start_parsing"] = False
+                    st.spinner("parsing the codebase...")
+                st.success("✅ Codebase parsed successfully")
+            else:
+                st.error(f"❌ The path `{clone_dir}` is not a valid directory.")
         else:
             st.warning("⚠️ please enter a valid github repository link")
     
