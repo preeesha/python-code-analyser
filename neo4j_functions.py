@@ -3,12 +3,11 @@ import os
 import json
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 
 URI = os.getenv("NEO4J_URI")
 AUTH = (os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD"))
-
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
 
