@@ -43,14 +43,6 @@ def initialize_gemini_llm():
         return llm
     except Exception as e:
         print(f"❌ Error initializing Gemini model: {e}")
-        print("Make sure GOOGLE_API_KEY is set in environment variables")
-        
-        # Additional troubleshooting info
-        if "404" in str(e) or "not found" in str(e).lower():
-            print("💡 Model not found - this might be a model name issue")
-        elif "QUOTA" in str(e).upper() or "LIMIT" in str(e).upper():
-            print("💡 Rate limit - wait a moment and try again")
-        
         return None
 
 

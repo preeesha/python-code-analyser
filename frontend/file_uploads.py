@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from file_processing import copy_local_dir, reset_dir
+from frontend.file_processing import copy_local_dir, reset_dir
 import sys
 from pathlib import Path
 import subprocess
@@ -49,6 +49,7 @@ def upload_zip_file():
     st.session_state["start_parsing"] = False
 
     st.success("✅ Codebase parsed successfully")
+    st.session_state["parsing_complete"] = True
     
 def upload_github_repo():
    
@@ -87,6 +88,7 @@ def upload_github_repo():
         ingestion_pipeline([str(clone_dir)], "py")
 
     st.success("✅ Codebase parsed successfully")
+    st.session_state["parsing_complete"] = True
 
 
 def upload_local_directory():
@@ -96,9 +98,9 @@ def upload_local_directory():
     if not st.button("Analyze", disabled=not dir_path):
         return
 
-    if not dir_path or not os.path.isdir(dir_path):
-        st.error(f"❌ The path `{dir_path}` is not a valid directory.")
-        return
+    # if not dir_path or not os.path.isdir(dir_path):
+    #     st.error(f"❌ The path `{dir_path}` is not a valid directory.")
+    #     return
 
     src_dir = dir_path.strip()
     dest_dir = PROJECT_ROOT / "testing"
@@ -119,6 +121,7 @@ def upload_local_directory():
         ingestion_pipeline([str(dest_dir)], "py")
 
     st.success("✅ Codebase parsed successfully")
+    st.session_state["parsing_complete"] = True
                 
         
            

@@ -1,7 +1,13 @@
-"""
-CSS styles for the Python Code Analyzer Streamlit app.
-"""
 
+LANDING_PAGE_CONTENT = """
+Welcome to the Python Code Analyzer! This tool helps you explore, understand, and visualize any Python codebase.
+
+- **See the bigger picture:** Uncover high-level architecture and component interactions.
+- **Drill down into details:** Analyze dependencies, function calls, and data structures.
+- **Identify complexity:** Find complex files and functions that might need refactoring.
+
+Ready to start? Click the button below to begin analyzing your project.
+""" 
 # Main app styling
 MAIN_STYLES = """
 <style>

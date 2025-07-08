@@ -12,17 +12,7 @@ def reset_dir(path: str, empty_ok: bool = True) -> None:
     
 
 def copy_local_dir(src_dir: str, target_dir: str) -> Path:
-    """
-    Copy every file and sub‑folder from *src_dir* into a brand‑new
-    *target_dir*.
-
-    Raises
-    ------
-    NotADirectoryError
-        If `src_dir` isn’t a directory.
-    ValueError
-        If `target_dir` is the same as—or nested anywhere inside—`src_dir`.
-    """
+    
     src    = Path(src_dir).resolve()
     dest   = Path(target_dir).resolve()
 
