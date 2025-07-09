@@ -83,28 +83,32 @@ def show_analytics():
     """Main function to display all analytics on the Streamlit page."""
     
     st.markdown("<hr/>", unsafe_allow_html=True)
-    st.markdown("<p class='medium-font'>📊 Codebase Analytics Dashboard</p>", unsafe_allow_html=True)
     
     output_file = Path("output/parsed_code.json")
     data = read_parse_data(output_file)
     
     if not data or 'nodes' not in data or 'relationships' not in data:
-        st.warning("No Python files to display in Project.")
+        st.info("No analytics data is available. Run the analysis from the Home page first.")
         return
         
     df_nodes = pd.DataFrame(data['nodes'])
     df_relationships = pd.DataFrame(data['relationships'])
 
-    # --- Overview ---
-    st.markdown("#### Overview") 
+    # --- Overview Metrics ---
+    st.markdown("#### At a Glance")
     col1, col2, col3 = st.columns(3)
     col1.metric("Total Files Processed", len(data.get("processed_files", [])))
     col2.metric("Total Nodes", data.get("node_count", 0))
     col3.metric("Total Relationships", data.get("relationship_count", 0))
+    st.markdown("<hr/>", unsafe_allow_html=True)
 
-    # --- Plots ---
-    plot_node_distribution(df_nodes)
-    plot_relationship_distribution(df_relationships)
+    # --- Distribution Plots in Columns ---
+    col_plot1, col_plot2 = st.columns(2)
+    with col_plot1:
+        plot_node_distribution(df_nodes)
+    with col_plot2:
+        plot_relationship_distribution(df_relationships)
+    st.markdown("<hr/>", unsafe_allow_html=True)
     
-    # # --- Tables ---
+    # --- Complexity Table ---
     show_file_complexity(df_nodes) 

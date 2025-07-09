@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 500px;
+                 background-color: #1a1a1a;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6f61", "font": {"color": "white"}, "id": 131, "label": "Load_Dotenv", "shape": "dot", "title": "Type: Function"}, {"color": "#e0115f", "font": {"color": "white"}, "id": 166, "label": "Secrets/.Env", "shape": "dot", "title": "Type: File"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 130, "label": "dotenv", "shape": "dot", "title": "Type: Module"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 133, "label": "Neo4jGraph", "shape": "dot", "title": "Type: Class"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 132, "label": "langchain_neo4j", "shape": "dot", "title": "Type: Module"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 135, "label": "GoogleGenerativeAI", "shape": "dot", "title": "Type: Class"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 134, "label": "langchain_google_genai", "shape": "dot", "title": "Type: Module"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 137, "label": "GraphCypherQAChain", "shape": "dot", "title": "Type: Class"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 136, "label": "langchain_neo4j.chains.graph_qa.cypher", "shape": "dot", "title": "Type: Module"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 139, "label": "CYPHER_PROMPT", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 144, "label": "from_template", "shape": "dot", "title": "Type: Function"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 140, "label": "graph", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 147, "label": "refresh_schema", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 149, "label": "getenv", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 148, "label": "__init__", "shape": "dot", "title": "Type: Function"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 141, "label": "chain", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 146, "label": "invoke", "shape": "dot", "title": "Type: Function"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 285, "label": "llm", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 153, "label": "Convert_Ast_To_Neo4J_Format", "shape": "dot", "title": "Type: Function"}, {"color": "#e0115f", "font": {"color": "white"}, "id": 0, "label": "Outputs/Project_Ast.Json", "shape": "dot", "title": "Type: File"}, {"color": "#e0115f", "font": {"color": "white"}, "id": 1, "label": "Outputs/Nodes.Json", "shape": "dot", "title": "Type: File"}, {"color": "#e0115f", "font": {"color": "white"}, "id": 2, "label": "Outputs/Relationships.Json", "shape": "dot", "title": "Type: File"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 154, "label": "Load_Codebase_Into_Neo4J", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 151, "label": "Codebaseparser", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 152, "label": "Codebaseparserllm", "shape": "dot", "title": "Type: Function"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 155, "label": "Neo4Jdriver", "shape": "dot", "title": "Type: Class"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 156, "label": "Driver", "shape": "dot", "title": "Type: Variable"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 150, "label": "Neo4J_Driver", "shape": "dot", "title": "Type: Module"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 240, "label": "Os", "shape": "dot", "title": "Type: Module"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 163, "label": "Uri", "shape": "dot", "title": "Type: Variable"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 164, "label": "User", "shape": "dot", "title": "Type: Variable"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 165, "label": "Password", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 244, "label": "Initialize_Gemma_Llm", "shape": "dot", "title": "Type: Function"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 248, "label": "Chatollama", "shape": "dot", "title": "Type: Class"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 252, "label": "Datetime", "shape": "dot", "title": "Type: Module"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 245, "label": "Initialize_Gemini_Llm", "shape": "dot", "title": "Type: Function"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 249, "label": "Chatgooglegenerativeai", "shape": "dot", "title": "Type: Class"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 246, "label": "Create_Graph_Transformer", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 284, "label": "Get_Enhanced_Prompt", "shape": "dot", "title": "Type: Function"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 250, "label": "PromptTemplate", "shape": "dot", "title": "Type: Class"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 251, "label": "Llmgraphtransformer", "shape": "dot", "title": "Type: Class"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 254, "label": "Allowed_Nodes", "shape": "dot", "title": "Type: Variable"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 255, "label": "Allowed_Relationships", "shape": "dot", "title": "Type: Variable"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 253, "label": "Config", "shape": "dot", "title": "Type: Module"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 247, "label": "Get_Default_Llm_And_Transformer", "shape": "dot", "title": "Type: Function"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 138, "label": "langchain_core.prompts", "shape": "dot", "title": "Type: Module"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 296, "label": "load_dotenv", "shape": "dot", "title": "Type: Function"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 294, "label": "os", "shape": "dot", "title": "Type: Module"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 297, "label": "URI", "shape": "dot", "title": "Type: Variable"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 298, "label": "AUTH", "shape": "dot", "title": "Type: Variable"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 299, "label": "driver", "shape": "dot", "title": "Type: Variable"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 293, "label": "GraphDatabase", "shape": "dot", "title": "Type: Class"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 302, "label": "saving_nodes_to_neo4j", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 303, "label": "saving_relationships_to_neo4j", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 304, "label": "deleting_all_nodes_and_relationships", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 300, "label": "check_neo4j_connection", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 301, "label": "get_data_from_json", "shape": "dot", "title": "Type: Function"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 295, "label": "json", "shape": "dot", "title": "Type: Module"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 305, "label": "close_driver", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 306, "label": "Ingestion_Pipeline", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 307, "label": "Get_Files_From_Dir", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 309, "label": "deleting_all_nodes_and_relationships", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 310, "label": "saving_nodes_to_neo4j", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 311, "label": "saving_relationships_to_neo4j", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 312, "label": "close_driver", "shape": "dot", "title": "Type: Function"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 308, "label": "neo4j_functions", "shape": "dot", "title": "Type: Module"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 125, "label": "Pipeline", "shape": "dot", "title": "Type: Module"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 313, "label": "Parse_Code_With_Llm", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 314, "label": "Save_Results_To_Json", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 315, "label": "Check_Llm", "shape": "dot", "title": "Type: Function"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 289, "label": "Transformer", "shape": "dot", "title": "Type: Variable"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 320, "label": "reset_dir", "shape": "dot", "title": "Type: Function"}, {"color": "#bada55", "font": {"color": "white"}, "id": 327, "label": "exists", "shape": "dot", "title": "Type: Method"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 328, "label": "rmtree", "shape": "dot", "title": "Type: Function"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 329, "label": "makedirs", "shape": "dot", "title": "Type: Function"}, {"color": "#1f75fe", "font": {"color": "white"}, "id": 324, "label": "Fileexistserror", "shape": "dot", "title": "Type: Exception"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 321, "label": "Copy_Local_Dir", "shape": "dot", "title": "Type: Function"}, {"color": "#bada55", "font": {"color": "white"}, "id": 330, "label": "resolve", "shape": "dot", "title": "Type: Method"}, {"color": "#bada55", "font": {"color": "white"}, "id": 331, "label": "is_dir", "shape": "dot", "title": "Type: Method"}, {"color": "#bada55", "font": {"color": "white"}, "id": 332, "label": "exists", "shape": "dot", "title": "Type: Method"}, {"color": "#bada55", "font": {"color": "white"}, "id": 333, "label": "mkdir", "shape": "dot", "title": "Type: Method"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 334, "label": "copytree", "shape": "dot", "title": "Type: Function"}, {"color": "#8a2be2", "font": {"color": "white"}, "id": 319, "label": "Path", "shape": "dot", "title": "Type: Class"}, {"color": "#7fffd4", "font": {"color": "white"}, "id": 124, "label": "File_Processing", "shape": "dot", "title": "Type: Module"}, {"color": "#1f75fe", "font": {"color": "white"}, "id": 325, "label": "Notadirectoryerror", "shape": "dot", "title": "Type: Exception"}, {"color": "#1f75fe", "font": {"color": "white"}, "id": 326, "label": "Valueerror", "shape": "dot", "title": "Type: Exception"}, {"color": "#ff6f61", "font": {"color": "white"}, "id": 342, "label": "upload_local_directory", "shape": "dot", "title": "Type: Function"}, {"color": "#ffb6c1", "font": {"color": "white"}, "id": 337, "label": "Project_Root", "shape": "dot", "title": "Type: Variable"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#888", "from": 131, "label": "USES", "to": 166}, {"arrows": "to", "color": "#888", "from": 131, "label": "IMPORTS", "to": 130}, {"arrows": "to", "color": "#888", "from": 133, "label": "IMPORTS", "to": 132}, {"arrows": "to", "color": "#888", "from": 135, "label": "IMPORTS", "to": 134}, {"arrows": "to", "color": "#888", "from": 137, "label": "IMPORTS", "to": 136}, {"arrows": "to", "color": "#888", "from": 139, "label": "INSTANTIATES", "to": 144}, {"arrows": "to", "color": "#888", "from": 140, "label": "CALLS", "to": 147}, {"arrows": "to", "color": "#888", "from": 140, "label": "CALLS", "to": 149}, {"arrows": "to", "color": "#888", "from": 140, "label": "CONTAINS", "to": 148}, {"arrows": "to", "color": "#888", "from": 141, "label": "CALLS", "to": 146}, {"arrows": "to", "color": "#888", "from": 141, "label": "USES", "to": 139}, {"arrows": "to", "color": "#888", "from": 141, "label": "USES", "to": 140}, {"arrows": "to", "color": "#888", "from": 141, "label": "USES", "to": 285}, {"arrows": "to", "color": "#888", "from": 153, "label": "USES", "to": 0}, {"arrows": "to", "color": "#888", "from": 153, "label": "USES", "to": 1}, {"arrows": "to", "color": "#888", "from": 153, "label": "USES", "to": 2}, {"arrows": "to", "color": "#888", "from": 154, "label": "CALLS", "to": 151}, {"arrows": "to", "color": "#888", "from": 154, "label": "CALLS", "to": 152}, {"arrows": "to", "color": "#888", "from": 154, "label": "CALLS", "to": 153}, {"arrows": "to", "color": "#888", "from": 154, "label": "USES", "to": 155}, {"arrows": "to", "color": "#888", "from": 154, "label": "USES", "to": 156}, {"arrows": "to", "color": "#888", "from": 154, "label": "IMPORTS", "to": 130}, {"arrows": "to", "color": "#888", "from": 154, "label": "IMPORTS", "to": 150}, {"arrows": "to", "color": "#888", "from": 154, "label": "IMPORTS", "to": 240}, {"arrows": "to", "color": "#888", "from": 156, "label": "IS_INSTANCE_OF", "to": 155}, {"arrows": "to", "color": "#888", "from": 156, "label": "DECLARED_IN", "to": 154}, {"arrows": "to", "color": "#888", "from": 163, "label": "DECLARED_IN", "to": 154}, {"arrows": "to", "color": "#888", "from": 164, "label": "DECLARED_IN", "to": 154}, {"arrows": "to", "color": "#888", "from": 165, "label": "DECLARED_IN", "to": 154}, {"arrows": "to", "color": "#888", "from": 244, "label": "USES", "to": 248}, {"arrows": "to", "color": "#888", "from": 244, "label": "IMPORTS", "to": 240}, {"arrows": "to", "color": "#888", "from": 244, "label": "IMPORTS", "to": 252}, {"arrows": "to", "color": "#888", "from": 245, "label": "USES", "to": 249}, {"arrows": "to", "color": "#888", "from": 245, "label": "IMPORTS", "to": 240}, {"arrows": "to", "color": "#888", "from": 245, "label": "IMPORTS", "to": 252}, {"arrows": "to", "color": "#888", "from": 246, "label": "CALLS", "to": 284}, {"arrows": "to", "color": "#888", "from": 246, "label": "USES", "to": 250}, {"arrows": "to", "color": "#888", "from": 246, "label": "USES", "to": 251}, {"arrows": "to", "color": "#888", "from": 246, "label": "USES", "to": 254}, {"arrows": "to", "color": "#888", "from": 246, "label": "USES", "to": 255}, {"arrows": "to", "color": "#888", "from": 246, "label": "IMPORTS", "to": 253}, {"arrows": "to", "color": "#888", "from": 247, "label": "CALLS", "to": 244}, {"arrows": "to", "color": "#888", "from": 247, "label": "CALLS", "to": 245}, {"arrows": "to", "color": "#888", "from": 247, "label": "CALLS", "to": 246}, {"arrows": "to", "color": "#888", "from": 250, "label": "IMPORTS", "to": 138}, {"arrows": "to", "color": "#888", "from": 285, "label": "CALLS", "to": 149}, {"arrows": "to", "color": "#888", "from": 285, "label": "CONTAINS", "to": 148}, {"arrows": "to", "color": "#888", "from": 296, "label": "USES", "to": 294}, {"arrows": "to", "color": "#888", "from": 297, "label": "USES", "to": 294}, {"arrows": "to", "color": "#888", "from": 298, "label": "USES", "to": 294}, {"arrows": "to", "color": "#888", "from": 299, "label": "USES", "to": 293}, {"arrows": "to", "color": "#888", "from": 299, "label": "USES", "to": 302}, {"arrows": "to", "color": "#888", "from": 299, "label": "USES", "to": 303}, {"arrows": "to", "color": "#888", "from": 299, "label": "USES", "to": 304}, {"arrows": "to", "color": "#888", "from": 300, "label": "USES", "to": 299}, {"arrows": "to", "color": "#888", "from": 301, "label": "USES", "to": 295}, {"arrows": "to", "color": "#888", "from": 302, "label": "CALLS", "to": 301}, {"arrows": "to", "color": "#888", "from": 302, "label": "USES", "to": 299}, {"arrows": "to", "color": "#888", "from": 303, "label": "CALLS", "to": 301}, {"arrows": "to", "color": "#888", "from": 303, "label": "USES", "to": 299}, {"arrows": "to", "color": "#888", "from": 304, "label": "USES", "to": 299}, {"arrows": "to", "color": "#888", "from": 305, "label": "USES", "to": 299}, {"arrows": "to", "color": "#888", "from": 306, "label": "CALLS", "to": 307}, {"arrows": "to", "color": "#888", "from": 306, "label": "CALLS", "to": 309}, {"arrows": "to", "color": "#888", "from": 306, "label": "CALLS", "to": 310}, {"arrows": "to", "color": "#888", "from": 306, "label": "CALLS", "to": 311}, {"arrows": "to", "color": "#888", "from": 306, "label": "CALLS", "to": 312}, {"arrows": "to", "color": "#888", "from": 306, "label": "IMPORTS", "to": 307}, {"arrows": "to", "color": "#888", "from": 306, "label": "IMPORTS", "to": 308}, {"arrows": "to", "color": "#888", "from": 306, "label": "BELONGS_TO", "to": 125}, {"arrows": "to", "color": "#888", "from": 307, "label": "CALLS", "to": 313}, {"arrows": "to", "color": "#888", "from": 307, "label": "CALLS", "to": 314}, {"arrows": "to", "color": "#888", "from": 307, "label": "CALLS", "to": 315}, {"arrows": "to", "color": "#888", "from": 307, "label": "USES", "to": 285}, {"arrows": "to", "color": "#888", "from": 307, "label": "USES", "to": 289}, {"arrows": "to", "color": "#888", "from": 313, "label": "USES", "to": 289}, {"arrows": "to", "color": "#888", "from": 315, "label": "USES", "to": 285}, {"arrows": "to", "color": "#888", "from": 315, "label": "USES", "to": 289}, {"arrows": "to", "color": "#888", "from": 320, "label": "CALLS", "to": 327}, {"arrows": "to", "color": "#888", "from": 320, "label": "CALLS", "to": 328}, {"arrows": "to", "color": "#888", "from": 320, "label": "CALLS", "to": 329}, {"arrows": "to", "color": "#888", "from": 320, "label": "RAISES", "to": 324}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 328}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 330}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 331}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 332}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 333}, {"arrows": "to", "color": "#888", "from": 321, "label": "CALLS", "to": 334}, {"arrows": "to", "color": "#888", "from": 321, "label": "USES", "to": 319}, {"arrows": "to", "color": "#888", "from": 321, "label": "RETURNS", "to": 319}, {"arrows": "to", "color": "#888", "from": 321, "label": "BELONGS_TO", "to": 124}, {"arrows": "to", "color": "#888", "from": 321, "label": "RAISES", "to": 325}, {"arrows": "to", "color": "#888", "from": 321, "label": "RAISES", "to": 326}, {"arrows": "to", "color": "#888", "from": 342, "label": "CALLS", "to": 306}, {"arrows": "to", "color": "#888", "from": 342, "label": "CALLS", "to": 321}, {"arrows": "to", "color": "#888", "from": 342, "label": "USES", "to": 240}, {"arrows": "to", "color": "#888", "from": 342, "label": "USES", "to": 337}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
