@@ -63,11 +63,11 @@ def build_network_graph(data):
         relation = record['relation']
         
         if src_id not in added_nodes:
-            net.add_node(src_id, label=src_name, title=f"Type: {src_label}", color=get_color_map().get(src_label))
+            net.add_node(src_id, label=src_name, title=f"Type: {src_label}", color=get_color_map("parsed_code").get(src_label))
             added_nodes.add(src_id)
             
         if tgt_id not in added_nodes:
-            net.add_node(tgt_id, label=tgt_name, title=f"Type: {tgt_label}", color=get_color_map().get(tgt_label))
+            net.add_node(tgt_id, label=tgt_name, title=f"Type: {tgt_label}", color=get_color_map("parsed_code").get(tgt_label))
             added_nodes.add(tgt_id)
             
         net.add_edge(src_id, tgt_id, label=relation, color="#888")
