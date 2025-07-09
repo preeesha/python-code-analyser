@@ -30,7 +30,7 @@ def get_data_from_json(file_path):
     return data
 
 
-def saving_nodes_to_neo4j(file_path=os.path.join("output", "parsed_code.json")):
+def saving_nodes_to_neo4j(file_path=os.path.join("outputs", "parsed_code.json")):
     data = get_data_from_json(file_path)
     nodes = data.get("nodes", [])
 
@@ -56,7 +56,7 @@ def saving_nodes_to_neo4j(file_path=os.path.join("output", "parsed_code.json")):
                 print(f"❌ Error creating node '{node.get('id', '?')}': {e}")
 
 
-def saving_relationships_to_neo4j(file_path=os.path.join("output", "parsed_code.json")):
+def saving_relationships_to_neo4j(file_path=os.path.join("outputs", "parsed_code.json")):
     data = get_data_from_json(file_path)
     relationships = data.get("relationships", [])
 

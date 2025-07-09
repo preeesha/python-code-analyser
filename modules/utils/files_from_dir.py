@@ -1,11 +1,11 @@
 import os
-from llm_setup import get_default_llm_and_transformer
-from code_parser import parse_code_with_llm
-from file_utils import save_results_to_json
+from modules.llm.llm_setup import get_default_llm_and_transformer
+from modules.utils.code_parser import parse_code_with_llm
+from modules.utils.file_utils import save_results_to_json
 
-os.makedirs("output", exist_ok=True)
+os.makedirs("outputs", exist_ok=True)
 
-with open(os.path.join("output", "output.json"), "w"):
+with open(os.path.join("outputs", "output.json"), "w"):
     pass
 
 llm, transformer = get_default_llm_and_transformer()

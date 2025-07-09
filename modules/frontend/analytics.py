@@ -84,7 +84,7 @@ def show_analytics():
     
     st.markdown("<hr/>", unsafe_allow_html=True)
     
-    output_file = Path("output/parsed_code.json")
+    output_file = Path("outputs/parsed_code.json")
     data = read_parse_data(output_file)
     
     if not data or 'nodes' not in data or 'relationships' not in data:

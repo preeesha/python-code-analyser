@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import datetime
-from frontend.styles import apply_main_styles
-from frontend.front import render_landing_page, render_analysis_page
+from modules.frontend.styles import apply_main_styles
+from modules.frontend.front import render_landing_page, render_analysis_page
 
 def main():
     

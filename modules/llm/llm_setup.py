@@ -5,7 +5,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from dotenv import load_dotenv
-from config import ALLOWED_NODES, ALLOWED_RELATIONSHIPS, get_enhanced_prompt
+from modules.config.config import ALLOWED_NODES, ALLOWED_RELATIONSHIPS, get_enhanced_prompt
 
 load_dotenv(override=True)
 

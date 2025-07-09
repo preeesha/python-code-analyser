@@ -9,7 +9,7 @@ def save_results_to_json(graph_info, output_file=None):
         return None
 
     if not output_file:
-        output_file = os.path.join("output", "parsed_code.json")
+        output_file = os.path.join("outputs", "parsed_code.json")
 
   
     os.makedirs(os.path.dirname(output_file), exist_ok=True)

@@ -3,7 +3,7 @@ import networkx as nx
 from neo4j import GraphDatabase
 import os
 from dotenv import load_dotenv
-from frontend.utils import get_color_map
+from modules.frontend.utils import get_color_map
 import streamlit as st
 from streamlit.components.v1 import html
 

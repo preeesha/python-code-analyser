@@ -1,8 +1,8 @@
 import streamlit as st
 from datetime import datetime
-from frontend.styles import apply_main_styles, apply_radio_pill_styles
-from frontend.file_uploads import upload_zip_file, upload_github_repo, upload_local_directory
-from frontend.styles import LANDING_PAGE_CONTENT
+from modules.frontend.styles import apply_main_styles, apply_radio_pill_styles
+from modules.frontend.file_uploads import upload_zip_file, upload_github_repo, upload_local_directory
+from modules.frontend.styles import LANDING_PAGE_CONTENT
 import time
 from pathlib import Path
 import io

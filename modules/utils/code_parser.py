@@ -2,7 +2,7 @@ import hashlib
 from datetime import datetime
 from langchain_core.documents import Document
 
-from config import MAX_CHUNK_SIZE, LARGE_FILE_THRESHOLD, CHUNK_OVERLAP_LINES
+from modules.config.config import MAX_CHUNK_SIZE, LARGE_FILE_THRESHOLD, CHUNK_OVERLAP_LINES
 
 
 def split_code_into_chunks(code_content, max_chunk_size=MAX_CHUNK_SIZE):

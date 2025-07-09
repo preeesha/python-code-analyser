@@ -1,7 +1,7 @@
 import json
 
 def get_color_map():
-    with open("output/parsed_code.json", "r") as file:
+    with open("outputs/parsed_code.json", "r") as file:
         data = json.load(file)
         nodes = data["nodes"]
         nodes_type = set()

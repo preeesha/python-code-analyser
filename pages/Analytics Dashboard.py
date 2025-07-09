@@ -1,5 +1,5 @@
 import streamlit as st
-from frontend.analytics import show_analytics
+from modules.frontend.analytics import show_analytics
 
 st.set_page_config(page_title="Basic Analytics Dashboard", page_icon="✅", layout="wide")
 st.title("📊 Codebase Analytics Dashboard")
