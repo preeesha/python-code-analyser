@@ -108,3 +108,4 @@ def close_driver():
     """Close the Neo4j driver connection"""
     driver.close()
     print("🔌 Neo4j driver connection closed")
+

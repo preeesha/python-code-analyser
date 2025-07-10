@@ -5,46 +5,27 @@ Enhanced for CodeGraph AI - Interactive code analysis with semantic relationship
 
 # Enhanced node types for comprehensive code graph analysis
 ALLOWED_NODES = [
-    # Core Code Elements
+    "Module",
     "Class",
     "Function",
     "Method",
     "Variable",
-    "Parameter",
-    "Attribute",
-    "Property",
     "Constant",
-    # Import and Module Structure
-    "Import",
-    "Module",
-    "Package",
-    "FromImport",
+    "Attribute",
 ]
 
 # Enhanced relationship types for semantic code analysis
 ALLOWED_RELATIONSHIPS = [
-    # Structural Relationships
-    "DEFINES",
-    "CONTAINS",
-    "BELONGS_TO",
     "IMPORTS",
-    # Functional Relationships
+    "CONTAINS",
     "CALLS",
-    "INVOKES",
-    "EXECUTES",
-    "RETURNS",
-    "YIELDS",
-    # Object-Oriented Relationships
-    "INHERITS",
-    "IMPLEMENTS",
-    
-    # Data Flow Relationships
-    "ASSIGNS",
     "ACCESSES",
-    "MODIFIES",
-    "READS",
-    "WRITES",
+    "DECLARES",
     "USES",
+    "RETURNS",
+    "INSTANTIATES",
+    "PASSES_TO",
+    "ASSIGNS",
     
 ]
 
@@ -87,8 +68,7 @@ For each relationship, specify:
 - target: Ending node  
 - relationship_type: Semantic relationship type
 - context: How they're related
-- line_number: Where relationship occurs
-- description: Brief explanation
+
 
 ANALYSIS FOCUS:
 1. **Classes**: Capture inheritance, methods, attributes, properties
@@ -99,15 +79,6 @@ ANALYSIS FOCUS:
 6. **Data Flow**: How data moves through the code
 7. **Dependencies**: What depends on what
 
-SEMANTIC RELATIONSHIPS TO CAPTURE:
-- Function calls and method invocations
-- Class inheritance and composition
-- Variable assignments and access
-- Import usage and dependencies
-- Exception handling patterns
-- Decorator applications
-- Data transformations
-- Control flow branches
 
 CODE TO ANALYZE:
 {{input}}

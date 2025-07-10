@@ -42,7 +42,7 @@ graph = Neo4jGraph(
 )
 
 llm = GoogleGenerativeAI(
-    model="gemini-2.0-flash", temperature=0, google_api_key=os.getenv("GOOGLE_API_KEY")
+    model=os.getenv("GEMINI_MODEL"), temperature=0, google_api_key=os.getenv("GOOGLE_API_KEY")
 )
 
 chain = GraphCypherQAChain.from_llm(

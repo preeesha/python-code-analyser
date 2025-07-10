@@ -50,7 +50,8 @@ def fetch_all_nodes():
 def build_network_graph(data):
     net = Network( height="500px",width="100%", bgcolor="#1a1a1a", font_color="white", directed=True)
     added_nodes = set()
-    
+    all_nodes=fetch_all_nodes()
+
     for record in data:
         src_id = record['source_id']
         src_name = record['source_name']
@@ -71,7 +72,13 @@ def build_network_graph(data):
             added_nodes.add(tgt_id)
             
         net.add_edge(src_id, tgt_id, label=relation, color="#888")
-     
+        
+    if len(all_nodes)!=len(added_nodes):
+        for node in all_nodes:
+            if node["node_id"] not in added_nodes:
+                net.add_node(node["node_id"], label=node["name"], title=f"Type: {node['label']}", color=get_color_map("parsed_code").get(node['label']))
+                added_nodes.add(node["node_id"])
+                
     return net
 
 def render_graph_in_streamlit(net: Network):
