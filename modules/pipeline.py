@@ -8,6 +8,7 @@ def ingestion_pipeline(directories:list[str],file_extension:str):
     print("Starting the pipeline...")
 
     print("Getting and parsingfiles from directories...")
+    
 
     get_files_from_dir(directories, file_extension)
 

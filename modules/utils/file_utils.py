@@ -204,3 +204,11 @@ def get_file_info(file_path):
     except Exception as e:
         print(f"Error getting file info: {e}")
         return None 
+    
+def delete_file_content(file_path):
+    if os.path.exists(file_path) and file_path.endswith(".json"):
+        try:
+            with open(file_path, "w") as f:
+                f.write("")
+        except Exception as e:
+            print(f"⚠️ Warning: Could not clear content of {file_path}: {e}")
