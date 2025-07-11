@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 from langchain_ollama import ChatOllama
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from dotenv import load_dotenv
@@ -43,6 +44,27 @@ def initialize_gemini_llm():
         return llm
     except Exception as e:
         print(f"❌ Error initializing Gemini model: {e}")
+        return None
+
+
+def initialize_openai_llm():
+    """
+    Initialize OpenAI model
+    
+    Returns:
+        ChatOpenAI: Initialized OpenAI LLM instance
+    """
+    try:
+        print("Initializing OpenAI model...")
+        llm = ChatOpenAI(
+            model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"),
+            openai_api_key=os.getenv("OPENAI_API_KEY"),
+            temperature=0
+        )
+        print("✅ Successfully connected to OpenAI model!")
+        return llm
+    except Exception as e:
+        print(f"❌ Error initializing OpenAI model: {e}")
         return None
 
 
