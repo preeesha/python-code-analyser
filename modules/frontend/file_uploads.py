@@ -93,16 +93,30 @@ def upload_github_repo():
 
 def upload_local_directory():
     
-    dir_path = st.text_input("Enter the path of the local directory:")
+    st.markdown("**Upload your entire project directory:**")
+    st.info("💡 **Tip**: Select all files from your project directory (including subdirectories). Most browsers allow you to select entire folder contents by selecting all files (Ctrl+A / Cmd+A) after opening a folder.")
+    
+    uploaded_files = st.file_uploader(
+        "Browse and select ALL files from your project directory",
+        accept_multiple_files=True,
+        help="Select all files from your project directory. This will preserve the directory structure. Python files (.py) will be automatically identified for analysis."
+    )
 
-    if not st.button("Analyze", disabled=not dir_path):
+    if not uploaded_files:
+        st.warning("⚠️ Please select files from your project directory.")
         return
 
-    # if not dir_path or not os.path.isdir(dir_path):
-    #     st.error(f"❌ The path `{dir_path}` is not a valid directory.")
-    #     return
+    # Show file count and Python file count
+    python_files = [f for f in uploaded_files if f.name.endswith('.py')]
+    st.info(f"📁 Selected {len(uploaded_files)} total files, {len(python_files)} Python files found")
+    
+    if len(python_files) == 0:
+        st.warning("⚠️ No Python files found in the selected files. Please make sure to include .py files.")
+        return
 
-    src_dir = dir_path.strip()
+    if not st.button("Analyze Project Directory", disabled=not uploaded_files):
+        return
+
     dest_dir = PROJECT_ROOT / "testing"
 
     try:
@@ -111,10 +125,33 @@ def upload_local_directory():
         st.error(f"❌ Could not prepare destination folder: {exc}")
         return
 
+    # Create destination directory structure and save uploaded files
     try:
-        copy_local_dir(src_dir, str(dest_dir))
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Save all uploaded files preserving directory structure
+        for uploaded_file in uploaded_files:
+            # Handle file paths that might contain directory separators
+            # Some browsers preserve relative paths in file.name
+            relative_path = uploaded_file.name.replace('\\', '/')  # Normalize path separators
+            file_path = dest_dir / relative_path
+            
+            # Create parent directories if they don't exist
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(file_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
+        
+        st.success(f"✅ Successfully uploaded {len(uploaded_files)} files ({len(python_files)} Python files)")
+        
+        # Show the directory structure created
+        with st.expander("📂 View uploaded directory structure"):
+            for uploaded_file in sorted(uploaded_files, key=lambda x: x.name):
+                icon = "🐍" if uploaded_file.name.endswith('.py') else "📄"
+                st.text(f"{icon} {uploaded_file.name}")
+        
     except Exception as exc:
-        st.error(f"❌ Copy failed: {exc}")
+        st.error(f"❌ File upload failed: {exc}")
         return
 
     with st.spinner("Parsing the codebase…"):

@@ -10,8 +10,8 @@ from streamlit.components.v1 import html
 
 load_dotenv(override=True)
 
-NEO4J_USERNAME="neo4j"
-driver = GraphDatabase.driver(os.getenv("NEO4J_URI"), auth=(os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD")))
+NEO4J_USER="neo4j"
+driver = GraphDatabase.driver(os.getenv("NEO4J_URI"), auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD")))
 
 if driver.verify_connectivity():
     print("Connected to Neo4j")

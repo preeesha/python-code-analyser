@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 
 URI = os.getenv("NEO4J_URI")
-AUTH = (os.getenv("NEO4J_USERNAME"), os.getenv("NEO4J_PASSWORD"))
+AUTH = (os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD"))
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
 

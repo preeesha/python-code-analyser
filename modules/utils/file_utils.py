@@ -1,6 +1,8 @@
 import json
 import os
 from datetime import datetime
+import shutil
+from pathlib import Path
 
 
 def save_results_to_json(graph_info, output_file=None):
@@ -205,6 +207,30 @@ def get_file_info(file_path):
         print(f"Error getting file info: {e}")
         return None 
     
+def clear_directory(path:str):
+    """
+    Clear all contents of the testing directory after ingestion is complete.
+    """
+    try:
+        # Get the project root directory (two levels up from this file)
+        project_root = Path(__file__).resolve().parent.parent
+        testing_dir = project_root / path
+        
+        if testing_dir.exists():
+            print("Clearing testing directory...")
+            # Remove all contents of the testing directory
+            for item in testing_dir.iterdir():
+                if item.is_dir():
+                    shutil.rmtree(item)
+                else:
+                    item.unlink()
+            print("✅ Testing directory cleared successfully")
+        else:
+            print("⚠️ Testing directory does not exist")
+            
+    except Exception as e:
+        print(f"❌ Error clearing testing directory: {e}")
+
 def delete_file_content(file_path):
     if os.path.exists(file_path) and file_path.endswith(".json"):
         try:
