@@ -42,26 +42,6 @@ else:
             with st.container():
                 st.markdown("**Answer:**")
                 st.markdown(result['answer'])
-                
-            # Debug information
-            st.markdown("### 🔍 Debug Info")
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                st.metric("Raw Results Exist", "Yes" if result.get('raw_results') else "No")
-            
-            with col2:
-                raw_results_type = type(result.get('raw_results', None)).__name__
-                st.metric("Raw Results Type", raw_results_type)
-            
-            with col3:
-                raw_results_count = len(result.get('raw_results', [])) if isinstance(result.get('raw_results'), list) else 0
-                st.metric("Results Count", raw_results_count)
-            
-            # Show raw results for debugging
-            if result.get('raw_results'):
-                with st.expander("🔧 Raw Results (Debug)"):
-                    st.json(result['raw_results'])
             
             # Show graph if we have raw results
             if result.get('raw_results'):
@@ -87,7 +67,6 @@ else:
             if result.get('cypher_query'):
                 with st.expander("🔧 Generated Cypher Query"):
                     st.code(result['cypher_query'], language="cypher")
-            
         else:
             st.error(f"❌ {result['answer']}")
         
@@ -96,16 +75,6 @@ else:
 
     elif submit_query and not user_query.strip():
         st.warning("Please enter a question before clicking Ask!")
-
-    with st.expander("💡 Example Questions"):
-        st.markdown("""
-        - **Functions & Methods:** "Show me all functions that call the database connection method"
-        - **Classes & Inheritance:** "What classes inherit from the BaseModel class?"
-        - **Imports & Dependencies:** "Which modules import the requests library?"
-        - **Code Structure:** "Show me the relationship between User and Profile classes"
-        - **File Analysis:** "What functions are defined in the utils module?"
-        - **Complex Queries:** "Find all methods that access the user_id variable"
-        """)
     
     st.markdown("---")
     st.markdown("*💡 **Tips:** Ask specific questions about your code structure. The more detailed your question, the better the results!*")

@@ -99,10 +99,9 @@ def show_analytics():
 
     # --- Overview Metrics ---
     st.markdown("#### At a Glance")
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Total Files Processed", len(data.get("processed_files", [])))
-    col2.metric("Total Nodes", data.get("node_count", 0))
-    col3.metric("Total Relationships", data.get("relationship_count", 0))
+    col1, col2= st.columns(2)
+    col1.metric("Total Nodes", data.get("node_count", 0))
+    col2.metric("Total Relationships", data.get("relationship_count", 0))
     st.markdown("<hr/>", unsafe_allow_html=True)
 
     # --- Distribution Plots in Columns ---

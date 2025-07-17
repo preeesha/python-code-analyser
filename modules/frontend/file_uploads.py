@@ -143,11 +143,7 @@ def upload_local_directory():
         
         st.success(f"✅ Successfully uploaded {len(uploaded_files)} files ({len(python_files)} Python files)")
         
-        # Show the directory structure created
-        with st.expander("📂 View uploaded directory structure"):
-            for uploaded_file in sorted(uploaded_files, key=lambda x: x.name):
-                icon = "🐍" if uploaded_file.name.endswith('.py') else "📄"
-                st.text(f"{icon} {uploaded_file.name}")
+    
         
     except Exception as exc:
         st.error(f"❌ File upload failed: {exc}")

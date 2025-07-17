@@ -9,10 +9,6 @@ from streamlit_autorefresh import st_autorefresh
 from modules.config.custom_logger import get_logger
 logger=get_logger(__name__)
 
-IMAGE_DIR = Path(__file__).resolve().parent.parent / "images"
-image_paths = sorted(
-    [str(p) for p in IMAGE_DIR.glob("*") if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".svg"}]
-)
 
 def render_landing_page():
     
@@ -38,31 +34,11 @@ def render_landing_page():
 
     st.markdown("<h1 style='text-align: center;'>🐍 Python Code Analyzer</h1>", unsafe_allow_html=True)
 
-    if "image_index" not in st.session_state:
-        st.session_state.image_index = 0
-        st.session_state.last_refresh = time.time()
-
-    # Show current image
-    if image_paths:
-        current_index = st.session_state.image_index % len(image_paths)
-        try:
-            with open(image_paths[current_index], "rb") as img_file:
-                img_bytes = img_file.read()
-            st.image(img_bytes, use_container_width=True)
-        except Exception as e:
-            logger.error(f"Error displaying image: {e}")
-    
-
     st.write("Welcome to the Python Code Analyzer — visualize your code like never before!")
    
     if st.button("🚀 Analyze Your Codebase", use_container_width=True):
         st.session_state.view = 'analysis'
         st.rerun()
-
-   
-    if image_paths and time.time() - st.session_state.last_refresh >= 5:
-        st.session_state.image_index = (st.session_state.image_index + 1) % len(image_paths)
-        st.session_state.last_refresh = time.time()
 
     st.write(LANDING_PAGE_CONTENT)
 
@@ -84,7 +60,7 @@ def render_analysis_page():
         st.info("**Tip:** Paste a public GitHub URL. Private repos are not yet supported.")
         upload_github_repo()
     else:
-        st.info("**Tip:** Enter the absolute path to a directory on your local machine.")
+        
         upload_local_directory()
     
     if st.session_state.get("parsing_complete", False):
