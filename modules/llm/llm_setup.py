@@ -1,8 +1,7 @@
+#---------------------------------
+# LLM setup module
+#---------------------------------
 from datetime import datetime
-
-from langchain_ollama import ChatOllama
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_openai import ChatOpenAI
 
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.graph_transformers import LLMGraphTransformer
@@ -10,68 +9,11 @@ from langchain_experimental.graph_transformers import LLMGraphTransformer
 from modules.llm.prompts import get_enhanced_prompt
 from modules.llm.prompts import BASIC_PROMPT
 
-from modules.constants.constants import (
-    GEMINI_MODEL,
-    GOOGLE_API_KEY,
-    OPENAI_MODEL,
-    OPENAI_API_KEY,
-)
+from modules.llm.providers.gemma_llm import initialize_gemma_llm
+from modules.llm.providers.gemini_llm import initialize_gemini_llm
+from modules.llm.providers.openai_llm import initialize_openai_llm
+
 from modules.config.config import ALLOWED_NODES, ALLOWED_RELATIONSHIPS
-
-
-
-def initialize_gemma_llm():
-    """
-    Initialize local Gemma model via Ollama
-
-    Returns:
-        ChatOllama: Initialized Gemma LLM instance
-    """
-    try:
-        print("Initializing local Gemma model via Ollama...")
-        llm = ChatOllama(
-            model="gemma3n:latest",
-            temperature=0,
-            top_p=0.5,
-        )
-        print("✅ Successfully connected to local Gemma model!")
-        return llm
-    except Exception as e:
-        print(f"❌ Error initializing Gemma model: {e}")
-        print("Make sure Ollama is installed properly")
-        return None
-
-
-def initialize_gemini_llm():
-    try:
-        print("Initializing Google Gemini model...")
-        llm = ChatGoogleGenerativeAI(
-            model=GEMINI_MODEL, google_api_key=GOOGLE_API_KEY, temperature=0
-        )
-        print("✅ Successfully connected to Google Gemini model!")
-        return llm
-    except Exception as e:
-        print(f"❌ Error initializing Gemini model: {e}")
-        return None
-
-
-def initialize_openai_llm():
-    """
-    Initialize OpenAI model
-
-    Returns:
-        ChatOpenAI: Initialized OpenAI LLM instance
-    """
-    try:
-        print("Initializing OpenAI model...")
-        llm = ChatOpenAI(
-            model=OPENAI_MODEL, openai_api_key=OPENAI_API_KEY, temperature=0
-        )
-        print("✅ Successfully connected to OpenAI model!")
-        return llm
-    except Exception as e:
-        print(f"❌ Error initializing OpenAI model: {e}")
-        return None
 
 
 def create_graph_transformer(llm, use_enhanced_prompt=True):
@@ -112,10 +54,7 @@ def get_default_llm_and_transformer():
     Returns:
         tuple: (llm, transformer) or (None, None) if setup fails
     """
-    # Try Gemini first, fallback to Gemma
     llm = initialize_gemini_llm()
-    if llm is None:
-        llm = initialize_gemma_llm()
 
     if llm is None:
         return None, None

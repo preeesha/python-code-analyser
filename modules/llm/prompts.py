@@ -31,6 +31,7 @@ def get_enhanced_prompt(timestamp):
     - parameters: For functions/methods (name, type, default)
     - return_type: For functions/methods
     - base_classes: For class inheritance
+    - description: For functions/methods-> explain the function/method purpose and logic
 
     REQUIRED RELATIONSHIP PROPERTIES: GIVE IN EXACT SAME FORMAT AS THE EXAMPLE BELOW
     For each relationship, specify:
