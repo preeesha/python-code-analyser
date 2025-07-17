@@ -1,12 +1,16 @@
 #---------------------------------
 # Gemini LLM provider
 #---------------------------------
+from modules.config.custom_logger import get_logger
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 from modules.constants.constants import (
     GEMINI_MODEL,
     GOOGLE_API_KEY,
 )
+
+logger=get_logger(__name__)
 
 def initialize_gemini_llm():
     """
@@ -16,12 +20,13 @@ def initialize_gemini_llm():
         ChatGoogleGenerativeAI: Initialized Gemini LLM instance
     """
     try:
-        print("Initializing Google Gemini model...")
+        logger.info("Initializing Google Gemini model...")
         llm = ChatGoogleGenerativeAI(
             model=GEMINI_MODEL, google_api_key=GOOGLE_API_KEY, temperature=0
         )
-        print("✅ Successfully connected to Google Gemini model!")
+        logger.success("Successfully connected to Google Gemini model!")
         return llm
+    
     except Exception as e:
-        print(f"❌ Error initializing Gemini model: {e}")
+        logger.error(f" Error initializing Gemini model: {e}")
         return None 

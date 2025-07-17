@@ -4,6 +4,9 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
+from modules.config.custom_logger import get_logger
+logger=get_logger(__name__)
+
 def read_parse_data(file_path: Path) -> dict:
     """Safely read and parse the JSON data file."""
     if not file_path.exists():
@@ -12,7 +15,7 @@ def read_parse_data(file_path: Path) -> dict:
         try:
             return json.load(f)
         except json.JSONDecodeError:
-            print(f"❌ Analytics error: Could not decode the JSON file `{file_path}`.")
+            logger.error(f"Analytics error: Could not decode the JSON file `{file_path}`.")
             return {}
 
 def plot_node_distribution(df_nodes: pd.DataFrame):

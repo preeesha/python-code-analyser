@@ -4,6 +4,10 @@ from modules.constants.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
 import json
 import os
 
+from modules.config.custom_logger import get_logger
+
+logger = get_logger(__name__)
+
 URI = NEO4J_URI
 AUTH = NEO4J_USER, NEO4J_PASSWORD
 
@@ -15,10 +19,10 @@ def check_neo4j_connection():
         with driver.session() as session:
             result = session.run("RETURN 1")
             if result.single()[0] == 1:
-                print("✅ Neo4j database connection is active.")
+                logger.success("Neo4j database connection is active.")
                 return True
     except Exception as e:
-        print(f"❌ Failed to connect to Neo4j: {e}")
+        logger.error(f"Failed to connect to Neo4j: {e}")
         return False
 
 def get_data_from_json(file_path):
@@ -49,9 +53,9 @@ def saving_nodes_to_neo4j(file_path=os.path.join("outputs", "parsed_code.json"))
                 cypher = f"MERGE (n:{label} {{id: $id}}) SET n += {{{prop_str}}}"
 
                 driver.execute_query(cypher, props)
-                print(f"✅ Node '{node_id}' of type '{label}' created successfully.")
+                logger.success(f"Node '{node_id}' of type '{label}' created successfully.")
             except Exception as e:
-                print(f"❌ Error creating node '{node.get('id', '?')}': {e}")
+                logger.error(f"Error creating node '{node.get('id', '?')}': {e}")
 
 
 def saving_relationships_to_neo4j(file_path=os.path.join("outputs", "parsed_code.json")):
@@ -83,13 +87,13 @@ def saving_relationships_to_neo4j(file_path=os.path.join("outputs", "parsed_code
                     params.update(rel_props)
 
                 driver.execute_query(cypher, params)
-                print(
-                    f"✅ Relationship {rel_type} from {source_id} → {target_id} created successfully"
+                logger.success(
+                    f"Relationship {rel_type} from {source_id} → {target_id} created successfully"
                 )
 
             except Exception as e:
-                print(
-                    f"❌ Error creating relationship {rel.get('relationship_type', '?')} from {rel.get('source', {}).get('id', '?')} to {rel.get('target', {}).get('id', '?')}: {e}"
+                logger.error(
+                    f"Error creating relationship {rel.get('relationship_type', '?')} from {rel.get('source', {}).get('id', '?')} to {rel.get('target', {}).get('id', '?')}: {e}"
                 )
 
 
@@ -97,13 +101,13 @@ def deleting_all_nodes_and_relationships():
     with driver.session() as session:
         try:
             session.run("MATCH (n) DETACH DELETE n")
-            print("🗑️ All nodes and relationships deleted successfully.")
+            logger.success("All nodes and relationships deleted successfully.")
         except Exception as e:
-            print(f"❌ Failed to delete nodes and relationships: {e}")
+            logger.error(f"Failed to delete nodes and relationships: {e}")
 
 
 def close_driver():
     """Close the Neo4j driver connection"""
     driver.close()
-    print("🔌 Neo4j driver connection closed")
+    logger.success("Neo4j driver connection closed")
 

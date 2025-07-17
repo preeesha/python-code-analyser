@@ -1,3 +1,10 @@
+import logging
+from modules.config.logging_info import setup_logging
+setup_logging()
+
+logger = logging.getLogger(__name__)
+logger.info("Application started")
+
 import streamlit as st
 from datetime import datetime
 from modules.frontend.styles import apply_main_styles

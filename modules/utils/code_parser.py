@@ -4,6 +4,8 @@ from langchain_core.documents import Document
 
 from modules.config.config import MAX_CHUNK_SIZE, LARGE_FILE_THRESHOLD, CHUNK_OVERLAP_LINES
 
+from modules.config.custom_logger import get_logger
+logger=get_logger(__name__)
 
 def split_code_into_chunks(code_content, max_chunk_size=MAX_CHUNK_SIZE):
     if len(code_content) <= max_chunk_size:
@@ -34,10 +36,10 @@ def read_and_analyze_file(file_path):
         with open(file_path, "r", encoding="utf-8") as file:
             return file.read()
     except FileNotFoundError:
-        print(f"❌ File not found: {file_path}")
+        logger.error(f"File not found: {file_path}")
         return None
     except Exception as e:
-        print(f"❌ Error reading file: {e}")
+        logger.error(f"Error reading file: {e}")
         return None
 
 
@@ -48,7 +50,7 @@ def process_single_chunk(chunk, metadata, transformer):
         if graph_docs and graph_docs[0]:
             return graph_docs[0].nodes, graph_docs[0].relationships
     except Exception as e:
-        print(f"❌ Chunk processing error: {e}")
+        logger.error(f"Chunk processing error: {e}")
     return [], []
 
 

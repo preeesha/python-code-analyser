@@ -4,10 +4,12 @@ from datetime import datetime
 import shutil
 from pathlib import Path
 
+from modules.config.custom_logger import get_logger
+logger=get_logger(__name__)
 
 def save_results_to_json(graph_info, output_file=None):
     if not graph_info:
-        print("No graph information to save.")
+        logger.warning("No graph information to save.")
         return None
 
     if not output_file:
@@ -22,7 +24,7 @@ def save_results_to_json(graph_info, output_file=None):
             with open(output_file, "r", encoding="utf-8") as f:
                 existing_data = json.load(f)
         except Exception as e:
-            print(f"⚠️ Could not read existing JSON file {output_file}: {e}")
+            logger.error(f"Could not read existing JSON file {output_file}: {e}")
 
     serializable_data = {
         "file": graph_info["file"],
@@ -126,15 +128,15 @@ def save_results_to_json(graph_info, output_file=None):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(serializable_data, f, indent=2, ensure_ascii=False)
 
-        print(f"\n✅ Results saved to: {output_file}")
-        print(
-            f"📊 Saved {len(serializable_data['nodes'])} nodes and {len(serializable_data['relationships'])} relationships"
+        logger.success(f"Results saved to: {output_file}")
+        logger.info(
+            f"Saved {len(serializable_data['nodes'])} nodes and {len(serializable_data['relationships'])} relationships"
         )
 
         return output_file
 
     except Exception as e:
-        print(f"❌ Error saving to JSON: {e}")
+        logger.error(f" Error saving to JSON: {e}")
         return None
 
 
@@ -153,10 +155,10 @@ def load_json_data(file_path):
             data = json.load(file)
         return data
     except FileNotFoundError:
-        print(f"JSON file not found: {file_path}")
+        logger.error(f"JSON file not found: {file_path}")
         return None
     except Exception as e:
-        print(f"Error loading JSON file: {e}")
+        logger.error(f"Error loading JSON file: {e}")
         return None
 
 
@@ -173,9 +175,9 @@ def ensure_clean_json_file(file_path):
     if os.path.exists(file_path):
         try:
             os.remove(file_path)
-            print(f"🗑️ Removed old {file_path}")
+            logger.success(f"Removed old {file_path}")
         except Exception as e:
-            print(f"⚠️ Warning: Could not remove old {file_path}: {e}")
+            logger.error(f"Warning: Could not remove old {file_path}: {e}")
 
 
 def get_file_info(file_path):
@@ -204,7 +206,7 @@ def get_file_info(file_path):
                 "exists": False
             }
     except Exception as e:
-        print(f"Error getting file info: {e}")
+        logger.error(f"Error getting file info: {e}")
         return None 
     
 def clear_directory(path:str):
@@ -217,19 +219,19 @@ def clear_directory(path:str):
         testing_dir = project_root / path
         
         if testing_dir.exists():
-            print("Clearing testing directory...")
+            logger.info("Clearing testing directory...")
             # Remove all contents of the testing directory
             for item in testing_dir.iterdir():
                 if item.is_dir():
                     shutil.rmtree(item)
                 else:
                     item.unlink()
-            print("✅ Testing directory cleared successfully")
+            logger.success("Testing directory cleared successfully")
         else:
-            print("⚠️ Testing directory does not exist")
+            logger.error("Testing directory does not exist")
             
     except Exception as e:
-        print(f"❌ Error clearing testing directory: {e}")
+        logger.error(f"Error clearing testing directory: {e}")
 
 def delete_file_content(file_path):
     if os.path.exists(file_path) and file_path.endswith(".json"):
@@ -237,4 +239,4 @@ def delete_file_content(file_path):
             with open(file_path, "w") as f:
                 f.write("")
         except Exception as e:
-            print(f"⚠️ Warning: Could not clear content of {file_path}: {e}")
+            logger.error(f"Warning: Could not clear content of {file_path}: {e}")

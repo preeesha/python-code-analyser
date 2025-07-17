@@ -6,6 +6,8 @@ import time
 from pathlib import Path
 from streamlit_autorefresh import st_autorefresh
 
+from modules.config.custom_logger import get_logger
+logger=get_logger(__name__)
 
 IMAGE_DIR = Path(__file__).resolve().parent.parent / "images"
 image_paths = sorted(
@@ -48,7 +50,7 @@ def render_landing_page():
                 img_bytes = img_file.read()
             st.image(img_bytes, use_container_width=True)
         except Exception as e:
-            print(f"Error displaying image: {e}")
+            logger.error(f"Error displaying image: {e}")
     
 
     st.write("Welcome to the Python Code Analyzer — visualize your code like never before!")

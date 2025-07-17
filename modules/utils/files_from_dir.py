@@ -3,6 +3,10 @@ from modules.llm.llm_transformer_factory import llm_transformer_factory
 from modules.utils.code_parser import parse_code_with_llm
 from modules.utils.file_utils import save_results_to_json
 from modules.utils.file_utils import delete_file_content
+from modules.config.custom_logger import get_logger
+
+
+logger = get_logger(__name__)
 
 os.makedirs("outputs", exist_ok=True)
 
@@ -13,10 +17,10 @@ llm, transformer = llm_transformer_factory()
 def check_llm():
     global llm, transformer
     if llm is None or transformer is None:
-        print("❌ Failed to initialize LLM. Exiting.")
+        logger.error("Failed to initialize LLM. Exiting.")
         exit()
     else:
-        print("✅ LLM initialized successfully.")
+        logger.success("LLM initialized successfully.")
 
 def get_files_from_dir(directories, file_extension=".py"):
     global llm, transformer
@@ -32,18 +36,18 @@ def get_files_from_dir(directories, file_extension=".py"):
                         if result:
                             json_file = save_results_to_json(result)
                             if json_file:
-                                print(f"🔗 You can view the JSON file: {json_file}")
-                                print(
-                                    f"📄 File contains {len(result['nodes'])} nodes and {len(result['relationships'])} relationships"
+                                logger.info(f"You can view the JSON file: {json_file}")
+                                logger.info(
+                                    f"File contains {len(result['nodes'])} nodes and {len(result['relationships'])} relationships"
                                 )
                             else:
-                                print("❌ Failed to save results to JSON.")
+                                logger.error("Failed to save results to JSON.")
                         else:
-                            print(f"⚠️ Parsing produced no nodes for {file_path}. Skipping.")
+                            logger.warning(f"Parsing produced no nodes for {file_path}. Skipping.")
                     except Exception as e:
-                        print(f"❌ Failed to read {file_path}: {e}")
+                        logger.error(f"Failed to read {file_path}: {e}")
                 else:
-                    print("❌ No results to save - parsing failed.")
+                    logger.error("No results to save - parsing failed.")
 
 
 
