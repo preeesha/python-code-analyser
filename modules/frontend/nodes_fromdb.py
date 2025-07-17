@@ -1,6 +1,5 @@
 from pyvis.network import Network
 from neo4j import GraphDatabase
-import os
 from modules.frontend.utils import get_color_map
 from streamlit.components.v1 import html
 from modules.constants.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD

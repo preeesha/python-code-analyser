@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 from modules.frontend.file_processing import copy_local_dir, reset_dir
 import sys
 from pathlib import Path
