@@ -10,22 +10,22 @@ def get_color_map(filename):
             nodes_type.add(node["type"])
 
     colours = [
-        "#1f75fe",
-        "#ff6f61",
-        "#bada55",
-        "#7fffd4",
-        "#8a2be2",
-        "#e0115f",
-        "#ffb6c1",
-        "#228b22",
-        "#00ced1",
-        "#ffa07a",
-        "#20b2aa",
-        "#dc143c",
-        "#9932cc",
-        "#3cb371",
-        "#ff8c00",
-    ]
+    "#ff6f61",  # Coral
+    "#00ffff",  # Aqua
+    "#ffd700",  # Gold
+    "#7fff00",  # Chartreuse
+    "#ff1493",  # Deep Pink
+    "#00ff7f",  # Spring Green
+    "#1e90ff",  # Dodger Blue
+    "#ff4500",  # Orange Red
+    "#9400d3",  # Dark Violet
+    "#00fa9a",  # Medium Spring Green
+    "#ff00ff",  # Magenta
+    "#00bfff",  # Deep Sky Blue
+    "#adff2f",  # Green Yellow
+    "#ff69b4",  # Hot Pink
+    "#ffa500",  # Orange
+]
     i = 0
     color_map = {}
     for node in nodes_type:
