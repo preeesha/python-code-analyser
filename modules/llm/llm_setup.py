@@ -6,7 +6,9 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from dotenv import load_dotenv
-from modules.config.config import ALLOWED_NODES, ALLOWED_RELATIONSHIPS, get_enhanced_prompt
+from modules.config.config import ALLOWED_NODES, ALLOWED_RELATIONSHIPS
+from modules.llm.prompts import get_enhanced_prompt
+from modules.llm.prompts import BASIC_PROMPT
 
 load_dotenv(override=True)
 
@@ -84,7 +86,6 @@ def create_graph_transformer(llm, use_enhanced_prompt=True):
         enhanced_prompt = get_enhanced_prompt(current_time)
         prompt_template = PromptTemplate.from_template(enhanced_prompt)
     else:
-        from config import BASIC_PROMPT
         prompt_template = PromptTemplate.from_template(BASIC_PROMPT)
     
     transformer = LLMGraphTransformer(
