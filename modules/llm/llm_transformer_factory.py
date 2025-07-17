@@ -9,7 +9,7 @@ from modules.llm.providers.gemini_llm import initialize_gemini_llm
 from modules.llm.providers.openai_llm import initialize_openai_llm
 
 
-def get_default_llm_and_transformer():
+def llm_transformer_factory():
     """
     Get default LLM and transformer setup
 

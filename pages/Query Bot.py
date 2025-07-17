@@ -1,6 +1,6 @@
 import streamlit as st
 from modules.frontend.styles import apply_main_styles
-from modules.retrival.query import process_codebase_query
+from modules.retrival.query_pipeline import process_codebase_query
 from modules.frontend.querybot import show_query_results
 from modules.frontend.nodes_fromdb import render_graph_in_streamlit
 

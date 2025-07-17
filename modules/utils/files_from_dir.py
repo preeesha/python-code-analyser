@@ -1,5 +1,5 @@
 import os
-from modules.llm.llm_setup import get_default_llm_and_transformer
+from modules.llm.llm_transformer_factory import llm_transformer_factory
 from modules.utils.code_parser import parse_code_with_llm
 from modules.utils.file_utils import save_results_to_json
 from modules.utils.file_utils import delete_file_content
@@ -8,7 +8,7 @@ os.makedirs("outputs", exist_ok=True)
 
 delete_file_content(os.path.join("outputs", "parsed_code.json"))
 
-llm, transformer = get_default_llm_and_transformer()
+llm, transformer = llm_transformer_factory()
 
 def check_llm():
     global llm, transformer

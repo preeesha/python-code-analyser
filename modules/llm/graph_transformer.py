@@ -38,6 +38,6 @@ def create_graph_transformer(llm, use_enhanced_prompt=True):
         node_properties=True,
         relationship_properties=True,
         strict_mode=True,
-    )
+    ) 
 
     return transformer
