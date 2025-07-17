@@ -1,21 +1,23 @@
-import os
-from dotenv import load_dotenv
 from langchain_neo4j import Neo4jGraph
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_neo4j.chains.graph_qa.cypher import GraphCypherQAChain
-from modules.retrival.database import get_schema_from_neo4j
+from modules.retrival.database_schema import get_schema_from_neo4j
 from modules.llm.prompts import get_cypher_prompt
-
-load_dotenv(override=True)
-
+from modules.constants.constants import (
+    NEO4J_URI,
+    NEO4J_USER,
+    NEO4J_PASSWORD,
+    GEMINI_MODEL,
+    GOOGLE_API_KEY,
+)
 
 
 def initialize_graph():
     """Initialize and return Neo4j graph connection"""
     graph = Neo4jGraph(
-        url=os.getenv("NEO4J_URI"),
-        username=os.getenv("NEO4J_USER"),
-        password=os.getenv("NEO4J_PASSWORD"),
+        url=NEO4J_URI,
+        username=NEO4J_USER,
+        password=NEO4J_PASSWORD,
     )
     graph.refresh_schema()
     return graph
@@ -23,10 +25,10 @@ def initialize_graph():
 
 def initialize_llm():
     """Initialize and return the LLM"""
-    return GoogleGenerativeAI(
-        model=os.getenv("GEMINI_MODEL"),
+    return GoogleGenerativeAI (
+        model=GEMINI_MODEL,
         temperature=0.1,
-        google_api_key=os.getenv("GOOGLE_API_KEY"),
+        google_api_key=GOOGLE_API_KEY,
     )
 
 

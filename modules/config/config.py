@@ -20,14 +20,8 @@ ALLOWED_RELATIONSHIPS = [
     "USES",
     "RETURNS",
     "INSTANTIATES",
-    "PASSES_TO",
-    "ASSIGNS",
-    
 ]
 
-# Basic prompt template for LLM
-
-# Enhanced prompt template for CodeGraph AI
 
 # File processing configuration
 MAX_CHUNK_SIZE = 8000
