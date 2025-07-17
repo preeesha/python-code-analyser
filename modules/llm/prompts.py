@@ -1,3 +1,7 @@
+#---------------------------------
+# Prompt for ingestion pipeline - Interactive code analysis with semantic relationships
+#---------------------------------
+
 """
 Prompts for ingestion pipeline - Interactive code analysis with semantic relationships
 """
@@ -52,6 +56,15 @@ def get_enhanced_prompt(timestamp):
     OUTPUT FORMAT: JSON with nodes array and relationships array, each with comprehensive properties for semantic querying.
 
     Generate a complete semantic graph that enables natural language queries about code structure, dependencies, and behavior."""
+
+
+#---------------------------------
+# Prompt for Cypher query generation for retrival pipeline
+#---------------------------------
+
+"""
+Prompt for Cypher query generation for retrival pipeline
+"""
 
 def get_cypher_prompt():
     """Get the configured Cypher prompt template"""
