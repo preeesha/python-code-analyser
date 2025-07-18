@@ -99,7 +99,7 @@ The project follows a modular, clean architecture pattern:
    - **Codebase Visualizer**: Interact with the knowledge graph
    - **Query Bot**: Ask natural language questions about your code
 
-## Key Data Flow Points:
+## 📈 Key Data Flow Points:
 
 #### Ingestion Pipeline:
 1. **Input Processing**: ZIP/GitHub/Local files → `testing/` directory
