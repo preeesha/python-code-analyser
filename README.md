@@ -74,7 +74,7 @@ The project follows a modular, clean architecture pattern:
    - Note the connection details (URI, username, password)
 
 4. **Configure environment variables**:
-   rename `.env.sample` file present in the project root and add required information.
+   rename `.env.sample` file present in the project root to `.env` and add required information.
     
 
 ## 🚀 Usage
