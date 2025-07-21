@@ -44,8 +44,8 @@ def fetch_all_nodes():
     
 
 
-def build_network_graph(data):
-    net = Network( height="500px",width="100%", bgcolor="#1a1a1a", font_color="white", directed=True)
+def build_network_graph(data, height="100vh", width="100%"):
+    net = Network( height=height, width=width, bgcolor="#1a1a1a", font_color="white", directed=True)
     added_nodes = set()
     all_nodes=fetch_all_nodes()
 
@@ -78,15 +78,30 @@ def build_network_graph(data):
                 
     return net
 
-def render_graph_in_streamlit(net: Network):
+def render_graph_in_streamlit(net: Network, height=None, width=None):
     net.save_graph("graph.html")
     with open("graph.html", "r", encoding="utf-8") as f:
         html_content = f.read()
-    # Inject CSS to remove the border and set the body background
+    
+    # Get viewport dimensions using JavaScript
+    viewport_script = """
+    <script>
+    function getViewportDimensions() {
+        return {
+            width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+            height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+        };
+    }
+    </script>
+    """
+    
+    # Inject CSS to make the graph responsive and remove borders
     custom_css = (
         "<style>"
-        "body { margin: 0; background-color: #1a1a1a; height: 500px; }"
-        ".vis-network { border: none !important; }"
+        "body { margin: 0; padding: 0; background-color: #1a1a1a; height: 100vh; width: 100vw; overflow: hidden; }"
+        ".vis-network { border: none !important; width: 100% !important; height: 100% !important; }"
+        ".vis-network-container { width: 100% !important; height: 100% !important; }"
+        "canvas { width: 100% !important; height: 100% !important; }"
         "</style>"
     )
 
@@ -95,6 +110,12 @@ def render_graph_in_streamlit(net: Network):
     else:
         html_content = custom_css + html_content
 
-    html(html_content, height=500, width=900)
+    # Use dynamic dimensions or fallback to responsive values
+    if height is None:
+        height = 800  # Default height, will be overridden by CSS
+    if width is None:
+        width = 1200  # Default width, will be overridden by CSS
+
+    html(html_content, height=height, width=width, scrolling=False)
    
    
