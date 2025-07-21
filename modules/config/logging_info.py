@@ -1,60 +1,25 @@
-#---------------------------------
-# Logging configuration
-#---------------------------------
-
-import os
 import logging
-import logging.config
+import os
+from datetime import datetime
 
+def setup_logging(log_dir="logs"):
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    
+    log_file = os.path.join(log_dir, f'app_{datetime.now().strftime("%Y%m%d")}.log')
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s',
+        handlers=[
+            logging.FileHandler(log_file),
+            logging.StreamHandler()
+        ]
+    )
 
-LOGGING_CONFIG = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'detailed': {
-            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S'
-        },
-        'simple': {
-            'format': '%(levelname)s - %(message)s'
-        },
-        'production': {
-            'format': '%(asctime)s - %(name)s - %(levelname)s - %(pathname)s:%(lineno)d - %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S'
-        }
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'level': 'INFO',
-            'formatter': 'simple',
-            'stream': 'ext://sys.stdout'
-        },
-        'file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'level': 'DEBUG',
-            'formatter': 'production',
-            'filename': 'logs/application.log',
-            'maxBytes': 10485760,  # 10MB
-            'backupCount': 5
-        },
-        'error_file': {
-            'class': 'logging.handlers.RotatingFileHandler',
-            'level': 'ERROR',
-            'formatter': 'production',
-            'filename': 'logs/errors.log',
-            'maxBytes': 10485760,  # 10MB
-            'backupCount': 5
-        }
-    },
-    'loggers': {
-        '': {  # root logger
-            'handlers': ['console', 'file', 'error_file'],
-            'level': 'DEBUG',
-            'propagate': False
-        }
-    }
-}
+def get_logger(name):
+    return logging.getLogger(name)
+
 LOG_LEVEL_ICONS = {
     'DEBUG': '🐛',
     'INFO': 'ℹ️',
@@ -63,8 +28,3 @@ LOG_LEVEL_ICONS = {
     'CRITICAL': '🚨',
     'SUCCESS': '✅'
 }
-
-def setup_logging():
-    os.makedirs("logs", exist_ok=True)
-    logging.config.dictConfig(LOGGING_CONFIG)
-

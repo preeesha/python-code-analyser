@@ -1,9 +1,8 @@
 from modules.utils.files_from_dir import get_files_from_dir
 import modules.utils.neo4j_functions as neo4j_functions
 from modules.utils.file_utils import clear_directory
-from modules.config.custom_logger import get_logger
 
-# Initialize logger for this module
+from modules.config.logging_info import get_logger
 logger = get_logger(__name__)
 
 
@@ -24,7 +23,7 @@ def ingestion_pipeline(directories: list[str], file_extension: str):
     neo4j_functions.saving_relationships_to_neo4j("outputs/parsed_code.json")
     neo4j_functions.close_driver()
 
-    logger.success("Ingestion Pipeline completed.")
+    logger.info("Ingestion Pipeline completed.")
 
     # Clear testing directory after successful ingestion
     clear_directory("testing")

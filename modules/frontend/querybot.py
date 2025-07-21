@@ -1,7 +1,6 @@
-import streamlit as st
 from modules.frontend.nodes_fromdb import get_color_map
 from pyvis.network import Network
-import hashlib
+
 
 
 def show_query_results(results):

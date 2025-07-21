@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 logger=get_logger(__name__)
 
 def read_parse_data(file_path: Path) -> dict:
@@ -54,33 +54,33 @@ def plot_relationship_distribution(df_relationships: pd.DataFrame):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-def show_file_complexity(df_nodes: pd.DataFrame):
-    """Display a table with file complexity metrics."""
-    st.markdown("#### 🗂️ File Complexity Analysis")
-    st.write("This table breaks down the number of classes and functions in each file, helping to identify more complex parts of the codebase.")
+# def show_file_complexity(df_nodes: pd.DataFrame):
+#     """Display a table with file complexity metrics."""
+#     st.markdown("#### 🗂️ File Complexity Analysis")
+#     st.write("This table breaks down the number of classes and functions in each file, helping to identify more complex parts of the codebase.")
 
-    # Filter for functions and classes and ensure 'file_path' exists
-    df_filtered = df_nodes[df_nodes['type'].isin(['Function', 'Class'])].copy()
+#     # Filter for functions and classes and ensure 'file_path' exists
+#     df_filtered = df_nodes[df_nodes['type'].isin(['Function', 'Class'])].copy()
     
-    # Extract file name from properties
-    df_filtered['file_name'] = df_filtered['properties'].apply(lambda props: props.get('file_path', 'Unknown'))
+#     # Extract file name from properties
+#     df_filtered['file_name'] = df_filtered['properties'].apply(lambda props: props.get('file_path', 'Unknown'))
     
-    # Group by file and type, then unstack
-    complexity_df = df_filtered.groupby(['file_name', 'type']).size().unstack(fill_value=0).reset_index()
+#     # Group by file and type, then unstack
+#     complexity_df = df_filtered.groupby(['file_name', 'type']).size().unstack(fill_value=0).reset_index()
     
-    # Ensure both columns exist
-    if 'Function' not in complexity_df.columns:
-        complexity_df['Function'] = 0
-    if 'Class' not in complexity_df.columns:
-        complexity_df['Class'] = 0
+#     # Ensure both columns exist
+#     if 'Function' not in complexity_df.columns:
+#         complexity_df['Function'] = 0
+#     if 'Class' not in complexity_df.columns:
+#         complexity_df['Class'] = 0
         
-    complexity_df = complexity_df.rename(columns={'file_name': 'File', 'Function': 'Functions', 'Class': 'Classes'})
+#     complexity_df = complexity_df.rename(columns={'file_name': 'File', 'Function': 'Functions', 'Class': 'Classes'})
     
-    # Sort by total complexity
-    complexity_df['Total'] = complexity_df['Functions'] + complexity_df['Classes']
-    complexity_df = complexity_df.sort_values(by='Total', ascending=False)
+#     # Sort by total complexity
+#     complexity_df['Total'] = complexity_df['Functions'] + complexity_df['Classes']
+#     complexity_df = complexity_df.sort_values(by='Total', ascending=False)
     
-    st.dataframe(complexity_df[['File', 'Functions', 'Classes', 'Total']], use_container_width=True)
+#     st.dataframe(complexity_df[['File', 'Functions', 'Classes', 'Total']], use_container_width=True)
 
 def show_analytics():
     """Main function to display all analytics on the Streamlit page."""
@@ -112,5 +112,5 @@ def show_analytics():
         plot_relationship_distribution(df_relationships)
     st.markdown("<hr/>", unsafe_allow_html=True)
     
-    # --- Complexity Table ---
-    show_file_complexity(df_nodes) 
+    # # --- Complexity Table ---
+    # show_file_complexity(df_nodes) 

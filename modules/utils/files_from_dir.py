@@ -3,9 +3,8 @@ from modules.llm.llm_transformer_factory import llm_transformer_factory
 from modules.utils.code_parser import parse_code_with_llm
 from modules.utils.file_utils import save_results_to_json
 from modules.utils.file_utils import delete_file_content
-from modules.config.custom_logger import get_logger
 
-
+from modules.config.logging_info import get_logger
 logger = get_logger(__name__)
 
 os.makedirs("outputs", exist_ok=True)
@@ -20,7 +19,7 @@ def check_llm():
         logger.error("Failed to initialize LLM. Exiting.")
         exit()
     else:
-        logger.success("LLM initialized successfully.")
+        logger.info("LLM initialized successfully.")
 
 def get_files_from_dir(directories, file_extension=".py"):
     global llm, transformer

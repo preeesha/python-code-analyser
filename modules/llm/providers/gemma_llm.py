@@ -2,7 +2,7 @@
 # Gemma LLM provider
 #---------------------------------
 from langchain_ollama import ChatOllama
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 
 logger=get_logger(__name__)
 
@@ -20,7 +20,7 @@ def initialize_gemma_llm():
             temperature=0,
             top_p=0.5,
         )
-        logger.success("Successfully connected to local Gemma model!")
+        logger.info("Successfully connected to local Gemma model!")
         return llm
     except Exception as e:
         logger.error(f"Error initializing Gemma model: {e}")

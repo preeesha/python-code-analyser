@@ -2,11 +2,9 @@ import streamlit as st
 from modules.frontend.styles import apply_radio_pill_styles
 from modules.frontend.file_uploads import upload_zip_file, upload_github_repo, upload_local_directory
 from modules.frontend.styles import LANDING_PAGE_CONTENT
-import time
-from pathlib import Path
 from streamlit_autorefresh import st_autorefresh
 
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 logger=get_logger(__name__)
 
 

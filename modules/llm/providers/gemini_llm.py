@@ -1,7 +1,7 @@
 #---------------------------------
 # Gemini LLM provider
 #---------------------------------
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -24,7 +24,7 @@ def initialize_gemini_llm():
         llm = ChatGoogleGenerativeAI(
             model=GEMINI_MODEL, google_api_key=GOOGLE_API_KEY, temperature=0
         )
-        logger.success("Successfully connected to Google Gemini model!")
+        logger.info("Successfully connected to Google Gemini model!")
         return llm
     
     except Exception as e:

@@ -4,7 +4,7 @@ from langchain_core.documents import Document
 
 from modules.config.config import MAX_CHUNK_SIZE, LARGE_FILE_THRESHOLD, CHUNK_OVERLAP_LINES
 
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 logger=get_logger(__name__)
 
 def split_code_into_chunks(code_content, max_chunk_size=MAX_CHUNK_SIZE):

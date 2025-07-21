@@ -4,7 +4,7 @@ from datetime import datetime
 import shutil
 from pathlib import Path
 
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 logger=get_logger(__name__)
 
 def save_results_to_json(graph_info, output_file=None):
@@ -128,7 +128,7 @@ def save_results_to_json(graph_info, output_file=None):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(serializable_data, f, indent=2, ensure_ascii=False)
 
-        logger.success(f"Results saved to: {output_file}")
+        logger.info(f"Results saved to: {output_file}")
         logger.info(
             f"Saved {len(serializable_data['nodes'])} nodes and {len(serializable_data['relationships'])} relationships"
         )
@@ -175,7 +175,7 @@ def ensure_clean_json_file(file_path):
     if os.path.exists(file_path):
         try:
             os.remove(file_path)
-            logger.success(f"Removed old {file_path}")
+            logger.info(f"Removed old {file_path}")
         except Exception as e:
             logger.error(f"Warning: Could not remove old {file_path}: {e}")
 
@@ -226,7 +226,7 @@ def clear_directory(path:str):
                     shutil.rmtree(item)
                 else:
                     item.unlink()
-            logger.success("Testing directory cleared successfully")
+            logger.info("Testing directory cleared successfully")
         else:
             logger.error("Testing directory does not exist")
             

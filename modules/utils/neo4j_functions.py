@@ -4,8 +4,7 @@ from modules.constants.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
 import json
 import os
 
-from modules.config.custom_logger import get_logger
-
+from modules.config.logging_info import get_logger
 logger = get_logger(__name__)
 
 URI = NEO4J_URI
@@ -19,7 +18,7 @@ def check_neo4j_connection():
         with driver.session() as session:
             result = session.run("RETURN 1")
             if result.single()[0] == 1:
-                logger.success("Neo4j database connection is active.")
+                logger.info("Neo4j database connection is active.")
                 return True
     except Exception as e:
         logger.error(f"Failed to connect to Neo4j: {e}")
@@ -53,7 +52,7 @@ def saving_nodes_to_neo4j(file_path=os.path.join("outputs", "parsed_code.json"))
                 cypher = f"MERGE (n:{label} {{id: $id}}) SET n += {{{prop_str}}}"
 
                 driver.execute_query(cypher, props)
-                logger.success(f"Node '{node_id}' of type '{label}' created successfully.")
+                logger.info(f"Node '{node_id}' of type '{label}' created successfully.")
             except Exception as e:
                 logger.error(f"Error creating node '{node.get('id', '?')}': {e}")
 
@@ -87,7 +86,7 @@ def saving_relationships_to_neo4j(file_path=os.path.join("outputs", "parsed_code
                     params.update(rel_props)
 
                 driver.execute_query(cypher, params)
-                logger.success(
+                logger.info(
                     f"Relationship {rel_type} from {source_id} → {target_id} created successfully"
                 )
 
@@ -101,7 +100,7 @@ def deleting_all_nodes_and_relationships():
     with driver.session() as session:
         try:
             session.run("MATCH (n) DETACH DELETE n")
-            logger.success("All nodes and relationships deleted successfully.")
+            logger.info("All nodes and relationships deleted successfully.")
         except Exception as e:
             logger.error(f"Failed to delete nodes and relationships: {e}")
 
@@ -109,5 +108,5 @@ def deleting_all_nodes_and_relationships():
 def close_driver():
     """Close the Neo4j driver connection"""
     driver.close()
-    logger.success("Neo4j driver connection closed")
+    logger.info("Neo4j driver connection closed")
 

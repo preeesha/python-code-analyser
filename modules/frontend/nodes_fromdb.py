@@ -4,14 +4,14 @@ from modules.frontend.utils import get_color_map
 from streamlit.components.v1 import html
 from modules.constants.constants import NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD
 
-from modules.config.custom_logger import get_logger
+from modules.config.logging_info import get_logger
 logger=get_logger(__name__)
 
 NEO4J_USER="neo4j"
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
 
 if driver.verify_connectivity():
-    logger.success("Connected to Neo4j")
+    logger.info("Connected to Neo4j")
 else:
     logger.error("Failed to connect to Neo4j")
 
