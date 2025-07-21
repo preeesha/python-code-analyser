@@ -16,7 +16,7 @@ def llm_transformer_factory():
     Returns:
         tuple: (llm, transformer) or (None, None) if setup fails
     """
-    llm = initialize_gemini_llm()
+    llm = initialize_openai_llm()
 
     if llm is None:
         return None, None
