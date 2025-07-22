@@ -18,7 +18,10 @@ def main():
         layout="centered",
     )
     st.markdown(apply_main_styles(), unsafe_allow_html=True)
-    st.session_state["parsing_complete"] = False
+    
+    # Only set to False if not already set
+    if "parsing_complete" not in st.session_state:
+        st.session_state["parsing_complete"] = False
 
     if 'view' not in st.session_state:
         st.session_state.view = 'landing'

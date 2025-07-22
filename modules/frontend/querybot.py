@@ -1,7 +1,36 @@
 from modules.frontend.nodes_fromdb import get_color_map
 from pyvis.network import Network
 
-
+def add_node_from_data(node_data, added_nodes, net):
+        """Helper function to add a node to the network"""
+        node_id = node_data.get('id', str(hash(node_data.get('name', 'unknown'))))
+        node_name = node_data.get('name', f"Node_{node_id}")
+        node_type = node_data.get('type', 'Unknown')
+        
+        
+        title = f"Type: {node_type}"
+        
+        if node_id not in added_nodes:
+            net.add_node(
+                node_id, 
+                label=node_name, 
+                title=title, 
+                color=get_color_map("parsed_code").get(node_type, "#888888")
+            )
+            added_nodes.add(node_id)
+        
+        return node_id
+    
+def add_relationship(source_node, target_node, relationship_type, added_nodes, added_edges, net):
+        """Helper function to add a relationship between two nodes"""
+        source_id = add_node_from_data(source_node, added_nodes, net)
+        target_id = add_node_from_data(target_node, added_nodes, net)
+        
+        # Add edge with unique identifier to handle multiple relationships between same nodes
+        edge_key = f"{source_id}->{target_id}-{relationship_type}"
+        if edge_key not in added_edges:
+            net.add_edge(source_id, target_id, label=relationship_type, color="#888")
+            added_edges.add(edge_key)
 
 def show_query_results(results):
     """
@@ -20,50 +49,18 @@ def show_query_results(results):
     if not results:
         return net
     
-    def add_node_from_data(node_data, added_nodes, net):
-        """Helper function to add a node to the network"""
-        node_id = node_data.get('id', str(hash(node_data.get('name', 'unknown'))))
-        node_name = node_data.get('name', f"Node_{node_id}")
-        node_type = node_data.get('type', 'Unknown')
-        
-        # Create detailed title with additional info
-        title = f"Type: {node_type}"
-        if 'file_path' in node_data and node_data['file_path']:
-            title += f"<br/>File: {node_data['file_path']}"
-        if 'scope' in node_data and node_data['scope']:
-            title += f"<br/>Scope: {node_data['scope']}"
-        if 'line_number' in node_data and node_data['line_number']:
-            title += f"<br/>Line: {node_data['line_number']}"
-        if 'visibility' in node_data and node_data['visibility']:
-            title += f"<br/>Visibility: {node_data['visibility']}"
-        
-        if node_id not in added_nodes:
-            net.add_node(
-                node_id, 
-                label=node_name, 
-                title=title, 
-                color=get_color_map("parsed_code").get(node_type, "#888888")
-            )
-            added_nodes.add(node_id)
-        
-        return node_id
-    
-    def add_relationship(source_node, target_node, relationship_type, added_nodes, added_edges, net):
-        """Helper function to add a relationship between two nodes"""
-        source_id = add_node_from_data(source_node, added_nodes, net)
-        target_id = add_node_from_data(target_node, added_nodes, net)
-        
-        # Add edge with unique identifier to handle multiple relationships between same nodes
-        edge_key = f"{source_id}->{target_id}-{relationship_type}"
-        if edge_key not in added_edges:
-            net.add_edge(source_id, target_id, label=relationship_type, color="#888")
-            added_edges.add(edge_key)
-    
     # Handle different result formats
     for record in results:
         if isinstance(record, dict):
             # Handle complex Neo4j relationship format with multiple relationships per record
             relationships_handled = False
+            
+            if 'p' in record and isinstance(record['p'], list) and len(record['p']) == 3:
+                source_node = record['p'][0]
+                relationship_type = record['p'][1]
+                target_node = record['p'][2]
+                add_relationship(source_node, target_node, relationship_type, added_nodes, added_edges, net)
+            
             
             # Process 'r' relationship if exists
             if 'r' in record and isinstance(record['r'], tuple) and len(record['r']) == 3:
