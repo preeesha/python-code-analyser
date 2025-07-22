@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 
 os.makedirs("outputs", exist_ok=True)
 
-delete_file_content(os.path.join("outputs", "parsed_code.json"))
+
 
 llm, transformer = llm_transformer_factory()
 
@@ -45,8 +45,6 @@ def get_files_from_dir(directories, file_extension=".py"):
                             logger.warning(f"Parsing produced no nodes for {file_path}. Skipping.")
                     except Exception as e:
                         logger.error(f"Failed to read {file_path}: {e}")
-                else:
-                    logger.error("No results to save - parsing failed.")
 
 
 

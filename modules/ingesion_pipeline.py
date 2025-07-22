@@ -1,6 +1,8 @@
 from modules.utils.files_from_dir import get_files_from_dir
 import modules.utils.neo4j_functions as neo4j_functions
 from modules.utils.file_utils import clear_directory
+from modules.utils.file_utils import delete_file_content
+import os
 
 from modules.config.logging_info import get_logger
 logger = get_logger(__name__)
@@ -13,6 +15,8 @@ def ingestion_pipeline(directories: list[str], file_extension: str):
     logger.info("Starting the pipeline...")
 
     logger.info("Getting and parsing files from directories...")
+    
+    delete_file_content(os.path.join("outputs", "parsed_code.json"))
 
     get_files_from_dir(directories, file_extension)
 
